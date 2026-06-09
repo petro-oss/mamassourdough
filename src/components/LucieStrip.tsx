@@ -1,49 +1,14 @@
-/**
- * LucieStrip — personal photo sequence from Lucie's kitchen / Instagram.
- *
- * HOW TO ADD PHOTOS:
- * 1. Save your photos/screenshots into: web/public/images/
- *    e.g. lucie-1.jpg, lucie-2.jpg, bread-1.jpg etc.
- * 2. Add them to the `photos` array below with a src and alt.
- *    Landscape photos work best in the wide slot (first item).
- *    Portrait / square photos work best in the tall slots.
- */
+import Image from "next/image";
 
-const photos: { src: string; alt: string; wide?: boolean }[] = [
-  // ← Drop your images into public/images/ and list them here
-  // Example entries (uncomment and rename when you have the files):
-  // { src: "/images/lucie-1.jpg", alt: "Lucie in the kitchen", wide: true },
-  // { src: "/images/lucie-2.jpg", alt: "Fresh loaves out of the oven" },
-  // { src: "/images/lucie-3.jpg", alt: "Focaccia topping" },
-  // { src: "/images/bread-1.jpg", alt: "Country white sourdough" },
-  // { src: "/images/lucie-4.jpg", alt: "Lucie kneading dough" },
+const photos = [
+  { src: "/images/lucie-1.jpg", alt: "Lucie in the kitchen", wide: true },
+  { src: "/images/lucie-4.jpg", alt: "Lucie pointing" },
+  { src: "/images/lucie-3.jpg", alt: "Lucie gesturing" },
+  { src: "/images/lucie-2.jpg", alt: "Lucie animated" },
+  // Add bread/bake photos here as e.g. { src: "/images/bread-1.jpg", alt: "Fresh loaves" }
 ];
 
-// Placeholder shown when photos aren't loaded yet
-function Placeholder({ wide }: { wide?: boolean }) {
-  return (
-    <div
-      className={`bg-[#E8DDD0] flex items-center justify-center ${
-        wide ? "md:col-span-2 aspect-[16/9]" : "aspect-square"
-      }`}
-    >
-      <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#C8A882] text-center px-4">
-        photo coming soon
-      </span>
-    </div>
-  );
-}
-
 export default function LucieStrip() {
-  // Use placeholders if no photos uploaded yet
-  const slots = photos.length > 0 ? photos : [
-    { src: "", alt: "", wide: true },
-    { src: "", alt: "" },
-    { src: "", alt: "" },
-    { src: "", alt: "" },
-    { src: "", alt: "" },
-  ];
-
   return (
     <section className="max-w-6xl mx-auto px-6 py-16">
       <div className="flex items-end justify-between mb-8 gap-4">
@@ -64,22 +29,23 @@ export default function LucieStrip() {
         </a>
       </div>
 
-      {/* Photo grid */}
+      {/* Photo grid — first item spans 2 cols */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-        {slots.map((photo, i) => {
-          if (!photo.src) return <Placeholder key={i} wide={photo.wide} />;
-          return (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={i}
+        {photos.map((photo, i) => (
+          <div
+            key={i}
+            className={`relative overflow-hidden ${
+              photo.wide ? "md:col-span-2 aspect-[16/9]" : "aspect-square"
+            }`}
+          >
+            <Image
               src={photo.src}
               alt={photo.alt}
-              className={`object-cover w-full ${
-                photo.wide ? "md:col-span-2 aspect-[16/9]" : "aspect-square"
-              }`}
+              fill
+              className="object-cover object-top hover:scale-105 transition-transform duration-500"
             />
-          );
-        })}
+          </div>
+        ))}
       </div>
     </section>
   );

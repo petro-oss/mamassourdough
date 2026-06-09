@@ -57,16 +57,25 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Hero image */}
+        {/* Lucie sequence — 2×2 contact-sheet grid */}
         <div className="relative">
-          <div className="aspect-[4/5] overflow-hidden">
-            <Image
-              src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=85"
-              alt="Freshly baked sourdough"
-              fill
-              className="object-cover"
-              priority
-            />
+          <div className="grid grid-cols-2 gap-2 bg-[#1C1009] p-3">
+            {[
+              { src: "/images/lucie-1.jpg", alt: "Lucie talking", rotate: "-rotate-1" },
+              { src: "/images/lucie-2.jpg", alt: "Lucie animated", rotate: "rotate-1" },
+              { src: "/images/lucie-3.jpg", alt: "Lucie gesturing", rotate: "rotate-1" },
+              { src: "/images/lucie-4.jpg", alt: "Lucie pointing", rotate: "-rotate-1" },
+            ].map(({ src, alt, rotate }) => (
+              <div key={src} className={`relative aspect-[9/11] overflow-hidden bg-[#3D2B1A] ${rotate} transition-transform hover:rotate-0 hover:scale-[1.03] duration-300`}>
+                <Image src={src} alt={alt} fill className="object-cover object-top" />
+              </div>
+            ))}
+          </div>
+          {/* Caption strip */}
+          <div className="bg-[#1C1009] px-3 pb-3 -mt-1">
+            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#7A5C42] text-center pt-1 pb-0.5">
+              @mamas_sourdough_ · &ldquo;Eternally grateful for being able to do what I love&rdquo; 💙
+            </p>
           </div>
           <div className="absolute -bottom-5 -left-5 bg-[#1C1009] text-[#F5F0E8] p-5 w-28 h-28 flex flex-col items-center justify-center text-center">
             <span className="font-serif text-3xl italic leading-none">72</span>
