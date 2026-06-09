@@ -7,9 +7,9 @@ export default function Footer() {
 
         {/* Brand */}
         <div className="md:col-span-2">
-          <p className="font-serif text-2xl italic font-light text-[#FAF6F0] mb-1">mama&apos;s sourdough</p>
-          <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#A07850] mb-5">Ramsgate · Handmade with love</p>
-          <p className="font-sans text-sm leading-6 text-[#A07850]">
+          <p className="font-serif text-3xl italic font-light text-[#FAF6F0] mb-1">mama&apos;s sourdough</p>
+          <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#A07850] mb-5">Ramsgate · Handmade with love</p>
+          <p className="font-sans text-base leading-7 text-[#A07850]">
             46 Stirling Way, CT12 6NE, Ramsgate<br />
             <a href="tel:07891899367" className="hover:text-[#FAF6F0] transition-colors">07891 899367</a>
           </p>
@@ -20,31 +20,52 @@ export default function Footer() {
 
         {/* Pages */}
         <div className="flex flex-col gap-3">
-          <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#6B4A2A] mb-1">Pages</p>
+          <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6B4A2A] mb-1">Pages</p>
           {["/", "/menu", "/about", "/contact", "/order"].map((href) => (
-            <Link key={href} href={href} className="font-sans text-sm hover:text-[#FAF6F0] transition-colors capitalize">
+            <Link key={href} href={href} className="font-sans text-base hover:text-[#FAF6F0] transition-colors capitalize">
               {href === "/" ? "Home" : href.replace("/", "")}
             </Link>
           ))}
         </div>
 
-        {/* Follow */}
-        <div className="flex flex-col gap-3">
-          <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#6B4A2A] mb-1">Follow</p>
-          <a href="https://www.instagram.com/mamas_sourdough_" target="_blank" rel="noopener noreferrer" className="font-sans text-sm hover:text-[#FAF6F0] transition-colors">
-            Instagram →
+        {/* Follow — with icon badges */}
+        <div className="flex flex-col gap-4">
+          <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6B4A2A] mb-1">Follow</p>
+
+          <a href="https://www.instagram.com/mamas_sourdough_" target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-3 group">
+            <span className="w-10 h-10 rounded-full bg-gradient-to-br from-[#E1306C] via-[#C13584] to-[#833AB4] flex items-center justify-center shrink-0 group-hover:opacity-90 transition-opacity">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </span>
+            <span className="font-sans text-base text-[#A07850] group-hover:text-[#FAF6F0] transition-colors">@mamas_sourdough_</span>
           </a>
-          <a href="https://www.facebook.com/mamas_sourdough_" target="_blank" rel="noopener noreferrer" className="font-sans text-sm hover:text-[#FAF6F0] transition-colors">
-            Facebook →
+
+          <a href="https://www.facebook.com/mamas_sourdough_" target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-3 group">
+            <span className="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center shrink-0 group-hover:opacity-90 transition-opacity">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </span>
+            <span className="font-sans text-base text-[#A07850] group-hover:text-[#FAF6F0] transition-colors">mamas_sourdough_</span>
           </a>
-          <a href="https://www.mamassourdough.co.uk" target="_blank" rel="noopener noreferrer" className="font-sans text-sm hover:text-[#FAF6F0] transition-colors">
-            Website →
+
+          <a href="https://www.mamassourdough.co.uk" target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-3 group">
+            <span className="w-10 h-10 rounded-full bg-[#C4852A] flex items-center justify-center shrink-0 group-hover:opacity-90 transition-opacity">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </span>
+            <span className="font-sans text-base text-[#A07850] group-hover:text-[#FAF6F0] transition-colors">mamassourdough.co.uk</span>
           </a>
         </div>
       </div>
 
       <div className="border-t border-[#4A2E1A] max-w-6xl mx-auto px-6 py-5">
-        <p className="font-mono text-[10px] tracking-widest uppercase text-[#6B4A2A]">
+        <p className="font-mono text-[11px] tracking-widest uppercase text-[#6B4A2A]">
           © {new Date().getFullYear()} mama&apos;s sourdough · all rights reserved
         </p>
       </div>
