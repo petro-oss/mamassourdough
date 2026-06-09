@@ -67,7 +67,7 @@ export default function Home() {
               { src: "/images/lucie-4.jpg", alt: "Lucie pointing", rotate: "-rotate-1" },
             ].map(({ src, alt, rotate }) => (
               <div key={src} className={`relative aspect-[9/11] overflow-hidden bg-[#3D2B1A] ${rotate} transition-transform hover:rotate-0 hover:scale-[1.03] duration-300`}>
-                <Image src={src} alt={alt} fill className="object-cover object-top" />
+                <Image src={src} alt={alt} fill className="object-cover object-center" />
               </div>
             ))}
           </div>
