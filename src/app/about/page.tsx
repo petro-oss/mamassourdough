@@ -10,10 +10,11 @@ const healthBenefits = [
   { n: "06", title: "Gluten sensitivity friendly", body: "Many people with mild gluten sensitivity find properly fermented sourdough easier to tolerate." },
 ];
 
-const foodPhotos = [
-  { src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700&q=80", alt: "Sourdough loaf" },
-  { src: "https://images.unsplash.com/photo-1585325701956-60dd9c8399b6?w=700&q=80", alt: "Focaccia bread" },
-  { src: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=700&q=80", alt: "Chocolate chip cookies" },
+const lucieFrames = [
+  { src: "/images/lucie-1.jpg", alt: "Lucie talking" },
+  { src: "/images/lucie-2.jpg", alt: "Lucie animated" },
+  { src: "/images/lucie-3.jpg", alt: "Lucie gesturing" },
+  { src: "/images/lucie-4.jpg", alt: "Lucie pointing" },
 ];
 
 export default function AboutPage() {
@@ -28,20 +29,10 @@ export default function AboutPage() {
         </h1>
       </div>
 
-      {/* ── LUCIE PHOTO + LOVE LETTER side by side ─────────────────────────── */}
+      {/* ── LOVE LETTER + 4-FRAME GRID ─────────────────────────────────────── */}
       <div className="grid md:grid-cols-2 gap-px bg-[#1C1009]/15 mb-14">
 
-        {/* Lucie photo */}
-        <div className="relative aspect-[3/4] bg-[#E8DDD0] overflow-hidden">
-          <Image
-            src="/images/lucie.jpg"
-            alt="Lucie Brissenden — Owner & Baker, Mama's Sourdough"
-            fill
-            className="object-cover object-top"
-          />
-        </div>
-
-        {/* Love letter — dark block, same height as photo */}
+        {/* Love letter — dark block */}
         <div className="bg-[#1C1009] p-10 md:p-14 flex flex-col justify-center relative overflow-hidden">
           <span className="absolute -top-4 -left-2 font-serif text-[10rem] leading-none text-[#3D2B1A] select-none pointer-events-none">&ldquo;</span>
           <div className="relative">
@@ -56,12 +47,28 @@ export default function AboutPage() {
             <p className="font-mono text-[9px] tracking-[0.15em] uppercase text-[#7A5C42] mt-1">Owner &amp; Baker, Mama&apos;s Sourdough</p>
           </div>
         </div>
+
+        {/* 4-frame Lucie grid */}
+        <div className="bg-[#1C1009] p-3">
+          <div className="grid grid-cols-2 gap-2 h-full">
+            {lucieFrames.map(({ src, alt }) => (
+              <div key={src} className="relative aspect-square overflow-hidden">
+                <Image
+                  src={src}
+                  alt={alt}
+                  fill
+                  className="object-cover object-center hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
-      {/* ── STORY + VALUES side by side ────────────────────────────────────── */}
+      {/* ── MEET LUCIE: story + values ─────────────────────────────────────── */}
       <div className="grid md:grid-cols-2 gap-px bg-[#1C1009]/10 mb-14">
         <div className="bg-[#F5F0E8] p-12 flex flex-col justify-center">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#7A5C42] mb-6">— Humble beginnings</p>
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#7A5C42] mb-5">— Humble beginnings</p>
           <h2 className="font-serif text-3xl italic font-light text-[#1C1009] mb-6 leading-tight">
             Baker, mother,<br />sourdough obsessive.
           </h2>
@@ -74,7 +81,6 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-
         <div className="flex flex-col gap-px bg-[#1C1009]/10">
           {[
             { n: "01", v: "Honesty", b: "What you see is what you get — no hidden ingredients, no shortcuts." },
@@ -92,7 +98,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* ── WHY SHE BAKES + COMMUNITY — moved lower ────────────────────────── */}
+      {/* ── WHY SHE BAKES + COMMUNITY ──────────────────────────────────────── */}
       <div className="grid md:grid-cols-2 gap-px bg-[#1C1009]/15 mb-14">
         <div className="bg-[#E8DDD0] p-10 md:p-12 flex flex-col">
           <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#B87333] mb-6">— On why she bakes</p>
@@ -103,7 +109,6 @@ export default function AboutPage() {
           </blockquote>
           <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#7A5C42] mt-8 pt-5 border-t border-[#1C1009]/10">— Lucie</p>
         </div>
-
         <div className="bg-[#F5F0E8] p-10 md:p-12 flex flex-col border border-[#1C1009]/10">
           <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#B87333] mb-6">— On community &amp; simplicity</p>
           <blockquote className="font-serif text-xl italic font-light text-[#1C1009] leading-relaxed flex-1">
@@ -124,13 +129,24 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* ── FOOD PHOTOS ────────────────────────────────────────────────────── */}
-      <div className="grid grid-cols-3 gap-3 mb-14">
-        {foodPhotos.map(({ src, alt }) => (
-          <div key={alt} className="relative aspect-square overflow-hidden">
-            <Image src={src} alt={alt} fill className="object-cover hover:scale-105 transition-transform duration-500" />
-          </div>
-        ))}
+      {/* ── FOOD PHOTOS — sourdough & cookies only (no broken focaccia) ────── */}
+      <div className="grid grid-cols-2 gap-3 mb-14">
+        <div className="relative aspect-square overflow-hidden">
+          <Image
+            src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700&q=80"
+            alt="Sourdough loaf"
+            fill
+            className="object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div className="relative aspect-square overflow-hidden">
+          <Image
+            src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=700&q=80"
+            alt="Chocolate chip cookies"
+            fill
+            className="object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
       </div>
 
       {/* ── HEALTH BENEFITS ───────────────────────────────────────────────── */}
