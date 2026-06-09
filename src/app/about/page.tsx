@@ -24,8 +24,8 @@ export default function AboutPage() {
       {/* ── HEADER ─────────────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 pt-16 pb-12 text-center">
         <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-3">— The story behind the bread</p>
-        <h1 className="font-serif text-6xl md:text-7xl italic font-light text-[#2C1A0E] max-w-2xl mx-auto leading-tight">
-          Made the old way, for good reason.
+        <h1 className="font-sans text-6xl md:text-7xl font-bold tracking-tight text-[#2C1A0E] max-w-2xl mx-auto leading-tight">
+          Made the old way,<br />for good reason.
         </h1>
       </section>
 
@@ -67,7 +67,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
           <div>
             <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">— Humble beginnings</p>
-            <h2 className="font-serif text-4xl italic font-light text-[#2C1A0E] mb-6 leading-tight">
+            <h2 className="font-sans text-4xl font-bold tracking-tight text-[#2C1A0E] mb-6 leading-tight">
               Baker, mother,<br />sourdough obsessive.
             </h2>
             <div className="space-y-4 font-sans text-[#4A2E1A] leading-relaxed mb-8">
@@ -142,7 +142,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-3">— Why it&apos;s good for you</p>
-            <h2 className="font-serif text-5xl italic font-light text-[#2C1A0E]">The health benefits of sourdough</h2>
+            <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E]">The health benefits of sourdough</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {healthBenefits.map(({ icon, title, body }) => (

@@ -5,10 +5,10 @@ export default function Footer() {
     <footer className="bg-[#2C1A0E] text-[#A07850]">
       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
 
-        {/* Brand */}
+        {/* Brand — matches printed logo */}
         <div className="md:col-span-2">
-          <p className="font-serif text-3xl italic font-light text-[#FAF6F0] mb-1">mama&apos;s sourdough</p>
-          <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#A07850] mb-5">Ramsgate · Handmade with love</p>
+          <p className="font-sans text-2xl font-semibold tracking-tight text-[#FAF6F0] leading-none">mama&apos;s sourdough</p>
+          <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#A07850] mt-1 mb-5">delicious homemade bakes</p>
           <p className="font-sans text-base leading-7 text-[#A07850]">
             46 Stirling Way, CT12 6NE, Ramsgate<br />
             <a href="tel:07891899367" className="hover:text-[#FAF6F0] transition-colors">07891 899367</a>

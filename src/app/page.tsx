@@ -57,16 +57,17 @@ export default function Home() {
         {/* Badge */}
         <div className="absolute top-8 right-8 w-20 h-20 rounded-full border-2 border-white/50 flex flex-col items-center justify-center text-center bg-white/10 backdrop-blur-sm">
           <span className="font-mono text-[7px] tracking-widest uppercase text-white/80 leading-tight">Est.</span>
-          <span className="font-serif text-xl italic text-white leading-none">2022</span>
+          <span className="font-sans text-lg font-bold text-white leading-none">2022</span>
           <span className="font-mono text-[7px] tracking-widest uppercase text-white/70 leading-tight mt-0.5">Ramsgate</span>
         </div>
 
         {/* Hero text */}
         <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-20 max-w-4xl">
-          <p className="font-serif text-lg md:text-xl italic text-white/80 mb-4">Freshly baked every week</p>
-          <h1 className="font-serif text-6xl md:text-8xl italic font-light text-white leading-[1.05] mb-6">
-            Baked with<br />warmth &amp;<br />true love.
+          <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/70 mb-4">— delicious homemade bakes</p>
+          <h1 className="font-sans text-6xl md:text-8xl font-bold tracking-tight text-white leading-[1.0] mb-3">
+            mama&apos;s<br />sourdough
           </h1>
+          <p className="font-serif text-2xl md:text-3xl italic font-light text-white/85 mb-6">Baked with warmth &amp; true love.</p>
           <p className="font-sans text-white/75 text-base leading-relaxed mb-10 max-w-md">
             Real sourdough, 72-hour cold fermentation, stone-baked in small batches by Lucie — made fresh for your table every Thursday from Ramsgate.
           </p>
@@ -98,7 +99,7 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6 pt-8 pb-20">
         <div className="text-center mb-14">
           <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-3">— Featured Favourites</p>
-          <h2 className="font-serif text-5xl italic font-light text-[#2C1A0E]">This Week&apos;s Bakes</h2>
+          <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E]">This Week&apos;s Bakes</h2>
           <p className="font-sans text-[#8B6347] mt-3 max-w-md mx-auto">The bakes our customers come back for every single week.</p>
         </div>
 
@@ -152,7 +153,7 @@ export default function Home() {
             {/* Text */}
             <div>
               <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">— About Mama&apos;s</p>
-              <h2 className="font-serif text-5xl italic font-light text-[#2C1A0E] leading-tight mb-6">
+              <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E] leading-tight mb-6">
                 Baking happiness<br />every single week.
               </h2>
               <div className="space-y-4 font-sans text-[#4A2E1A] leading-relaxed mb-8">
@@ -190,7 +191,7 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-14 items-center">
           <div>
             <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">— From Lucie&apos;s kitchen</p>
-            <h2 className="font-serif text-5xl italic font-light text-[#2C1A0E] leading-tight mb-8">
+            <h2 className="font-serif text-4xl italic font-light text-[#2C1A0E] leading-tight mb-8">
               &ldquo;Eternally grateful<br />for being able to<br />do what I love.&rdquo;
             </h2>
             <p className="font-sans text-[#8B6347] leading-relaxed mb-8">
@@ -219,7 +220,7 @@ export default function Home() {
       <section className="bg-[#F2EAE0] py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
-            <h2 className="font-serif text-5xl italic font-light text-[#2C1A0E]">Why people return every week</h2>
+            <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E]">Why people return every week</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-5">
             {features.map(({ icon, title, body }) => (
@@ -244,7 +245,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[#2C1A0E]/75" />
         <div className="relative text-center max-w-2xl mx-auto px-6">
           <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#D4A96A] mb-4">— Pre-orders open Monday</p>
-          <h2 className="font-serif text-6xl italic font-light text-white mb-6">
+          <h2 className="font-sans text-6xl font-bold tracking-tight text-white mb-6">
             Ready for the best<br />bread of your week?
           </h2>
           <p className="font-sans text-white/70 mb-10">
