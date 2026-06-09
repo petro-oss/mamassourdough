@@ -1,151 +1,264 @@
 import Link from "next/link";
 import Image from "next/image";
-import LucieStrip from "@/components/LucieStrip";
 
-const gallery = [
+const bestSellers = [
   {
-    src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
-    alt: "Sourdough loaf",
-    label: "Country Loaf",
+    src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80",
+    alt: "Sourdough country loaf",
+    name: "Country Sourdough",
+    desc: "72-hour cold fermented, stone-baked with a golden crust and chewy open crumb.",
+    price: "£5.50",
   },
   {
-    // Rosemary focaccia
-    src: "https://images.unsplash.com/photo-1585325701956-60dd9c8399b6?w=800&q=80",
-    alt: "Focaccia bread",
-    label: "Focaccia",
+    src: "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&q=80",
+    alt: "Freshly baked bread",
+    name: "Seeded Tin Loaf",
+    desc: "Sunflower, sesame and poppy seeds folded into a light, nutty everyday loaf.",
+    price: "£5.50",
   },
   {
-    src: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800&q=80",
+    src: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=80",
     alt: "Chocolate chip cookies",
-    label: "Cookies",
+    name: "Choc Chip Cookies",
+    desc: "Chewy, buttery, loaded with chocolate. Baked fresh every Thursday.",
+    price: "£4.00 / 6",
   },
-  {
-    src: "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=800&q=80",
-    alt: "Fresh baked bread",
-    label: "Fresh Bakes",
-  },
+];
+
+const features = [
+  { icon: "🕐", title: "72-Hour Ferment", body: "Slow fermentation develops deep flavour and makes every loaf easier to digest." },
+  { icon: "🌾", title: "Real Ingredients", body: "Just flour, water, salt, and a live culture. No additives, no preservatives." },
+  { icon: "🤲", title: "Handmade Always", body: "Every loaf shaped by hand — no machines, no shortcuts." },
+  { icon: "🫶🏻", title: "Baked with Love", body: "Lucie stirs love into every batch. You can taste the difference." },
+];
+
+const stats = [
+  { n: "72h", label: "Fermentation" },
+  { n: "4", label: "Ingredients" },
+  { n: "100%", label: "Handmade" },
+  { n: "∞", label: "Love" },
 ];
 
 export default function Home() {
   return (
-    <>
-      {/* Hero */}
-      <section className="max-w-6xl mx-auto px-6 pt-14 pb-20 grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#7A5C42] mb-5">
-            — Handmade in small batches · Ramsgate
-          </p>
-          <h1 className="font-serif text-6xl md:text-7xl font-light italic leading-tight text-[#1C1009] mb-6">
-            Baked with<br />love, every<br />single day.
+    <div className="bg-[#FAF6F0]">
+
+      {/* ── HERO ─────────────────────────────────────────────────────────────── */}
+      <section className="relative h-[92vh] min-h-[600px] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1600&q=85"
+          alt="Fresh sourdough loaves"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/65" />
+
+        {/* Badge */}
+        <div className="absolute top-8 right-8 w-20 h-20 rounded-full border-2 border-white/50 flex flex-col items-center justify-center text-center bg-white/10 backdrop-blur-sm">
+          <span className="font-mono text-[7px] tracking-widest uppercase text-white/80 leading-tight">Est.</span>
+          <span className="font-serif text-xl italic text-white leading-none">2022</span>
+          <span className="font-mono text-[7px] tracking-widest uppercase text-white/70 leading-tight mt-0.5">Ramsgate</span>
+        </div>
+
+        {/* Hero text */}
+        <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-20 max-w-4xl">
+          <p className="font-serif text-lg md:text-xl italic text-white/80 mb-4">Freshly baked every week</p>
+          <h1 className="font-serif text-6xl md:text-8xl italic font-light text-white leading-[1.05] mb-6">
+            Baked with<br />warmth &amp;<br />true love.
           </h1>
-          <p className="font-sans text-[#7A5C42] text-base leading-relaxed mb-10 max-w-sm">
-            Real sourdough. 72-hour cold fermentation. Stone-baked in small batches by Lucie, made fresh for your table.
+          <p className="font-sans text-white/75 text-base leading-relaxed mb-10 max-w-md">
+            Real sourdough, 72-hour cold fermentation, stone-baked in small batches by Lucie — made fresh for your table every Thursday from Ramsgate.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 flex-wrap">
             <Link
               href="/order"
-              className="font-mono text-xs tracking-[0.15em] uppercase bg-black text-[#F5F0E8] px-8 py-3.5 hover:bg-[#333] transition-colors"
+              className="font-sans text-sm font-medium bg-[#C4852A] text-white px-8 py-3.5 rounded-full hover:bg-[#A36920] transition-colors"
             >
-              Order Now
+              Order This Week
             </Link>
             <Link
               href="/menu"
-              className="font-mono text-xs tracking-[0.15em] uppercase text-[#3D2B1A] border-b border-[#3D2B1A] pb-0.5 hover:text-[#B87333] hover:border-[#B87333] transition-colors"
+              className="font-sans text-sm font-medium bg-white/15 backdrop-blur-sm text-white border border-white/40 px-8 py-3.5 rounded-full hover:bg-white/25 transition-colors"
             >
-              See Menu →
+              See the Menu
             </Link>
-          </div>
-        </div>
-
-        {/* Lucie sequence — 2×2 contact-sheet grid */}
-        <div className="relative">
-          <div className="grid grid-cols-2 gap-2 bg-[#1C1009] p-3">
-            {[
-              { src: "/images/lucie-1.jpg", alt: "Lucie talking", rotate: "-rotate-1" },
-              { src: "/images/lucie-2.jpg", alt: "Lucie animated", rotate: "rotate-1" },
-              { src: "/images/lucie-3.jpg", alt: "Lucie gesturing", rotate: "rotate-1" },
-              { src: "/images/lucie-4.jpg", alt: "Lucie pointing", rotate: "-rotate-1" },
-            ].map(({ src, alt, rotate }) => (
-              <div key={src} className={`relative aspect-[9/11] overflow-hidden bg-[#3D2B1A] ${rotate} transition-transform hover:rotate-0 hover:scale-[1.03] duration-300`}>
-                <Image src={src} alt={alt} fill className="object-cover object-center" />
-              </div>
-            ))}
-          </div>
-          {/* Caption strip */}
-          <div className="bg-[#1C1009] px-3 pb-3 -mt-1">
-            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#7A5C42] text-center pt-1 pb-0.5">
-              @mamas_sourdough_ · &ldquo;Eternally grateful for being able to do what I love&rdquo; 💙
-            </p>
-          </div>
-          <div className="absolute -bottom-5 -left-5 bg-[#1C1009] text-[#F5F0E8] p-5 w-28 h-28 flex flex-col items-center justify-center text-center">
-            <span className="font-serif text-3xl italic leading-none">72</span>
-            <span className="font-mono text-[8px] tracking-widest uppercase mt-1">hour<br />ferment</span>
           </div>
         </div>
       </section>
 
-      {/* Ticker */}
-      <div className="bg-[#1C1009] py-3.5 overflow-hidden">
-        <div className="flex gap-10 whitespace-nowrap font-mono text-[10px] tracking-[0.25em] uppercase text-[#7A5C42]">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <span key={i}>slow fermented &nbsp;·&nbsp; stone baked &nbsp;·&nbsp; handmade &nbsp;·&nbsp; no additives &nbsp;·&nbsp;</span>
-          ))}
-        </div>
+      {/* Wavy section break */}
+      <div className="relative overflow-hidden" style={{height: "80px", marginTop: "-79px"}}>
+        <svg viewBox="0 0 1440 80" className="absolute bottom-0 w-full" preserveAspectRatio="none" style={{height: "80px"}}>
+          <path d="M0,80 C360,10 1080,70 1440,20 L1440,80 L0,80 Z" fill="#FAF6F0" />
+        </svg>
       </div>
 
-      {/* Photo gallery grid */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {gallery.map(({ src, alt, label }) => (
-            <div key={label} className="relative aspect-square group overflow-hidden">
-              <Image src={src} alt={alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-[#1C1009]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#F5F0E8]">{label}</span>
+      {/* ── BEST SELLERS ─────────────────────────────────────────────────────── */}
+      <section className="max-w-6xl mx-auto px-6 pt-8 pb-20">
+        <div className="text-center mb-14">
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-3">— Featured Favourites</p>
+          <h2 className="font-serif text-5xl italic font-light text-[#2C1A0E]">This Week&apos;s Bakes</h2>
+          <p className="font-sans text-[#8B6347] mt-3 max-w-md mx-auto">The bakes our customers come back for every single week.</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {bestSellers.map(({ src, alt, name, desc, price }) => (
+            <div key={name} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow group">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image src={src} alt={alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div className="p-6">
+                <h3 className="font-serif text-xl italic text-[#2C1A0E] mb-2">{name}</h3>
+                <p className="font-sans text-sm text-[#8B6347] leading-relaxed mb-4">{desc}</p>
+                <div className="flex items-center justify-between">
+                  <span className="font-sans font-semibold text-[#C4852A] text-lg">{price}</span>
+                  <Link href="/order" className="font-sans text-xs text-[#8B6347] hover:text-[#C4852A] transition-colors">
+                    Order now →
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
         </div>
+
+        <div className="text-center mt-10">
+          <Link href="/menu" className="font-sans text-sm text-[#8B6347] border-b border-[#8B6347] pb-0.5 hover:text-[#C4852A] hover:border-[#C4852A] transition-colors">
+            View full menu →
+          </Link>
+        </div>
       </section>
 
-      {/* Two quote blocks */}
-      <section className="max-w-6xl mx-auto px-6 pb-16 grid md:grid-cols-2 gap-px bg-[#1C1009]/10">
-        <div className="bg-[#F5F0E8] p-12">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#B87333] mb-5">— On baking with love</p>
-          <blockquote className="font-serif text-2xl italic font-light text-[#1C1009] leading-relaxed">
-            &ldquo;Whenever I make anything, I stir love into it. I knead love into it.&rdquo;
-          </blockquote>
-          <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#7A5C42] mt-5">— Lucie</p>
+      {/* ── ABOUT MAMA'S ─────────────────────────────────────────────────────── */}
+      <section className="bg-[#F2EAE0] py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+
+            {/* Photos collage */}
+            <div className="relative grid grid-cols-2 gap-3">
+              <div className="relative rounded-2xl overflow-hidden col-span-1 mt-10" style={{aspectRatio: "3/4"}}>
+                <Image src="/images/lucie-1.jpg" alt="Lucie baking" fill className="object-cover object-center" />
+              </div>
+              <div className="flex flex-col gap-3">
+                <div className="relative aspect-square rounded-2xl overflow-hidden">
+                  <Image src="/images/lucie-2.jpg" alt="Lucie at work" fill className="object-cover object-center" />
+                </div>
+                <div className="relative aspect-square rounded-2xl overflow-hidden">
+                  <Image src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80" alt="Sourdough loaf" fill className="object-cover" />
+                </div>
+              </div>
+            </div>
+
+            {/* Text */}
+            <div>
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">— About Mama&apos;s</p>
+              <h2 className="font-serif text-5xl italic font-light text-[#2C1A0E] leading-tight mb-6">
+                Baking happiness<br />every single week.
+              </h2>
+              <div className="space-y-4 font-sans text-[#4A2E1A] leading-relaxed mb-8">
+                <p>
+                  Every Thursday, Lucie&apos;s kitchen in Ramsgate fills with the scent of freshly baked sourdough. What started as baking for family and friends has become something much bigger — a small community of people who love real bread.
+                </p>
+                <p>
+                  We use only the finest ingredients and time-honoured techniques. Each loaf is shaped by hand, each batch made with intention. This is slow baking. This is bread with soul.
+                </p>
+              </div>
+              <blockquote className="border-l-2 border-[#C4852A] pl-5 font-serif text-xl italic text-[#2C1A0E] mb-8">
+                &ldquo;It brings me an enormous joy — it&apos;s therapy, it&apos;s true love.&rdquo;
+                <footer className="font-sans text-sm not-italic text-[#8B6347] mt-2">— Lucie Brissenden, Owner &amp; Baker</footer>
+              </blockquote>
+              <Link href="/about" className="inline-block font-sans text-sm font-medium bg-[#2C1A0E] text-white px-8 py-3 rounded-full hover:bg-[#4A2E1A] transition-colors">
+                Our Story →
+              </Link>
+            </div>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-4 gap-6 mt-16 pt-12 border-t border-[#D4BFA8]">
+            {stats.map(({ n, label }) => (
+              <div key={label} className="text-center">
+                <p className="font-serif text-4xl md:text-5xl italic text-[#2C1A0E]">{n}</p>
+                <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#8B6347] mt-1">{label}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="bg-[#E8DDD0] p-12">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#B87333] mb-5">— On joy</p>
-          <blockquote className="font-serif text-2xl italic font-light text-[#1C1009] leading-relaxed">
-            &ldquo;It brings me an enormous joy, it&apos;s therapy, it&apos;s true love.&rdquo;&nbsp;🫶🏻
-          </blockquote>
-          <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#7A5C42] mt-5">
-            — Lucie &nbsp;·&nbsp;{" "}
-            <Link href="/about" className="border-b border-[#7A5C42] hover:text-[#B87333] hover:border-[#B87333] transition-colors">
-              Read our story →
-            </Link>
+      </section>
+
+      {/* ── LUCIE FRAMES ─────────────────────────────────────────────────────── */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <div className="grid md:grid-cols-2 gap-14 items-center">
+          <div>
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">— From Lucie&apos;s kitchen</p>
+            <h2 className="font-serif text-5xl italic font-light text-[#2C1A0E] leading-tight mb-8">
+              &ldquo;Eternally grateful<br />for being able to<br />do what I love.&rdquo;
+            </h2>
+            <p className="font-sans text-[#8B6347] leading-relaxed mb-8">
+              Pre-orders open Monday each week. Collection Thursday from Ramsgate. Every loaf baked fresh the morning of collection — never a day old.
+            </p>
+            <a
+              href="https://www.instagram.com/mamas_sourdough_"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-sans text-sm text-[#8B6347] border-b border-[#8B6347] pb-0.5 hover:text-[#C4852A] hover:border-[#C4852A] transition-colors"
+            >
+              Follow @mamas_sourdough_ →
+            </a>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {["/images/lucie-1.jpg", "/images/lucie-2.jpg", "/images/lucie-3.jpg", "/images/lucie-4.jpg"].map((src, i) => (
+              <div key={i} className="relative aspect-square rounded-xl overflow-hidden shadow-sm">
+                <Image src={src} alt={`Lucie ${i + 1}`} fill className="object-cover object-center hover:scale-105 transition-transform duration-500" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY PEOPLE RETURN ────────────────────────────────────────────────── */}
+      <section className="bg-[#F2EAE0] py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <h2 className="font-serif text-5xl italic font-light text-[#2C1A0E]">Why people return every week</h2>
+          </div>
+          <div className="grid md:grid-cols-4 gap-5">
+            {features.map(({ icon, title, body }) => (
+              <div key={title} className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-4xl mb-4">{icon}</div>
+                <h3 className="font-serif text-lg italic text-[#2C1A0E] mb-2">{title}</h3>
+                <p className="font-sans text-sm text-[#8B6347] leading-relaxed">{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ──────────────────────────────────────────────────────────────── */}
+      <section className="relative py-32 overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=1400&q=80"
+          alt="Fresh bread"
+          fill
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-[#2C1A0E]/75" />
+        <div className="relative text-center max-w-2xl mx-auto px-6">
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#D4A96A] mb-4">— Pre-orders open Monday</p>
+          <h2 className="font-serif text-6xl italic font-light text-white mb-6">
+            Ready for the best<br />bread of your week?
+          </h2>
+          <p className="font-sans text-white/70 mb-10">
+            Collection every Thursday from Ramsgate · Order by Tuesday
           </p>
+          <Link
+            href="/order"
+            className="inline-block font-sans text-sm font-medium bg-[#C4852A] text-white px-10 py-4 rounded-full hover:bg-[#A36920] transition-colors"
+          >
+            Place an Order
+          </Link>
         </div>
       </section>
 
-      {/* Lucie photo strip */}
-      <LucieStrip />
-
-      {/* CTA */}
-      <section className="bg-[#1C1009] py-20 px-6 text-center">
-        <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#7A5C42] mb-4">— Pre-orders open Monday</p>
-        <h2 className="font-serif text-5xl italic font-light text-[#F5F0E8] mb-8">
-          Ready for the best<br />bread of your week?
-        </h2>
-        <Link
-          href="/order"
-          className="inline-block font-mono text-xs tracking-[0.2em] uppercase bg-[#F5F0E8] text-[#1C1009] px-10 py-4 hover:bg-[#C8A882] transition-colors"
-        >
-          Place an Order
-        </Link>
-      </section>
-    </>
+    </div>
   );
 }

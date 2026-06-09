@@ -1,75 +1,67 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
   { href: "/about", label: "About" },
   { href: "/menu", label: "Menu" },
-  { href: "/order", label: "Order" },
   { href: "/contact", label: "Contact" },
 ];
 
 export default function Nav() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-[#F5F0E8] border-b border-black/10">
-      <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-        {/* Logo — black & white */}
-        <Link href="/" className="flex flex-col leading-none group">
-          <span className="font-sans text-xl font-medium tracking-tight text-black group-hover:opacity-60 transition-opacity">
-            mama&apos;s sourdough
-          </span>
-          <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#888] mt-0.5">
-            delicious homemade bakes
-          </span>
-        </Link>
+    <header className="sticky top-0 z-50 bg-[#FAF6F0]/95 backdrop-blur-sm border-b border-[#EAE0D5]">
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between relative">
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-10">
+        {/* Left links — desktop */}
+        <div className="hidden md:flex items-center gap-8">
           {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`font-mono text-xs tracking-[0.15em] uppercase transition-colors hover:text-black ${
-                pathname === href ? "text-black" : "text-[#888]"
-              }`}
-            >
+            <Link key={href} href={href} className="font-sans text-sm text-[#8B6347] hover:text-[#2C1A0E] transition-colors">
               {label}
             </Link>
           ))}
+        </div>
+
+        {/* Logo — centred absolutely */}
+        <Link href="/" className="absolute left-1/2 -translate-x-1/2 text-center">
+          <p className="font-serif text-2xl italic font-light text-[#2C1A0E] leading-none">mama&apos;s sourdough</p>
+          <p className="font-mono text-[8px] tracking-[0.25em] uppercase text-[#A07850] mt-0.5">Ramsgate · handmade with love</p>
+        </Link>
+
+        {/* Right — Order Now pill */}
+        <div className="hidden md:flex">
           <Link
             href="/order"
-            className="font-mono text-xs tracking-[0.15em] uppercase bg-black text-[#F5F0E8] px-5 py-2.5 hover:bg-[#333] transition-colors"
+            className="font-sans text-sm font-medium bg-[#C4852A] text-white px-6 py-2 rounded-full hover:bg-[#A36920] transition-colors"
           >
             Order Now
           </Link>
-        </nav>
+        </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-1"
+          className="md:hidden ml-auto flex flex-col gap-1.5 p-1"
           aria-label="Toggle menu"
           onClick={() => setOpen(!open)}
         >
-          <span className="block w-5 h-px bg-black" />
-          <span className="block w-5 h-px bg-black" />
-          <span className="block w-3 h-px bg-black" />
+          <span className="block w-5 h-px bg-[#2C1A0E]" />
+          <span className="block w-5 h-px bg-[#2C1A0E]" />
+          <span className="block w-3 h-px bg-[#2C1A0E]" />
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <nav className="md:hidden border-t border-black/10 px-6 py-6 flex flex-col gap-5">
+        <nav className="md:hidden border-t border-[#EAE0D5] px-6 py-6 flex flex-col gap-5 bg-[#FAF6F0]">
           {links.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               onClick={() => setOpen(false)}
-              className="font-mono text-xs tracking-[0.15em] uppercase text-[#888] hover:text-black transition-colors"
+              className="font-sans text-sm text-[#8B6347] hover:text-[#2C1A0E] transition-colors"
             >
               {label}
             </Link>
@@ -77,7 +69,7 @@ export default function Nav() {
           <Link
             href="/order"
             onClick={() => setOpen(false)}
-            className="font-mono text-xs tracking-[0.15em] uppercase bg-black text-[#F5F0E8] px-5 py-3 text-center hover:bg-[#333] transition-colors"
+            className="font-sans text-sm font-medium bg-[#C4852A] text-white px-6 py-3 rounded-full text-center hover:bg-[#A36920] transition-colors"
           >
             Order Now
           </Link>

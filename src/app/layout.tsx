@@ -35,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} ${cormorant.variable} ${dmMono.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-[#F5F0E8] text-[#1C1009] font-sans antialiased">
+      <body className="min-h-full flex flex-col bg-[#FAF6F0] text-[#2C1A0E] font-sans antialiased">
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
