@@ -56,14 +56,11 @@ export default function OrderPage() {
     };
 
     try {
-      await fetch(
-        "https://services.leadconnectorhq.com/hooks/IivI4GWZybydq2NxO7mj/webhook-trigger/cd419f78-40f3-4880-be4c-67a3a7465b32",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        }
-      );
+      await fetch("/api/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
     } catch (err) {
       console.error("GHL webhook error:", err);
       // Still show confirmation — don't block the customer
