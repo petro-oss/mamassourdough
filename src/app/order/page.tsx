@@ -31,11 +31,44 @@ export default function OrderPage() {
     .map((item) => `${item.name} x${quantities[item.id]} = £${(item.price * (quantities[item.id] ?? 0)).toFixed(2)}`)
     .join("\n");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!hasItems) return;
-    // TODO: replace with GHL webhook / form submission
-    console.log({ name, email, phone, notes, orderSummary, total });
+
+    const payload = {
+      // Contact fields GHL picks up automatically
+      first_name: name.split(" ")[0],
+      last_name: name.split(" ").slice(1).join(" ") || "",
+      email,
+      phone,
+      // Order details
+      order_summary: orderSummary,
+      order_total: `£${total.toFixed(2)}`,
+      order_notes: notes,
+      order_items: orderLines.map((item) => ({
+        name: item.name,
+        qty: quantities[item.id],
+        unit_price: `£${item.price.toFixed(2)}`,
+        line_total: `£${(item.price * (quantities[item.id] ?? 0)).toFixed(2)}`,
+      })),
+      source: "Website Order Form",
+      collection_day: "Thursday",
+    };
+
+    try {
+      await fetch(
+        "https://services.leadconnectorhq.com/hooks/IivI4GWZybydq2NxO7mj/webhook-trigger/cd419f78-40f3-4880-be4c-67a3a7465b32",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+    } catch (err) {
+      console.error("GHL webhook error:", err);
+      // Still show confirmation — don't block the customer
+    }
+
     setSubmitted(true);
   }
 
