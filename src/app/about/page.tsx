@@ -130,7 +130,7 @@ export default function AboutPage() {
             <Image src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700&q=80" alt="Sourdough loaf" fill className="object-cover hover:scale-105 transition-transform duration-500" />
           </div>
           <div className="relative aspect-square rounded-2xl overflow-hidden">
-            <Image src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=700&q=80" alt="Focaccia bread" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            <Image src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=700&q=80" alt="Chocolate chip cookies" fill className="object-cover hover:scale-105 transition-transform duration-500" />
           </div>
         </div>
       </section>
