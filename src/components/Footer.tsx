@@ -42,7 +42,7 @@ export default function Footer() {
             <span className="font-sans text-base text-[#A07850] group-hover:text-[#FAF6F0] transition-colors">@mamas_sourdough_</span>
           </a>
 
-          <a href="https://www.facebook.com/mamassourdough" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.facebook.com/profile.php?id=61580395552567" target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-3 group">
             <span className="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center shrink-0 group-hover:opacity-90 transition-opacity">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="white">

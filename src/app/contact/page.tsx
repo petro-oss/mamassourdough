@@ -62,7 +62,7 @@ export default function ContactPage() {
                   </div>
                 </a>
 
-                <a href="https://www.facebook.com/mamassourdough" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.facebook.com/profile.php?id=61580395552567" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-4 group">
                   <span className="w-12 h-12 rounded-full bg-[#1877F2] flex items-center justify-center shrink-0 group-hover:opacity-85 transition-opacity shadow-sm">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
