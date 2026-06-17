@@ -138,11 +138,11 @@ export default function Home() {
             {/* Photos collage */}
             <div className="relative grid grid-cols-2 gap-3">
               <div className="relative rounded-2xl overflow-hidden col-span-1 mt-10" style={{aspectRatio: "3/4"}}>
-                <Image src="/images/lucie-1.jpg" alt="Lucie baking" fill className="object-cover object-center" />
+                <Image src="https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=600&q=80" alt="Hands shaping dough" fill className="object-cover object-center" />
               </div>
               <div className="flex flex-col gap-3">
                 <div className="relative aspect-square rounded-2xl overflow-hidden">
-                  <Image src="/images/lucie-2.jpg" alt="Lucie at work" fill className="object-cover object-center" />
+                  <Image src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&q=80" alt="Fresh sourdough" fill className="object-cover object-center" />
                 </div>
                 <div className="relative aspect-square rounded-2xl overflow-hidden">
                   <Image src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80" alt="Sourdough loaf" fill className="object-cover" />
@@ -207,9 +207,14 @@ export default function Home() {
             </a>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            {["/images/lucie-1.jpg", "/images/lucie-2.jpg", "/images/lucie-3.jpg", "/images/lucie-4.jpg"].map((src, i) => (
-              <div key={i} className="relative aspect-square rounded-xl overflow-hidden shadow-sm">
-                <Image src={src} alt={`Lucie ${i + 1}`} fill className="object-cover object-center hover:scale-105 transition-transform duration-500" />
+            {[
+              { src: "https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=500&q=80", alt: "Hands shaping dough" },
+              { src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80", alt: "Sourdough loaf" },
+              { src: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=500&q=80", alt: "Cookies" },
+              { src: "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=500&q=80", alt: "Fresh baked bread" },
+            ].map(({ src, alt }) => (
+              <div key={src} className="relative aspect-square rounded-xl overflow-hidden shadow-sm">
+                <Image src={src} alt={alt} fill className="object-cover object-center hover:scale-105 transition-transform duration-500" />
               </div>
             ))}
           </div>

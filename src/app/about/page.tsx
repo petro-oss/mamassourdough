@@ -2,19 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const healthBenefits = [
-  { icon: "🌿", title: "Easier to digest", body: "72-hour fermentation breaks down gluten and phytic acid — gentler on your gut than any conventional bread." },
-  { icon: "📉", title: "Lower glycemic index", body: "A slower, steadier rise in blood sugar. Better energy, better long-term health." },
-  { icon: "🦠", title: "Natural probiotics", body: "Live fermentation creates beneficial bacteria that support a healthy gut microbiome." },
-  { icon: "⚡", title: "Better nutrient absorption", body: "Fermentation unlocks iron, zinc and magnesium your body can actually absorb." },
-  { icon: "✋", title: "No additives", body: "Just flour, water, salt, and a live culture. Nothing artificial, ever." },
-  { icon: "🌾", title: "Gluten sensitivity friendly", body: "Many people with mild gluten sensitivity find properly fermented sourdough easier to tolerate." },
-];
-
-const lucieFrames = [
-  { src: "/images/lucie-1.jpg", alt: "Lucie talking" },
-  { src: "/images/lucie-2.jpg", alt: "Lucie animated" },
-  { src: "/images/lucie-3.jpg", alt: "Lucie gesturing" },
-  { src: "/images/lucie-4.jpg", alt: "Lucie pointing" },
+  { icon: "🌿", title: "Easier to digest", body: "Slow wild fermentation breaks down gluten proteins and phytic acid, making sourdough far gentler on your digestive system than any commercial loaf." },
+  { icon: "📉", title: "Lower glycemic index", body: "The natural acids produced during fermentation slow starch digestion — giving you steadier energy, no sugar spike, no afternoon crash." },
+  { icon: "🦠", title: "Lactic acid bacteria", body: "Wild fermentation introduces beneficial lactic acid bacteria linked to a healthier gut microbiome and reduced inflammation throughout the body." },
+  { icon: "⚡", title: "Unlocked minerals", body: "Fermentation neutralises phytic acid — an anti-nutrient in grains — releasing iron, zinc, magnesium and B vitamins your body can actually absorb." },
+  { icon: "✋", title: "Nothing artificial", body: "Flour, water, salt, and a living culture. That is the entire ingredient list. No preservatives, no additives, no shortcuts — ever." },
+  { icon: "🌍", title: "Better for the planet", body: "No industrial processing, no plastic-wrapped additives, no waste. Real bread made slowly, with deep respect for ingredients and the earth." },
+  { icon: "🤝", title: "Food that connects people", body: "Sourdough is about community — starters shared between neighbours, loaves baked for families, bread that brings people around a table together." },
+  { icon: "🌾", title: "Gentler on sensitivity", body: "Many people who struggle with commercial bread find long-fermented sourdough easier to tolerate, as fermentation pre-digests much of the gluten." },
 ];
 
 export default function AboutPage() {
@@ -29,7 +24,7 @@ export default function AboutPage() {
         </h1>
       </section>
 
-      {/* ── LOVE LETTER + 4-FRAME GRID ─────────────────────────────────────── */}
+      {/* ── LOVE LETTER + HANDS PHOTO ──────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 pb-20">
         <div className="grid md:grid-cols-2 gap-6 rounded-3xl overflow-hidden shadow-sm">
 
@@ -49,15 +44,15 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* 4-frame grid */}
-          <div className="bg-[#2C1A0E] p-3">
-            <div className="grid grid-cols-2 gap-2 h-full">
-              {lucieFrames.map(({ src, alt }) => (
-                <div key={src} className="relative aspect-square rounded-lg overflow-hidden">
-                  <Image src={src} alt={alt} fill className="object-cover object-center hover:scale-105 transition-transform duration-500" />
-                </div>
-              ))}
-            </div>
+          {/* Hands preparing sourdough */}
+          <div className="relative min-h-[400px]">
+            <Image
+              src="https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=900&q=80"
+              alt="Hands shaping sourdough dough"
+              fill
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-[#2C1A0E]/20" />
           </div>
         </div>
       </section>
@@ -75,19 +70,22 @@ export default function AboutPage() {
                 Mama&apos;s Sourdough started in a small kitchen in Ramsgate, with a lot of flour on the counter and a starter that refused to be ignored. What began as baking for family became something much bigger.
               </p>
               <p>
-                Every loaf is still made by hand, still fermented slowly over 72 hours, and still baked the old way. Simple ingredients. No shortcuts. Baked with love.
+                Lucie is passionate about making a difference — inspiring families to choose real, nourishing food over processed alternatives, and building a community rooted in nature, simplicity, and love.
+              </p>
+              <p>
+                Every loaf is still made by hand, still fermented slowly, and still baked the old way. Simple ingredients. No shortcuts. Baked with love.
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4">
             {[
-              { n: "01", v: "Honesty", b: "What you see is what you get — no hidden ingredients, no shortcuts." },
-              { n: "02", v: "Patience", b: "Great bread can't be rushed. Ours ferments for 72 hours, minimum." },
-              { n: "03", v: "Community", b: "We bake for our neighbours and sell at the local market every Saturday." },
+              { n: "01", v: "Honesty", b: "What you see is what you get — no hidden ingredients, no shortcuts, no compromise." },
+              { n: "02", v: "Patience", b: "Great bread can't be rushed. Ours ferments slowly — the way nature intended." },
+              { n: "03", v: "Community", b: "We bake to nourish our neighbours and inspire families to eat real food, together." },
             ].map(({ n, v, b }) => (
-              <div key={n} className="bg-white rounded-2xl p-6 shadow-sm">
-                <p className="font-mono text-[10px] tracking-[0.25em] text-[#C4852A] mb-2">{n}</p>
+              <div key={n} className="bg-white rounded-2xl p-6 shadow-sm border-t-2 border-[#4A6741]">
+                <p className="font-mono text-[10px] tracking-[0.25em] text-[#4A6741] mb-2">{n}</p>
                 <h3 className="font-serif text-lg italic text-[#2C1A0E] mb-2">{v}</h3>
                 <p className="font-sans text-xs text-[#8B6347] leading-relaxed">{b}</p>
               </div>
@@ -107,17 +105,17 @@ export default function AboutPage() {
             <p className="font-sans text-sm text-[#8B6347] mt-6 pt-6 border-t border-[#D4BFA8]">— Lucie</p>
           </div>
           <div className="bg-white rounded-2xl p-10 flex flex-col shadow-sm">
-            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#C4852A] mb-6">— On community &amp; simplicity</p>
+            <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#4A6741] mb-6">— On community &amp; simplicity</p>
             <blockquote className="font-serif text-2xl italic font-light text-[#2C1A0E] leading-relaxed flex-1">
               &ldquo;I started baking a couple of years ago for family and friends, and feel so blessed that so many lives are touched by my baking. Using just four ingredients — it is just grounding and brings me so much joy!&rdquo;
             </blockquote>
             <div className="mt-6 pt-6 border-t border-[#EAE0D5] flex gap-4">
               {["Flour", "Water", "Salt", "Time"].map((ing) => (
                 <div key={ing} className="text-center flex-1">
-                  <div className="w-10 h-10 mx-auto rounded-full bg-[#F2EAE0] flex items-center justify-center mb-1">
-                    <span className="font-serif text-sm italic text-[#2C1A0E]">{ing[0]}</span>
+                  <div className="w-10 h-10 mx-auto rounded-full bg-[#EAF0EA] flex items-center justify-center mb-1">
+                    <span className="font-serif text-sm italic text-[#4A6741]">{ing[0]}</span>
                   </div>
-                  <p className="font-mono text-[7px] tracking-[0.1em] uppercase text-[#8B6347]">{ing}</p>
+                  <p className="font-mono text-[7px] tracking-[0.1em] uppercase text-[#4A6741]">{ing}</p>
                 </div>
               ))}
             </div>
@@ -141,12 +139,15 @@ export default function AboutPage() {
       <section className="bg-[#F2EAE0] py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-3">— Why it&apos;s good for you</p>
-            <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E]">The health benefits of sourdough</h2>
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#4A6741] mb-3">— Why it&apos;s good for you</p>
+            <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E]">The real benefits of sourdough</h2>
+            <p className="font-sans text-[#8B6347] mt-4 max-w-xl mx-auto leading-relaxed">
+              Unlike commercial bread, real sourdough is slowly fermented using wild yeast and bacteria. That process changes everything — from how it digests to how it nourishes your family.
+            </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {healthBenefits.map(({ icon, title, body }) => (
-              <div key={title} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div key={title} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border-b-2 border-[#4A6741]/30">
                 <div className="text-3xl mb-3">{icon}</div>
                 <h3 className="font-serif text-lg italic text-[#2C1A0E] mb-2">{title}</h3>
                 <p className="font-sans text-sm text-[#8B6347] leading-relaxed">{body}</p>

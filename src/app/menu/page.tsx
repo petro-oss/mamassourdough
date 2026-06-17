@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 // ─── THIS WEEK'S MENU ────────────────────────────────────────────────────────
@@ -118,23 +117,8 @@ export default function MenuPage() {
         </div>
       </div>
 
-      {/* Menu photo + item list side by side */}
-      <div className="grid md:grid-cols-2 gap-12 mb-16 items-start">
-
-        {/* Menu photo — sticky on scroll */}
-        <div className="md:sticky md:top-6">
-          <div className="relative aspect-[3/4] overflow-hidden">
-            <Image
-              src="/menu.jpg"
-              alt="This week's menu"
-              fill
-              className="object-cover object-top"
-              priority
-            />
-          </div>
-        </div>
-
-        {/* Item list */}
+      {/* Item list — full width */}
+      <div className="mb-16">
         <div>
           {categories.map((cat) => {
             const catItems = menuItems.filter((i) => i.category === cat);

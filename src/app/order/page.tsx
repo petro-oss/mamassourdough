@@ -11,6 +11,7 @@ export default function OrderPage() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
+  const [recurring, setRecurring] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const setQty = (id: string, delta: number) => {
@@ -45,6 +46,7 @@ export default function OrderPage() {
       order_summary: orderSummary,
       order_total: `£${total.toFixed(2)}`,
       order_notes: notes,
+      recurring_order: recurring ? "Yes — weekly standing order" : "No",
       order_items: orderLines.map((item) => ({
         name: item.name,
         qty: quantities[item.id],
@@ -92,6 +94,18 @@ export default function OrderPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
+
+      {/* ── HOLIDAY NOTICE ── */}
+      <div className="mb-10 bg-[#EAF0EA] border border-[#4A6741]/30 rounded-2xl px-8 py-6 flex gap-4 items-start">
+        <span className="text-2xl mt-0.5">🌿</span>
+        <div>
+          <p className="font-sans font-semibold text-[#2C1A0E] mb-1">Orders are currently on hold</p>
+          <p className="font-sans text-sm text-[#4A2E1A] leading-relaxed">
+            Lucie is on holiday and baking will resume shortly. You&apos;re welcome to browse the menu and place your order now — we&apos;ll be in touch with your collection date as soon as orders reopen. Thank you for your patience 🫶🏻
+          </p>
+        </div>
+      </div>
+
       {/* Header */}
       <div className="mb-12">
         <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-3">
@@ -218,6 +232,25 @@ export default function OrderPage() {
                   className="w-full bg-[#FAF6F0] border border-[#EAE0D5] rounded-xl px-4 py-3 font-sans text-base text-[#2C1A0E] focus:outline-none focus:border-[#C4852A] placeholder:text-[#C8A882] transition-colors resize-none"
                 />
               </div>
+
+              {/* Recurring order */}
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <div className="relative mt-0.5 shrink-0">
+                  <input
+                    type="checkbox"
+                    checked={recurring}
+                    onChange={(e) => setRecurring(e.target.checked)}
+                    className="sr-only"
+                  />
+                  <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${recurring ? "bg-[#4A6741] border-[#4A6741]" : "bg-[#FAF6F0] border-[#D4BFA8] group-hover:border-[#4A6741]"}`}>
+                    {recurring && <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                  </div>
+                </div>
+                <div>
+                  <p className="font-sans text-sm font-medium text-[#2C1A0E] leading-snug">Set up a weekly standing order</p>
+                  <p className="font-sans text-xs text-[#8B6347] mt-0.5 leading-relaxed">Same order every week — we&apos;ll reach out to confirm the details.</p>
+                </div>
+              </label>
             </div>
 
             <button
