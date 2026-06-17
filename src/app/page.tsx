@@ -10,11 +10,11 @@ const bestSellers = [
     price: "£5.00",
   },
   {
-    src: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600&q=80",
-    alt: "Chocolate chip cookies",
-    name: "Choc Chip Cookies",
-    desc: "Big, chewy, golden-edged sourdough cookies loaded with chocolate. Baked fresh every week.",
-    price: "£2.00 each",
+    src: "https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=600&q=80",
+    alt: "Hands shaping sourdough",
+    name: "Handmade Every Week",
+    desc: "Every loaf shaped by hand, every batch made with intention. This is slow baking. This is bread with soul.",
+    price: "From £5.00",
   },
   {
     src: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600&q=80",
@@ -142,7 +142,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-3">
                 <div className="relative aspect-square rounded-2xl overflow-hidden">
-                  <Image src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=400&q=80" alt="Chocolate chip cookies" fill className="object-cover object-center" />
+                  <Image src="https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=400&q=80" alt="Chocolate chip cookies" fill className="object-cover object-center" />
                 </div>
                 <div className="relative aspect-square rounded-2xl overflow-hidden">
                   <Image src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80" alt="Sourdough loaf" fill className="object-cover" />
@@ -210,7 +210,7 @@ export default function Home() {
             {[
               { src: "https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=500&q=80", alt: "Hands shaping dough" },
               { src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80", alt: "Sourdough loaf" },
-              { src: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=500&q=80", alt: "Chocolate chip cookies" },
+              { src: "https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=500&q=80", alt: "Hands shaping dough" },
               { src: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=500&q=80", alt: "Banana loaf" },
             ].map(({ src, alt }) => (
               <div key={src} className="relative aspect-square rounded-xl overflow-hidden shadow-sm">
