@@ -79,7 +79,7 @@ export default function OrderPage() {
           Thank you, {name.split(" ")[0]}! 🫶🏻
         </h1>
         <p className="font-sans text-lg text-[#8B6347] leading-relaxed mb-4">
-          Your order has been sent. We&apos;ll confirm by Tuesday and your bread will be ready for collection <strong>Thursday morning</strong>.
+          Your order has been received. Payment details and collection or delivery time will be sent to you shortly. Orders close <strong>Wednesday at 7pm</strong>.
         </p>
         <div className="bg-[#F2EAE0] rounded-2xl p-8 text-left mt-8 font-mono text-sm text-[#4A2E1A] leading-8 whitespace-pre-line">
           {orderSummary}
@@ -109,7 +109,7 @@ export default function OrderPage() {
       {/* Header */}
       <div className="mb-12">
         <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-3">
-          — Pre-orders open Monday · Collection Thursday
+          — Orders close Wednesday 7pm · Collection/Delivery TBA
         </p>
         <h1 className="font-serif text-6xl italic font-light text-[#2C1A0E]">Place Your Order</h1>
       </div>
@@ -262,8 +262,8 @@ export default function OrderPage() {
             </button>
 
             <p className="font-sans text-sm text-[#8B6347] text-center leading-6">
-              We&apos;ll confirm your order by Tuesday.<br />
-              Payment on collection · Thursday morning.
+              Orders close Wednesday at 7pm.<br />
+              Payment details &amp; collection/delivery time sent on order placement.
             </p>
           </div>
         </div>

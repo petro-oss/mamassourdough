@@ -1,11 +1,10 @@
 import Link from "next/link";
 
 // ─── THIS WEEK'S MENU ────────────────────────────────────────────────────────
-// Update these items each week to match the current menu image.
-// Collection day and date are set in MENU_META below.
+// Update these items each week to match the current menu.
 export const MENU_META = {
-  collectionDay: "Thursday",
-  collectionDate: "11th June",
+  collectionDay: "Friday",
+  collectionDate: "TBA on order placement",
 };
 
 export const menuItems = [
@@ -91,7 +90,7 @@ const categories = ["Loaves", "Focaccia", "Sweet Bakes"];
 export default function MenuPage() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
-      {/* Header with pink flower decorations */}
+      {/* Header */}
       <div className="mb-14 relative">
         {/* Pink flower accents */}
         <span className="absolute -top-4 right-8 text-4xl select-none pointer-events-none opacity-80">✿</span>
@@ -104,13 +103,12 @@ export default function MenuPage() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <h1 className="font-serif text-6xl italic font-light text-[#1C1009]">This Week&apos;s Menu</h1>
 
-          {/* Date badge */}
+          {/* Collection badge */}
           <div className="flex items-center gap-4 shrink-0">
             <span className="text-3xl select-none" style={{ color: "#e8a0b4" }}>✿</span>
             <div className="border-l-2 pl-4" style={{ borderColor: "#e8a0b4" }}>
-              <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#7A5C42]">Collection</p>
-              <p className="font-serif text-2xl italic text-[#1C1009]">{MENU_META.collectionDay}</p>
-              <p className="font-mono text-sm text-[#B87333]">{MENU_META.collectionDate}</p>
+              <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#7A5C42]">Collection / Delivery</p>
+              <p className="font-serif text-xl italic text-[#1C1009]">TBA on order placement</p>
             </div>
             <span className="text-3xl select-none" style={{ color: "#e8a0b4" }}>✿</span>
           </div>
@@ -147,7 +145,7 @@ export default function MenuPage() {
       {/* Order CTA */}
       <div className="bg-[#1C1009] p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
-          <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#7A5C42] mb-2">Pre-orders open Monday · Collection {MENU_META.collectionDay} {MENU_META.collectionDate}</p>
+          <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#7A5C42] mb-2">Orders close Wednesday at 7pm · Collection/Delivery TBA</p>
           <p className="font-serif text-3xl italic text-[#F5F0E8]">Ready to order? Build your basket.</p>
         </div>
         <Link

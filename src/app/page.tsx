@@ -6,34 +6,34 @@ const bestSellers = [
     src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80",
     alt: "Sourdough country loaf",
     name: "Country Sourdough",
-    desc: "72-hour cold fermented, stone-baked with a golden crust and chewy open crumb.",
-    price: "£5.50",
+    desc: "Stone-baked with a golden crackling crust, open crumb, and deep flavour that only wild fermentation can deliver.",
+    price: "£5.00",
   },
   {
     src: "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&q=80",
     alt: "Freshly baked bread",
     name: "Seeded Tin Loaf",
-    desc: "Sunflower, sesame and poppy seeds folded into a light, nutty everyday loaf.",
-    price: "£5.50",
+    desc: "Sunflower, sesame and poppy seeds folded into a light, nutty everyday loaf. Perfect for sandwiches.",
+    price: "£6.00",
   },
   {
-    src: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=80",
-    alt: "Chocolate chip cookies",
-    name: "Choc Chip Cookies",
-    desc: "Chewy, buttery, loaded with chocolate. Baked fresh every Thursday.",
-    price: "£4.00 / 6",
+    src: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600&q=80",
+    alt: "Focaccia bread",
+    name: "Sourdough Focaccia",
+    desc: "Pillowy, golden, drizzled with olive oil. Available plain or topped with herbs, roasted garlic and more.",
+    price: "from £5.00",
   },
 ];
 
 const features = [
-  { icon: "🕐", title: "72-Hour Ferment", body: "Slow fermentation develops deep flavour and makes every loaf easier to digest." },
-  { icon: "🌾", title: "Real Ingredients", body: "Just flour, water, salt, and a live culture. No additives, no preservatives." },
-  { icon: "🤲", title: "Handmade Always", body: "Every loaf shaped by hand — no machines, no shortcuts." },
-  { icon: "🫶🏻", title: "Baked with Love", body: "Lucie stirs love into every batch. You can taste the difference." },
+  { icon: "🤝", title: "Built on Community", body: "Lucie bakes to bring people together — teaching families to bake, sharing recipes, paying it forward." },
+  { icon: "🌾", title: "Real Ingredients", body: "Just flour, water, salt, and a living starter over 10 years old. No additives, no preservatives." },
+  { icon: "🤲", title: "Handmade Always", body: "Every loaf shaped by hand — no machines, no shortcuts. The way bread has always been made." },
+  { icon: "🫶🏻", title: "Baked with Love", body: "Lucie stirs love into every batch. You can taste the difference when bread is made with intention." },
 ];
 
 const stats = [
-  { n: "72h", label: "Fermentation" },
+  { n: "10+", label: "Year old starter" },
   { n: "4", label: "Ingredients" },
   { n: "100%", label: "Handmade" },
   { n: "∞", label: "Love" },
@@ -69,7 +69,7 @@ export default function Home() {
           </h1>
           <p className="font-serif text-2xl md:text-3xl italic font-light text-white/85 mb-6">Baked with warmth &amp; true love.</p>
           <p className="font-sans text-white/75 text-base leading-relaxed mb-10 max-w-md">
-            Real sourdough, 72-hour cold fermentation, stone-baked in small batches by Lucie — made fresh for your table every Thursday from Ramsgate.
+            Real sourdough, stone-baked in small batches by Lucie — made fresh for your table every week from Ramsgate, using a starter she has tended for over a decade.
           </p>
           <div className="flex items-center gap-4 flex-wrap">
             <Link
@@ -142,7 +142,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-3">
                 <div className="relative aspect-square rounded-2xl overflow-hidden">
-                  <Image src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&q=80" alt="Fresh sourdough" fill className="object-cover object-center" />
+                  <Image src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&q=80" alt="Focaccia" fill className="object-cover object-center" />
                 </div>
                 <div className="relative aspect-square rounded-2xl overflow-hidden">
                   <Image src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80" alt="Sourdough loaf" fill className="object-cover" />
@@ -158,13 +158,13 @@ export default function Home() {
               </h2>
               <div className="space-y-4 font-sans text-[#4A2E1A] leading-relaxed mb-8">
                 <p>
-                  Every Thursday, Lucie&apos;s kitchen in Ramsgate fills with the scent of freshly baked sourdough. What started as baking for family and friends has become something much bigger — a small community of people who love real bread.
+                  Every week, Lucie&apos;s kitchen in Ramsgate fills with the scent of freshly baked sourdough. What started as baking for family and friends has become a mission — to inspire families to eat real bread, learn to bake it themselves, and share that gift with others.
                 </p>
                 <p>
-                  We use only the finest ingredients and time-honoured techniques. Each loaf is shaped by hand, each batch made with intention. This is slow baking. This is bread with soul.
+                  Paying it forward is at the heart of everything. Bread is one of life&apos;s most fundamental foods. Lucie believes everyone deserves access to the real thing — made with love, shared with care, one loaf at a time.
                 </p>
               </div>
-              <blockquote className="border-l-2 border-[#C4852A] pl-5 font-serif text-xl italic text-[#2C1A0E] mb-8">
+              <blockquote className="border-l-2 border-[#4A6741] pl-5 font-serif text-xl italic text-[#2C1A0E] mb-8">
                 &ldquo;It brings me an enormous joy — it&apos;s therapy, it&apos;s true love.&rdquo;
                 <footer className="font-sans text-sm not-italic text-[#8B6347] mt-2">— Lucie Brissenden, Owner &amp; Baker</footer>
               </blockquote>
@@ -186,7 +186,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── LUCIE FRAMES ─────────────────────────────────────────────────────── */}
+      {/* ── FROM THE KITCHEN ─────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-14 items-center">
           <div>
@@ -195,7 +195,7 @@ export default function Home() {
               &ldquo;Eternally grateful<br />for being able to<br />do what I love.&rdquo;
             </h2>
             <p className="font-sans text-[#8B6347] leading-relaxed mb-8">
-              Pre-orders open Monday each week. Collection Thursday from Ramsgate. Every loaf baked fresh the morning of collection — never a day old.
+              Orders close Wednesday at 7pm. Collection or delivery details are shared on Thursday. Every loaf baked fresh — never a day old.
             </p>
             <a
               href="https://www.instagram.com/mamas_sourdough_"
@@ -210,7 +210,7 @@ export default function Home() {
             {[
               { src: "https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=500&q=80", alt: "Hands shaping dough" },
               { src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80", alt: "Sourdough loaf" },
-              { src: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=500&q=80", alt: "Cookies" },
+              { src: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=80", alt: "Focaccia" },
               { src: "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=500&q=80", alt: "Fresh baked bread" },
             ].map(({ src, alt }) => (
               <div key={src} className="relative aspect-square rounded-xl overflow-hidden shadow-sm">
@@ -249,12 +249,12 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-[#2C1A0E]/75" />
         <div className="relative text-center max-w-2xl mx-auto px-6">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#D4A96A] mb-4">— Pre-orders open Monday</p>
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#D4A96A] mb-4">— Orders close Wednesday at 7pm</p>
           <h2 className="font-sans text-6xl font-bold tracking-tight text-white mb-6">
             Ready for the best<br />bread of your week?
           </h2>
           <p className="font-sans text-white/70 mb-10">
-            Collection every Thursday from Ramsgate · Order by Tuesday
+            Collection or delivery details shared on Thursday · Payment details sent on order placement
           </p>
           <Link
             href="/order"

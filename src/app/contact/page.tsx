@@ -34,21 +34,14 @@ export default function ContactPage() {
               </a>
             </div>
 
-            {/* Collection address */}
+            {/* Location */}
             <div>
-              <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#C4852A] mb-2">Collection Address</p>
+              <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#C4852A] mb-2">Location</p>
               <address className="not-italic font-serif text-2xl italic text-[#2C1A0E] leading-relaxed">
-                46 Stirling Way<br />
-                CT12 6NE, Ramsgate
+                Stirling Way<br />
+                Ramsgate, Kent
               </address>
-              <a
-                href="https://maps.google.com/?q=46+Stirling+Way,+Ramsgate,+CT12+6NE"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-3 font-sans text-sm text-[#8B6347] border-b border-[#8B6347] pb-0.5 hover:text-[#C4852A] hover:border-[#C4852A] transition-colors"
-              >
-                Open in Maps →
-              </a>
+              <p className="font-sans text-sm text-[#8B6347] mt-2">Full address provided on order placement.</p>
             </div>
 
             {/* Social links with icon badges */}
@@ -69,7 +62,7 @@ export default function ContactPage() {
                   </div>
                 </a>
 
-                <a href="https://www.facebook.com/mamas_sourdough_" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.facebook.com/mamassourdough" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-4 group">
                   <span className="w-12 h-12 rounded-full bg-[#1877F2] flex items-center justify-center shrink-0 group-hover:opacity-85 transition-opacity shadow-sm">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
@@ -78,7 +71,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <p className="font-sans text-base font-medium text-[#2C1A0E] group-hover:text-[#C4852A] transition-colors">Facebook</p>
-                    <p className="font-mono text-xs text-[#8B6347]">mamas_sourdough_</p>
+                    <p className="font-mono text-xs text-[#8B6347]">mamassourdough</p>
                   </div>
                 </a>
 
@@ -102,8 +95,7 @@ export default function ContactPage() {
             <div className="bg-[#F2EAE0] rounded-2xl p-6">
               <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#C4852A] mb-3">Ordering</p>
               <p className="font-sans text-base text-[#4A2E1A] leading-relaxed">
-                Pre-orders open Monday each week. Tell us what you&apos;d like — we&apos;ll confirm by Tuesday. Collection{" "}
-                <span className="font-semibold">Thursday morning</span> from Ramsgate.
+                Orders close <span className="font-semibold">Wednesday at 7pm</span> each week. Payment details and collection or delivery time will be confirmed on order placement.
               </p>
             </div>
           </div>
@@ -156,7 +148,7 @@ export default function ContactPage() {
                 Send Message
               </button>
               <p className="font-sans text-sm text-[#8B6347] leading-5 text-center">
-                We usually reply within a few hours. Payment on collection.
+                Payment details confirmed on order placement.
               </p>
             </form>
           )}

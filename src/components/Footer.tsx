@@ -10,11 +10,11 @@ export default function Footer() {
           <p className="font-sans text-2xl font-semibold tracking-tight text-[#FAF6F0] leading-none">mama&apos;s sourdough</p>
           <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#A07850] mt-1 mb-5">delicious homemade bakes</p>
           <p className="font-sans text-base leading-7 text-[#A07850]">
-            46 Stirling Way, CT12 6NE, Ramsgate<br />
+            Stirling Way, Ramsgate, Kent<br />
             <a href="tel:07891899367" className="hover:text-[#FAF6F0] transition-colors">07891 899367</a>
           </p>
           <p className="font-sans text-sm text-[#6B4A2A] mt-4 leading-relaxed">
-            Pre-orders open Monday each week.<br />Collection Thursday from Ramsgate.
+            Orders close Wednesday at 7pm.<br />Collection/delivery details confirmed on order placement.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export default function Footer() {
             <span className="font-sans text-base text-[#A07850] group-hover:text-[#FAF6F0] transition-colors">@mamas_sourdough_</span>
           </a>
 
-          <a href="https://www.facebook.com/mamas_sourdough" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.facebook.com/mamassourdough" target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-3 group">
             <span className="w-10 h-10 rounded-full bg-[#1877F2] flex items-center justify-center shrink-0 group-hover:opacity-90 transition-opacity">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="white">

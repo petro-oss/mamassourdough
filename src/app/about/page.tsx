@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const healthBenefits = [
-  { icon: "🌿", title: "Easier to digest", body: "Slow wild fermentation breaks down gluten proteins and phytic acid, making sourdough far gentler on your digestive system than any commercial loaf." },
+  { icon: "🌿", title: "Easier to digest", body: "Wild fermentation breaks down gluten proteins and phytic acid, making sourdough far gentler on your digestive system than any commercial loaf." },
   { icon: "📉", title: "Lower glycemic index", body: "The natural acids produced during fermentation slow starch digestion — giving you steadier energy, no sugar spike, no afternoon crash." },
   { icon: "🦠", title: "Lactic acid bacteria", body: "Wild fermentation introduces beneficial lactic acid bacteria linked to a healthier gut microbiome and reduced inflammation throughout the body." },
   { icon: "⚡", title: "Unlocked minerals", body: "Fermentation neutralises phytic acid — an anti-nutrient in grains — releasing iron, zinc, magnesium and B vitamins your body can actually absorb." },
@@ -24,7 +24,7 @@ export default function AboutPage() {
         </h1>
       </section>
 
-      {/* ── LOVE LETTER + HANDS PHOTO ──────────────────────────────────────── */}
+      {/* ── LOVE LETTER + SOURDOUGH PHOTO ──────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 pb-20">
         <div className="grid md:grid-cols-2 gap-6 rounded-3xl overflow-hidden shadow-sm">
 
@@ -44,15 +44,15 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Hands preparing sourdough */}
+          {/* Sourdough bread photo */}
           <div className="relative min-h-[400px]">
             <Image
-              src="https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=900&q=80"
-              alt="Hands shaping sourdough dough"
+              src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=80"
+              alt="Freshly baked sourdough loaf"
               fill
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-[#2C1A0E]/20" />
+            <div className="absolute inset-0 bg-[#2C1A0E]/10" />
           </div>
         </div>
       </section>
@@ -67,22 +67,22 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 font-sans text-[#4A2E1A] leading-relaxed mb-8">
               <p>
-                Mama&apos;s Sourdough started in a small kitchen in Ramsgate, with a lot of flour on the counter and a starter that refused to be ignored. What began as baking for family became something much bigger.
+                Mama&apos;s Sourdough started in a small kitchen in Ramsgate, with a lot of flour on the counter and a starter that has been alive and loved for over a decade. What began as baking for family became something much bigger.
               </p>
               <p>
-                Lucie is passionate about making a difference — inspiring families to choose real, nourishing food over processed alternatives, and building a community rooted in nature, simplicity, and love.
+                Lucie&apos;s mission is to make a real difference — inspiring families to choose real, nourishing food over processed alternatives, teaching people to bake sourdough themselves, and building a community rooted in love, nature, and the simple act of sharing bread.
               </p>
               <p>
-                Every loaf is still made by hand, still fermented slowly, and still baked the old way. Simple ingredients. No shortcuts. Baked with love.
+                Paying it forward is at the heart of everything she does. Every loaf made with intention. Every recipe shared freely. Every customer treated like family.
               </p>
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-4">
             {[
-              { n: "01", v: "Honesty", b: "What you see is what you get — no hidden ingredients, no shortcuts, no compromise." },
-              { n: "02", v: "Patience", b: "Great bread can't be rushed. Ours ferments slowly — the way nature intended." },
-              { n: "03", v: "Community", b: "We bake to nourish our neighbours and inspire families to eat real food, together." },
+              { n: "01", v: "Community", b: "Bread brings people together. Building community — teaching families to bake, sharing knowledge, paying it forward — is Lucie's deepest why." },
+              { n: "02", v: "Love & Giving", b: "Every loaf is baked with genuine love and given freely from the heart. It is not just bread — it is care, connection, and joy made tangible." },
+              { n: "03", v: "Patience", b: "Great bread cannot be rushed. Lucie's starter has been alive for over 10 years — it is tended, fed, and listened to, not hurried." },
             ].map(({ n, v, b }) => (
               <div key={n} className="bg-white rounded-2xl p-6 shadow-sm border-t-2 border-[#4A6741]">
                 <p className="font-mono text-[10px] tracking-[0.25em] text-[#4A6741] mb-2">{n}</p>
@@ -130,7 +130,7 @@ export default function AboutPage() {
             <Image src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700&q=80" alt="Sourdough loaf" fill className="object-cover hover:scale-105 transition-transform duration-500" />
           </div>
           <div className="relative aspect-square rounded-2xl overflow-hidden">
-            <Image src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=700&q=80" alt="Chocolate chip cookies" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            <Image src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=700&q=80" alt="Focaccia bread" fill className="object-cover hover:scale-105 transition-transform duration-500" />
           </div>
         </div>
       </section>
@@ -161,7 +161,7 @@ export default function AboutPage() {
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="bg-[#2C1A0E] rounded-3xl p-12 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
-            <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#A07850] mb-2">Saturday Farmers Market · Ramsgate</p>
+            <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#A07850] mb-2">Ramsgate, Kent</p>
             <p className="font-serif text-4xl italic text-[#FAF6F0]">Come find us. Say hello.</p>
           </div>
           <Link
