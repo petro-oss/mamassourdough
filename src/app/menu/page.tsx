@@ -12,7 +12,7 @@ export const menuItems = [
   {
     id: "country-white-wholemeal",
     name: "Country White & Wholemeal",
-    desc: "Our classic sourdough loaves — open crumb, crackling crust.",
+    desc: "Our classic sourdough loaves, open crumb, crackling crust.",
     price: 5.00,
     priceLabel: "£5.00",
     category: "Loaves",
@@ -20,7 +20,7 @@ export const menuItems = [
   {
     id: "seeded-rye-tin",
     name: "Seeded, Rye & Soft White Tin Loaves",
-    desc: "Seeded rye or soft white tin — hearty, flavourful, perfect for sandwiches.",
+    desc: "Seeded rye or soft white tin, hearty, flavourful, perfect for sandwiches.",
     price: 6.00,
     priceLabel: "£6.00",
     category: "Loaves",
@@ -28,7 +28,7 @@ export const menuItems = [
   // FOCACCIA
   {
     id: "focaccia-plain",
-    name: "Focaccia — Plain",
+    name: "Focaccia: Plain",
     desc: "Simple, pillowy focaccia drizzled with olive oil and sea salt.",
     price: 5.00,
     priceLabel: "£5.00",
@@ -36,7 +36,7 @@ export const menuItems = [
   },
   {
     id: "focaccia-sundried",
-    name: "Focaccia — Sundried Tomato & Basil",
+    name: "Focaccia: Sundried Tomato & Basil",
     desc: "Bright, herby focaccia topped with sundried tomatoes and fresh basil.",
     price: 6.00,
     priceLabel: "£6.00",
@@ -44,7 +44,7 @@ export const menuItems = [
   },
   {
     id: "focaccia-garlic-onion",
-    name: "Focaccia — Garlic & Caramelised Onion",
+    name: "Focaccia: Garlic & Caramelised Onion",
     desc: "Sweet caramelised onion and roasted garlic on pillowy sourdough focaccia.",
     price: 6.00,
     priceLabel: "£6.00",
@@ -52,7 +52,7 @@ export const menuItems = [
   },
   {
     id: "focaccia-rosemary",
-    name: "Focaccia — Rosemary & Garlic",
+    name: "Focaccia: Rosemary & Garlic",
     desc: "Fragrant rosemary and garlic baked into a golden, airy focaccia.",
     price: 6.00,
     priceLabel: "£6.00",
@@ -60,7 +60,7 @@ export const menuItems = [
   },
   {
     id: "focaccia-olive-feta",
-    name: "Focaccia — Olive & Feta",
+    name: "Focaccia: Olive & Feta",
     desc: "Salty olives and creamy feta baked into a beautifully flavoured focaccia.",
     price: 6.00,
     priceLabel: "£6.00",
@@ -78,7 +78,7 @@ export const menuItems = [
   {
     id: "banana-loaf",
     name: "Banana Loaf",
-    desc: "Moist, deeply flavoured banana loaf — soft crumb, golden top.",
+    desc: "Moist, deeply flavoured banana loaf, soft crumb, golden top.",
     price: 6.00,
     priceLabel: "£6.00",
     category: "Sweet Bakes",
@@ -98,7 +98,7 @@ export default function MenuPage() {
         <span className="absolute -top-2 left-1/2 text-xl select-none pointer-events-none opacity-50" style={{ color: "#e8a0b4" }}>✿</span>
 
         <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#7A5C42] mb-3">
-          — This week&apos;s bakes
+          This week&apos;s bakes
         </p>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <h1 className="font-serif text-6xl italic font-light text-[#1C1009]">This Week&apos;s Menu</h1>

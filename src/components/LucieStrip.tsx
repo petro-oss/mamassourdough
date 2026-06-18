@@ -13,11 +13,11 @@ export default function LucieStrip() {
     <section className="max-w-6xl mx-auto px-6 py-16">
       <div className="flex items-end justify-between mb-8 gap-4">
         <div>
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#7A5C42] mb-2">— From the kitchen</p>
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#7A5C42] mb-2">From the kitchen</p>
           <h2 className="font-serif text-3xl italic font-light text-[#1C1009]">
             &ldquo;Eternally grateful for being able to do what I love.&rdquo; 💙
           </h2>
-          <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#7A5C42] mt-2">— Lucie</p>
+          <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#7A5C42] mt-2">Lucie</p>
         </div>
         <a
           href="https://www.instagram.com/mamas_sourdough_"

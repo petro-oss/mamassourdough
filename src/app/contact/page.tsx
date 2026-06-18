@@ -17,7 +17,7 @@ export default function ContactPage() {
 
         {/* Header */}
         <div className="mb-14">
-          <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-3">— We&apos;d love to hear from you</p>
+          <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-3">We&apos;d love to hear from you</p>
           <h1 className="font-serif text-6xl italic font-light text-[#2C1A0E]">Get in Touch</h1>
         </div>
 

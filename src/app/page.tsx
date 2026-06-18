@@ -26,10 +26,51 @@ const bestSellers = [
 ];
 
 const features = [
-  { icon: "🤝", title: "Built on Community", body: "Lucie bakes to bring people together — teaching families to bake, sharing recipes, paying it forward." },
-  { icon: "🌾", title: "Real Ingredients", body: "Just flour, water, salt, and a living starter over 10 years old. No additives, no preservatives." },
-  { icon: "🤲", title: "Handmade Always", body: "Every loaf shaped by hand — no machines, no shortcuts. The way bread has always been made." },
-  { icon: "🫶🏻", title: "Baked with Love", body: "Lucie stirs love into every batch. You can taste the difference when bread is made with intention." },
+  {
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="13" cy="11" r="4.5"/>
+        <path d="M4 30c0-5 4-9 9-9s9 4 9 9"/>
+        <circle cx="26" cy="10" r="3.5"/>
+        <path d="M26 20c4 0 7 3 7 7"/>
+      </svg>
+    ),
+    title: "Built on Community",
+    body: "Lucie bakes to bring people together, teaching families to bake, sharing recipes, paying it forward.",
+  },
+  {
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="18" y1="32" x2="18" y2="4"/>
+        <path d="M18 25c-5-2.5-7-7-4.5-10 1.5 2.5 4 6 4.5 10z"/>
+        <path d="M18 25c5-2.5 7-7 4.5-10-1.5 2.5-4 6-4.5 10z"/>
+        <path d="M18 17c-5-2.5-7-7-4.5-10 1.5 2.5 4 6 4.5 10z"/>
+        <path d="M18 17c5-2.5 7-7 4.5-10-1.5 2.5-4 6-4.5 10z"/>
+      </svg>
+    ),
+    title: "Real Ingredients",
+    body: "Just flour, water, salt, and a living starter over 10 years old. No additives, no preservatives.",
+  },
+  {
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 30V16a3 3 0 0 1 6 0v8"/>
+        <path d="M18 24a3 3 0 0 1 6 0v2"/>
+        <path d="M24 26a3 3 0 0 1 6 0v2c0 4-3 6-7 6h-3c-5 0-8-3-8-7v-4a3 3 0 0 1 6 0"/>
+      </svg>
+    ),
+    title: "Handmade Always",
+    body: "Every loaf shaped by hand. No machines, no shortcuts. The way bread has always been made.",
+  },
+  {
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 30s-13-8-13-18a8 8 0 0 1 13-6.2A8 8 0 0 1 31 12c0 10-13 18-13 18z"/>
+      </svg>
+    ),
+    title: "Baked with Love",
+    body: "Lucie stirs love into every batch. You can taste the difference when bread is made with intention.",
+  },
 ];
 
 const stats = [
@@ -63,13 +104,13 @@ export default function Home() {
 
         {/* Hero text */}
         <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-20 max-w-4xl">
-          <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/70 mb-4">— delicious homemade bakes</p>
+          <p className="font-mono text-xs tracking-[0.3em] uppercase text-white/70 mb-4">delicious homemade bakes</p>
           <h1 className="font-sans text-6xl md:text-8xl font-bold tracking-tight text-white leading-[1.0] mb-3">
             mama&apos;s<br />sourdough
           </h1>
           <p className="font-serif text-2xl md:text-3xl italic font-light text-white/85 mb-6">Baked with warmth &amp; true love.</p>
           <p className="font-sans text-white/75 text-base leading-relaxed mb-10 max-w-md">
-            Real sourdough, stone-baked in small batches by Lucie — made fresh for your table every week from Ramsgate, using a starter she has tended for over a decade.
+            Real sourdough, stone-baked in small batches by Lucie, made fresh for your table every week from Ramsgate using a starter she has tended for over a decade.
           </p>
           <div className="flex items-center gap-4 flex-wrap">
             <Link
@@ -98,7 +139,7 @@ export default function Home() {
       {/* ── BEST SELLERS ─────────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 pt-8 pb-20">
         <div className="text-center mb-14">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-3">— Featured Favourites</p>
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-3">Featured Favourites</p>
           <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E]">This Week&apos;s Bakes</h2>
           <p className="font-sans text-[#8B6347] mt-3 max-w-md mx-auto">The bakes our customers come back for every single week.</p>
         </div>
@@ -152,21 +193,21 @@ export default function Home() {
 
             {/* Text */}
             <div>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">— About Mama&apos;s</p>
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">About Mama&apos;s</p>
               <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E] leading-tight mb-6">
                 Baking happiness<br />every single week.
               </h2>
               <div className="space-y-4 font-sans text-[#4A2E1A] leading-relaxed mb-8">
                 <p>
-                  Every week, Lucie&apos;s kitchen in Ramsgate fills with the scent of freshly baked sourdough. What started as baking for family and friends has become a mission — to inspire families to eat real bread, learn to bake it themselves, and share that gift with others.
+                  Every week, Lucie&apos;s kitchen in Ramsgate fills with the scent of freshly baked sourdough. What started as baking for family and friends has become a mission: to inspire families to eat real bread, learn to bake it themselves, and share that gift with others.
                 </p>
                 <p>
-                  Paying it forward is at the heart of everything. Bread is one of life&apos;s most fundamental foods. Lucie believes everyone deserves access to the real thing — made with love, shared with care, one loaf at a time.
+                  Paying it forward is at the heart of everything. Bread is one of life&apos;s most fundamental foods. Lucie believes everyone deserves access to the real thing, made with love, shared with care, one loaf at a time.
                 </p>
               </div>
               <blockquote className="border-l-2 border-[#4A6741] pl-5 font-serif text-xl italic text-[#2C1A0E] mb-8">
-                &ldquo;It brings me an enormous joy — it&apos;s therapy, it&apos;s true love.&rdquo;
-                <footer className="font-sans text-sm not-italic text-[#8B6347] mt-2">— Lucie Brissenden, Owner &amp; Baker</footer>
+                &ldquo;It brings me an enormous joy. It&apos;s therapy, it&apos;s true love.&rdquo;
+                <footer className="font-sans text-sm not-italic text-[#8B6347] mt-2">Lucie Brissenden, Owner &amp; Baker</footer>
               </blockquote>
               <Link href="/about" className="inline-block font-sans text-sm font-medium bg-[#2C1A0E] text-white px-8 py-3 rounded-full hover:bg-[#4A2E1A] transition-colors">
                 Our Story →
@@ -190,12 +231,12 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-14 items-center">
           <div>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">— From Lucie&apos;s kitchen</p>
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">From Lucie&apos;s kitchen</p>
             <h2 className="font-serif text-4xl italic font-light text-[#2C1A0E] leading-tight mb-8">
               &ldquo;Eternally grateful<br />for being able to<br />do what I love.&rdquo;
             </h2>
             <p className="font-sans text-[#8B6347] leading-relaxed mb-8">
-              Orders close Wednesday at 7pm. Collection or delivery details are shared on Thursday. Every loaf baked fresh — never a day old.
+              Orders close Wednesday at 7pm. Collection or delivery details are shared on Thursday. Every loaf baked fresh, never a day old.
             </p>
             <a
               href="https://www.instagram.com/mamas_sourdough_"
@@ -230,7 +271,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-5">
             {features.map(({ icon, title, body }) => (
               <div key={title} className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl mb-4">{icon}</div>
+                <div className="mb-5">{icon}</div>
                 <h3 className="font-serif text-lg italic text-[#2C1A0E] mb-2">{title}</h3>
                 <p className="font-sans text-sm text-[#8B6347] leading-relaxed">{body}</p>
               </div>
@@ -249,7 +290,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-[#2C1A0E]/75" />
         <div className="relative text-center max-w-2xl mx-auto px-6">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#D4A96A] mb-4">— Orders close Wednesday at 7pm</p>
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#D4A96A] mb-4">Orders close Wednesday at 7pm</p>
           <h2 className="font-sans text-6xl font-bold tracking-tight text-white mb-6">
             Ready for the best<br />bread of your week?
           </h2>

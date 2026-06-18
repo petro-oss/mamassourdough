@@ -46,7 +46,7 @@ export default function OrderPage() {
       order_summary: orderSummary,
       order_total: `£${total.toFixed(2)}`,
       order_notes: notes,
-      recurring_order: recurring ? "Yes — weekly standing order" : "No",
+      recurring_order: recurring ? "Yes, weekly standing order" : "No",
       order_items: orderLines.map((item) => ({
         name: item.name,
         qty: quantities[item.id],
@@ -74,7 +74,7 @@ export default function OrderPage() {
   if (submitted) {
     return (
       <div className="max-w-2xl mx-auto px-6 py-24 text-center">
-        <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-6">— Order received</p>
+        <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-6">Order received</p>
         <h1 className="font-serif text-5xl italic font-light text-[#2C1A0E] mb-6">
           Thank you, {name.split(" ")[0]}! 🫶🏻
         </h1>
@@ -101,7 +101,7 @@ export default function OrderPage() {
         <div>
           <p className="font-sans font-semibold text-[#2C1A0E] mb-1">Orders are currently on hold</p>
           <p className="font-sans text-sm text-[#4A2E1A] leading-relaxed">
-            Lucie is on holiday and will be back on <strong>7 July</strong>. Business resumes as normal from that date. You&apos;re welcome to browse the menu — orders will reopen on Monday 7 July. Thank you for your patience 🫶🏻
+            Lucie is on holiday and will be back on <strong>7 July</strong>. Business resumes as normal from that date. You&apos;re welcome to browse the menu. Orders will reopen on Monday 7 July. Thank you for your patience 🫶🏻
           </p>
         </div>
       </div>
@@ -109,7 +109,7 @@ export default function OrderPage() {
       {/* Header */}
       <div className="mb-12">
         <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-3">
-          — Orders close Wednesday 7pm · Collection/Delivery TBA
+          Orders close Wednesday 7pm · Collection/Delivery TBA
         </p>
         <h1 className="font-serif text-6xl italic font-light text-[#2C1A0E]">Place Your Order</h1>
       </div>
@@ -176,7 +176,7 @@ export default function OrderPage() {
               </div>
               <div className="px-6 py-4 min-h-[80px]">
                 {!hasItems ? (
-                  <p className="font-sans text-base text-[#C8A882] italic">No items yet — add some above.</p>
+                  <p className="font-sans text-base text-[#C8A882] italic">No items yet. Add some above.</p>
                 ) : (
                   <div className="divide-y divide-[#EAE0D5]">
                     {orderLines.map((item) => (
@@ -248,7 +248,7 @@ export default function OrderPage() {
                 </div>
                 <div>
                   <p className="font-sans text-sm font-medium text-[#2C1A0E] leading-snug">Set up a weekly standing order</p>
-                  <p className="font-sans text-xs text-[#8B6347] mt-0.5 leading-relaxed">Same order every week — we&apos;ll reach out to confirm the details.</p>
+                  <p className="font-sans text-xs text-[#8B6347] mt-0.5 leading-relaxed">Same order every week. We&apos;ll reach out to confirm the details.</p>
                 </div>
               </label>
             </div>
