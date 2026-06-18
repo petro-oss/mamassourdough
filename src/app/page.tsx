@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { StatsRow } from "@/components/StatsRow";
 
 const bestSellers = [
   {
@@ -28,7 +30,7 @@ const bestSellers = [
 const features = [
   {
     icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="13" cy="11" r="4.5"/>
         <path d="M4 30c0-5 4-9 9-9s9 4 9 9"/>
         <circle cx="26" cy="10" r="3.5"/>
@@ -40,7 +42,7 @@ const features = [
   },
   {
     icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="18" y1="32" x2="18" y2="4"/>
         <path d="M18 25c-5-2.5-7-7-4.5-10 1.5 2.5 4 6 4.5 10z"/>
         <path d="M18 25c5-2.5 7-7 4.5-10-1.5 2.5-4 6-4.5 10z"/>
@@ -53,7 +55,7 @@ const features = [
   },
   {
     icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 30V16a3 3 0 0 1 6 0v8"/>
         <path d="M18 24a3 3 0 0 1 6 0v2"/>
         <path d="M24 26a3 3 0 0 1 6 0v2c0 4-3 6-7 6h-3c-5 0-8-3-8-7v-4a3 3 0 0 1 6 0"/>
@@ -64,7 +66,7 @@ const features = [
   },
   {
     icon: (
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M18 30s-13-8-13-18a8 8 0 0 1 13-6.2A8 8 0 0 1 31 12c0 10-13 18-13 18z"/>
       </svg>
     ),
@@ -73,12 +75,6 @@ const features = [
   },
 ];
 
-const stats = [
-  { n: "10+", label: "Year old starter" },
-  { n: "4", label: "Ingredients" },
-  { n: "100%", label: "Handmade" },
-  { n: "∞", label: "Love" },
-];
 
 export default function Home() {
   return (
@@ -145,8 +141,9 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {bestSellers.map(({ src, alt, name, desc, price }) => (
-            <div key={name} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow group">
+          {bestSellers.map(({ src, alt, name, desc, price }, i) => (
+            <ScrollReveal key={name} delay={i * 100}>
+            <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow group h-full">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image src={src} alt={alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
@@ -161,6 +158,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -196,15 +194,7 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-4 gap-6 mt-16 pt-12 border-t border-[#D4BFA8]">
-            {stats.map(({ n, label }) => (
-              <div key={label} className="text-center">
-                <p className="font-serif text-4xl md:text-5xl italic text-[#2C1A0E]">{n}</p>
-                <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#8B6347] mt-1">{label}</p>
-              </div>
-            ))}
-          </div>
+          <StatsRow />
         </div>
       </section>
 
@@ -233,13 +223,17 @@ export default function Home() {
           <div className="text-center mb-14">
             <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E]">Why people return every week</h2>
           </div>
-          <div className="grid md:grid-cols-4 gap-5">
-            {features.map(({ icon, title, body }) => (
-              <div key={title} className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow">
-                <div className="mb-5">{icon}</div>
-                <h3 className="font-serif text-lg italic text-[#2C1A0E] mb-2">{title}</h3>
-                <p className="font-sans text-sm text-[#8B6347] leading-relaxed">{body}</p>
-              </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            {features.map(({ icon, title, body }, i) => (
+              <ScrollReveal key={title} delay={i * 80}>
+                <div className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 h-full">
+                  <div className="w-16 h-16 rounded-full bg-[#C4852A] flex items-center justify-center mb-5 mx-auto">
+                    {icon}
+                  </div>
+                  <h3 className="font-serif text-lg italic text-[#2C1A0E] mb-2">{title}</h3>
+                  <p className="font-sans text-sm text-[#8B6347] leading-relaxed">{body}</p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

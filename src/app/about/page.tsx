@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { HealthBenefitsGrid } from "@/components/HealthBenefitsGrid";
 
 const healthBenefits = [
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M7 23C7 23 7 9 21 5c4 4 3 14-7 17"/>
         <line x1="7" y1="23" x2="15" y2="14"/>
       </svg>
@@ -14,7 +16,7 @@ const healthBenefits = [
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="3,20 8,13 13,17 18,9 24,13"/>
         <line x1="3" y1="25" x2="25" y2="25"/>
       </svg>
@@ -24,7 +26,7 @@ const healthBenefits = [
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="14" cy="14" r="6"/>
         <circle cx="14" cy="5" r="2"/>
         <circle cx="22" cy="9" r="2"/>
@@ -39,7 +41,7 @@ const healthBenefits = [
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="14,3 22,9 22,19 14,25 6,19 6,9"/>
         <line x1="6" y1="12" x2="22" y2="12"/>
       </svg>
@@ -49,7 +51,7 @@ const healthBenefits = [
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="14" cy="14" r="10"/>
         <polyline points="9,14 12,17 19,11"/>
       </svg>
@@ -59,7 +61,7 @@ const healthBenefits = [
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="14" cy="14" r="10"/>
         <ellipse cx="14" cy="14" rx="5" ry="10"/>
         <line x1="4" y1="14" x2="24" y2="14"/>
@@ -70,7 +72,7 @@ const healthBenefits = [
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="10" cy="10" r="4"/>
         <path d="M2 26c0-4.4 3.5-8 8-8s8 3.6 8 8"/>
         <circle cx="21" cy="9" r="3"/>
@@ -82,7 +84,7 @@ const healthBenefits = [
   },
   {
     icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2C1A0E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20 4C26 8 24 20 12 24L8 28"/>
         <path d="M12 24C8 22 4 16 6 10C8 5 16 3 20 4Z"/>
         <line x1="12" y1="24" x2="20" y2="10"/>
@@ -158,17 +160,21 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { n: "01", v: "Community", b: "Bread brings people together. Building community, teaching families to bake, sharing knowledge and paying it forward, is Lucie's deepest why." },
               { n: "02", v: "Love & Giving", b: "Every loaf is baked with genuine love and given freely from the heart. It is not just bread. It is care, connection, and joy made tangible." },
               { n: "03", v: "Patience", b: "Great bread cannot be rushed. Lucie's starter has been alive for over 10 years, tended, fed, and listened to, not hurried." },
-            ].map(({ n, v, b }) => (
-              <div key={n} className="bg-white rounded-2xl p-6 shadow-sm border-t-2 border-[#4A6741]">
-                <p className="font-mono text-[10px] tracking-[0.25em] text-[#4A6741] mb-2">{n}</p>
-                <h3 className="font-serif text-lg italic text-[#2C1A0E] mb-2">{v}</h3>
-                <p className="font-sans text-xs text-[#8B6347] leading-relaxed">{b}</p>
-              </div>
+            ].map(({ n, v, b }, i) => (
+              <ScrollReveal key={n} delay={i * 100}>
+                <div className="bg-white rounded-2xl p-6 shadow-sm border-t-2 border-[#4A6741] h-full">
+                  <div className="w-9 h-9 rounded-full bg-[#C4852A] flex items-center justify-center mb-3">
+                    <span className="font-mono text-[9px] text-white font-bold tracking-wider">{n}</span>
+                  </div>
+                  <h3 className="font-serif text-lg italic text-[#2C1A0E] mb-2">{v}</h3>
+                  <p className="font-sans text-xs text-[#8B6347] leading-relaxed">{b}</p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -225,15 +231,7 @@ export default function AboutPage() {
               Unlike commercial bread, real sourdough is slowly fermented using wild yeast and bacteria. That process changes everything, from how it digests to how it nourishes your family.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {healthBenefits.map(({ icon, title, body }) => (
-              <div key={title} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border-b-2 border-[#4A6741]/30">
-                <div className="mb-4">{icon}</div>
-                <h3 className="font-serif text-lg italic text-[#2C1A0E] mb-2">{title}</h3>
-                <p className="font-sans text-sm text-[#8B6347] leading-relaxed">{body}</p>
-              </div>
-            ))}
-          </div>
+          <HealthBenefitsGrid benefits={healthBenefits} />
         </div>
       </section>
 
