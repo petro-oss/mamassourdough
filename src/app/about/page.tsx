@@ -47,7 +47,7 @@ export default function AboutPage() {
           {/* Sourdough bread photo */}
           <div className="relative min-h-[400px]">
             <Image
-              src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=900&q=80"
+              src="/images/sourdough-scored.jpg"
               alt="Freshly baked sourdough loaf"
               fill
               className="object-cover object-center"
@@ -127,10 +127,10 @@ export default function AboutPage() {
       <section className="max-w-6xl mx-auto px-6 pb-20">
         <div className="grid grid-cols-2 gap-4">
           <div className="relative aspect-square rounded-2xl overflow-hidden">
-            <Image src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700&q=80" alt="Sourdough loaf" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            <Image src="/images/sourdough-linen.jpg" alt="Sourdough loaf" fill className="object-cover hover:scale-105 transition-transform duration-500" />
           </div>
           <div className="relative aspect-square rounded-2xl overflow-hidden">
-            <Image src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=700&q=80" alt="Hands shaping sourdough dough" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            <Image src="/images/seeded-loaf.jpg" alt="Seeded sourdough loaf" fill className="object-cover hover:scale-105 transition-transform duration-500" />
           </div>
         </div>
       </section>

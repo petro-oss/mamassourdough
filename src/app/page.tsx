@@ -3,21 +3,21 @@ import Image from "next/image";
 
 const bestSellers = [
   {
-    src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80",
+    src: "/images/sourdough-scored.jpg",
     alt: "Sourdough country loaf",
     name: "Country Sourdough",
     desc: "Stone-baked with a golden crackling crust, open crumb, and deep flavour that only wild fermentation can deliver.",
     price: "£5.00",
   },
   {
-    src: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80",
+    src: "/images/cookies.jpg",
     alt: "Chocolate chip cookies",
     name: "Choc Chip Cookies",
     desc: "Big, chewy, golden-edged sourdough cookies loaded with chocolate. Baked fresh every week.",
     price: "£2.00 each",
   },
   {
-    src: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600&q=80",
+    src: "/images/sourdough-linen.jpg",
     alt: "Banana loaf",
     name: "Banana Loaf",
     desc: "Moist, deeply flavoured banana loaf with a soft crumb and golden top. A firm weekly favourite.",
@@ -46,7 +46,7 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────────────────────────────────────── */}
       <section className="relative h-[92vh] min-h-[600px] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1600&q=85"
+          src="/images/sourdough-marble.jpg"
           alt="Fresh sourdough loaves"
           fill
           priority
@@ -138,14 +138,14 @@ export default function Home() {
             {/* Photos collage */}
             <div className="relative grid grid-cols-2 gap-3">
               <div className="relative rounded-2xl overflow-hidden col-span-1 mt-10" style={{aspectRatio: "3/4"}}>
-                <Image src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600&q=80" alt="Banana loaf" fill className="object-cover object-center" />
+                <Image src="/images/tin-loaf-hand.jpg" alt="Tin loaf" fill className="object-cover object-center" />
               </div>
               <div className="flex flex-col gap-3">
                 <div className="relative aspect-square rounded-2xl overflow-hidden">
-                  <Image src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&q=80" alt="Chocolate chip cookies" fill className="object-cover object-center" />
+                  <Image src="/images/cookies.jpg" alt="Chocolate chip cookies" fill className="object-cover object-center" />
                 </div>
                 <div className="relative aspect-square rounded-2xl overflow-hidden">
-                  <Image src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80" alt="Sourdough loaf" fill className="object-cover" />
+                  <Image src="/images/seeded-loaf.jpg" alt="Seeded sourdough loaf" fill className="object-cover" />
                 </div>
               </div>
             </div>
@@ -208,12 +208,12 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             {[
-              { src: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&q=80", alt: "Chocolate chip cookies" },
-              { src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80", alt: "Sourdough loaf" },
-              { src: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=500&q=80", alt: "Banana loaf" },
-              { src: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=85", alt: "Sourdough crust" },
+              { src: "/images/cookies.jpg", alt: "Chocolate chip cookies" },
+              { src: "/images/sourdough-scored.jpg", alt: "Scored sourdough loaf" },
+              { src: "/images/sourdough-held.jpg", alt: "Sourdough held open" },
+              { src: "/images/seeded-loaf.jpg", alt: "Seeded sourdough loaf" },
             ].map(({ src, alt }) => (
-              <div key={src} className="relative aspect-square rounded-xl overflow-hidden shadow-sm">
+              <div key={alt} className="relative aspect-square rounded-xl overflow-hidden shadow-sm">
                 <Image src={src} alt={alt} fill className="object-cover object-center hover:scale-105 transition-transform duration-500" />
               </div>
             ))}
@@ -242,8 +242,8 @@ export default function Home() {
       {/* ── CTA ──────────────────────────────────────────────────────────────── */}
       <section className="relative py-32 overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=1400&q=80"
-          alt="Fresh bread"
+          src="/images/sourdough-linen.jpg"
+          alt="Fresh sourdough"
           fill
           className="object-cover object-center"
         />

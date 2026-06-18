@@ -101,7 +101,7 @@ export default function OrderPage() {
         <div>
           <p className="font-sans font-semibold text-[#2C1A0E] mb-1">Orders are currently on hold</p>
           <p className="font-sans text-sm text-[#4A2E1A] leading-relaxed">
-            Lucie is on holiday and baking will resume shortly. You&apos;re welcome to browse the menu and place your order now — we&apos;ll be in touch with your collection date as soon as orders reopen. Thank you for your patience 🫶🏻
+            Lucie is on holiday and will be back on <strong>7 July</strong>. Business resumes as normal from that date. You&apos;re welcome to browse the menu — orders will reopen on Monday 7 July. Thank you for your patience 🫶🏻
           </p>
         </div>
       </div>
