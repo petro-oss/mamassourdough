@@ -174,45 +174,26 @@ export default function Home() {
       {/* ── ABOUT MAMA'S ─────────────────────────────────────────────────────── */}
       <section className="bg-[#F2EAE0] py-20">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-
-            {/* Photos collage */}
-            <div className="relative grid grid-cols-2 gap-3">
-              <div className="relative rounded-2xl overflow-hidden col-span-1 mt-10" style={{aspectRatio: "3/4"}}>
-                <Image src="/images/tin-loaf-hand.jpg" alt="Tin loaf" fill className="object-cover object-center" />
-              </div>
-              <div className="flex flex-col gap-3">
-                <div className="relative aspect-square rounded-2xl overflow-hidden">
-                  <Image src="/images/cookies.jpg" alt="Chocolate chip cookies" fill className="object-cover object-center" />
-                </div>
-                <div className="relative aspect-square rounded-2xl overflow-hidden">
-                  <Image src="/images/seeded-loaf.jpg" alt="Seeded sourdough loaf" fill className="object-cover" />
-                </div>
-              </div>
+          <div className="max-w-2xl mx-auto text-center">
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">About Mama&apos;s</p>
+            <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E] leading-tight mb-6">
+              Baking happiness<br />every single week.
+            </h2>
+            <div className="space-y-4 font-sans text-[#4A2E1A] leading-relaxed mb-8">
+              <p>
+                Every week, Lucie&apos;s kitchen in Ramsgate fills with the scent of freshly baked sourdough. What started as baking for family and friends has become a mission: to inspire families to eat real bread, learn to bake it themselves, and share that gift with others.
+              </p>
+              <p>
+                Paying it forward is at the heart of everything. Bread is one of life&apos;s most fundamental foods. Lucie believes everyone deserves access to the real thing, made with love, shared with care, one loaf at a time.
+              </p>
             </div>
-
-            {/* Text */}
-            <div>
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">About Mama&apos;s</p>
-              <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E] leading-tight mb-6">
-                Baking happiness<br />every single week.
-              </h2>
-              <div className="space-y-4 font-sans text-[#4A2E1A] leading-relaxed mb-8">
-                <p>
-                  Every week, Lucie&apos;s kitchen in Ramsgate fills with the scent of freshly baked sourdough. What started as baking for family and friends has become a mission: to inspire families to eat real bread, learn to bake it themselves, and share that gift with others.
-                </p>
-                <p>
-                  Paying it forward is at the heart of everything. Bread is one of life&apos;s most fundamental foods. Lucie believes everyone deserves access to the real thing, made with love, shared with care, one loaf at a time.
-                </p>
-              </div>
-              <blockquote className="border-l-2 border-[#4A6741] pl-5 font-serif text-xl italic text-[#2C1A0E] mb-8">
-                &ldquo;It brings me an enormous joy. It&apos;s therapy, it&apos;s true love.&rdquo;
-                <footer className="font-sans text-sm not-italic text-[#8B6347] mt-2">Lucie Brissenden, Owner &amp; Baker</footer>
-              </blockquote>
-              <Link href="/about" className="inline-block font-sans text-sm font-medium bg-[#2C1A0E] text-white px-8 py-3 rounded-full hover:bg-[#4A2E1A] transition-colors">
-                Our Story →
-              </Link>
-            </div>
+            <blockquote className="border-l-2 border-[#4A6741] pl-5 text-left font-serif text-xl italic text-[#2C1A0E] mb-8 max-w-md mx-auto">
+              &ldquo;It brings me an enormous joy. It&apos;s therapy, it&apos;s true love.&rdquo;
+              <footer className="font-sans text-sm not-italic text-[#8B6347] mt-2">Lucie Brissenden, Owner &amp; Baker</footer>
+            </blockquote>
+            <Link href="/about" className="inline-block font-sans text-sm font-medium bg-[#2C1A0E] text-white px-8 py-3 rounded-full hover:bg-[#4A2E1A] transition-colors">
+              Our Story →
+            </Link>
           </div>
 
           {/* Stats */}
@@ -228,38 +209,22 @@ export default function Home() {
       </section>
 
       {/* ── FROM THE KITCHEN ─────────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-14 items-center">
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">From Lucie&apos;s kitchen</p>
-            <h2 className="font-serif text-4xl italic font-light text-[#2C1A0E] leading-tight mb-8">
-              &ldquo;Eternally grateful<br />for being able to<br />do what I love.&rdquo;
-            </h2>
-            <p className="font-sans text-[#8B6347] leading-relaxed mb-8">
-              Orders close Wednesday at 7pm. Collection or delivery details are shared on Thursday. Every loaf baked fresh, never a day old.
-            </p>
-            <a
-              href="https://www.instagram.com/mamas_sourdough_"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-sans text-sm text-[#8B6347] border-b border-[#8B6347] pb-0.5 hover:text-[#C4852A] hover:border-[#C4852A] transition-colors"
-            >
-              Follow @mamas_sourdough_ →
-            </a>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            {[
-              { src: "/images/cookies.jpg", alt: "Chocolate chip cookies" },
-              { src: "/images/sourdough-scored.jpg", alt: "Scored sourdough loaf" },
-              { src: "/images/sourdough-held.jpg", alt: "Sourdough held open" },
-              { src: "/images/seeded-loaf.jpg", alt: "Seeded sourdough loaf" },
-            ].map(({ src, alt }) => (
-              <div key={alt} className="relative aspect-square rounded-xl overflow-hidden shadow-sm">
-                <Image src={src} alt={alt} fill className="object-cover object-center hover:scale-105 transition-transform duration-500" />
-              </div>
-            ))}
-          </div>
-        </div>
+      <section className="max-w-3xl mx-auto px-6 py-20 text-center">
+        <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-4">From Lucie&apos;s kitchen</p>
+        <h2 className="font-serif text-4xl italic font-light text-[#2C1A0E] leading-tight mb-8">
+          &ldquo;Eternally grateful<br />for being able to<br />do what I love.&rdquo;
+        </h2>
+        <p className="font-sans text-[#8B6347] leading-relaxed mb-8">
+          Orders close Wednesday at 7pm. Collection or delivery details are shared on Thursday. Every loaf baked fresh, never a day old.
+        </p>
+        <a
+          href="https://www.instagram.com/mamas_sourdough_"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 font-sans text-sm text-[#8B6347] border-b border-[#8B6347] pb-0.5 hover:text-[#C4852A] hover:border-[#C4852A] transition-colors"
+        >
+          Follow @mamas_sourdough_ →
+        </a>
       </section>
 
       {/* ── WHY PEOPLE RETURN ────────────────────────────────────────────────── */}

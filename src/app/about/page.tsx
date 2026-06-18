@@ -125,15 +125,14 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Sourdough bread photo */}
+          {/* Painting by Lucie's daughter Rosie */}
           <div className="relative min-h-[400px]">
             <Image
-              src="/images/sourdough-scored.jpg"
-              alt="Freshly baked sourdough loaf"
+              src="/images/painting.jpg"
+              alt="Painting of sourdough bread by Rosie, Lucie's daughter"
               fill
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-[#2C1A0E]/10" />
           </div>
         </div>
       </section>
