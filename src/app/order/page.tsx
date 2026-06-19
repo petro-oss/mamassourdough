@@ -54,7 +54,7 @@ export default function OrderPage() {
         line_total: `£${(item.price * (quantities[item.id] ?? 0)).toFixed(2)}`,
       })),
       source: "Website Order Form",
-      collection_day: "Thursday",
+      collection_day: "Friday",
     };
 
     try {
