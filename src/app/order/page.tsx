@@ -48,6 +48,7 @@ export default function OrderPage() {
       order_notes: notes,
       recurring_order: recurring ? "Yes, weekly standing order" : "No",
       order_items: orderLines.map((item) => ({
+        id: item.id,
         name: item.name,
         qty: quantities[item.id],
         unit_price: `£${item.price.toFixed(2)}`,
