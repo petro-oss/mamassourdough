@@ -24,7 +24,8 @@ export async function POST(req: NextRequest) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
-      })
+        redirect: "manual", // prevent double-execution caused by GAS redirect
+      }).catch(() => new Response(null, { status: 200 }))
     );
   }
 
