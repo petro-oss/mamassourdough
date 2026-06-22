@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 
 const links = [
@@ -19,13 +18,6 @@ export default function Nav() {
 
         {/* Logo — left aligned, matches printed branding */}
         <Link href="/" className="flex items-center gap-3 group shrink-0">
-          <Image
-            src="/favicon.png"
-            alt="mama's sourdough logo"
-            width={44}
-            height={44}
-            className="rounded-full"
-          />
           <div className="flex flex-col leading-none">
             <span className="font-sans text-2xl font-semibold tracking-tight text-[#2C1A0E] group-hover:text-[#C4852A] transition-colors">
               mama&apos;s sourdough
