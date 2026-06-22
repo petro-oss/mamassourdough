@@ -14,6 +14,7 @@ export const menuItems = [
     name: "Country White Sourdough",
     subheading: "Sourdough Loaves",
     desc: "Our classic open-crumb white sourdough with a crackling crust.",
+    allergens: "Contains gluten, cultured starter.",
     price: 5.00,
     priceLabel: "£5.00",
     category: "Loaves",
@@ -22,6 +23,7 @@ export const menuItems = [
     id: "country-wholemeal",
     name: "Wholemeal Sourdough",
     desc: "Nutty, wholesome and deeply flavoured. A hearty everyday loaf.",
+    allergens: "Contains gluten, cultured starter.",
     price: 5.00,
     priceLabel: "£5.00",
     category: "Loaves",
@@ -31,7 +33,8 @@ export const menuItems = [
     id: "seeded-tin",
     name: "Seeded Tin Loaf",
     subheading: "Tin Loaves",
-    desc: "Packed with seeds, perfect for toast and sandwiches.",
+    desc: "Packed with seeds — pumpkin, sesame, linseed and sunflower — perfect for toast and sandwiches.",
+    allergens: "Contains gluten, cultured starter, mixed seeds (pumpkin, sesame, linseed, sunflower).",
     price: 6.00,
     priceLabel: "£6.00",
     category: "Loaves",
@@ -40,6 +43,7 @@ export const menuItems = [
     id: "rye-tin",
     name: "Rye Tin Loaf",
     desc: "Dark, dense and richly flavoured rye sourdough baked in a tin.",
+    allergens: "Contains gluten, cultured starter.",
     price: 6.00,
     priceLabel: "£6.00",
     category: "Loaves",
@@ -48,6 +52,7 @@ export const menuItems = [
     id: "soft-white-tin",
     name: "Soft White Tin Loaf",
     desc: "Light and pillowy white sourdough in a tin. Brilliant for sandwiches.",
+    allergens: "Contains gluten, cultured starter, eggs, dairy, honey.",
     price: 6.00,
     priceLabel: "£6.00",
     category: "Loaves",
@@ -57,6 +62,7 @@ export const menuItems = [
     id: "focaccia-plain",
     name: "Focaccia: Plain",
     desc: "Simple, pillowy focaccia drizzled with olive oil and sea salt.",
+    allergens: "Contains gluten, cultured starter.",
     price: 5.00,
     priceLabel: "£5.00",
     category: "Focaccia",
@@ -65,6 +71,7 @@ export const menuItems = [
     id: "focaccia-sundried",
     name: "Focaccia: Sundried Tomato & Basil",
     desc: "Bright, herby focaccia topped with sundried tomatoes and fresh basil.",
+    allergens: "Contains gluten, cultured starter.",
     price: 6.00,
     priceLabel: "£6.00",
     category: "Focaccia",
@@ -73,6 +80,7 @@ export const menuItems = [
     id: "focaccia-garlic-onion",
     name: "Focaccia: Garlic & Caramelised Onion",
     desc: "Sweet caramelised onion and roasted garlic on pillowy sourdough focaccia.",
+    allergens: "Contains gluten, cultured starter.",
     price: 6.00,
     priceLabel: "£6.00",
     category: "Focaccia",
@@ -81,6 +89,7 @@ export const menuItems = [
     id: "focaccia-rosemary",
     name: "Focaccia: Rosemary & Garlic",
     desc: "Fragrant rosemary and garlic baked into a golden, airy focaccia.",
+    allergens: "Contains gluten, cultured starter.",
     price: 6.00,
     priceLabel: "£6.00",
     category: "Focaccia",
@@ -89,6 +98,7 @@ export const menuItems = [
     id: "focaccia-olive-feta",
     name: "Focaccia: Olive & Feta",
     desc: "Salty olives and creamy feta baked into a beautifully flavoured focaccia.",
+    allergens: "Contains gluten, cultured starter.",
     price: 6.00,
     priceLabel: "£6.00",
     category: "Focaccia",
@@ -98,6 +108,7 @@ export const menuItems = [
     id: "choc-chip-cookie",
     name: "Chocolate Chip Cookie",
     desc: "Big, chewy, golden-edged sourdough cookies loaded with chocolate.",
+    allergens: "Contains gluten, cultured starter, dairy, eggs.",
     price: 2.00,
     priceLabel: "£2.00",
     category: "Sweet Bakes",
@@ -106,8 +117,18 @@ export const menuItems = [
     id: "banana-loaf",
     name: "Banana Loaf",
     desc: "Moist, deeply flavoured banana loaf, soft crumb, golden top.",
+    allergens: "Contains cultured starter (gluten), cereals, eggs, peanuts.",
     price: 6.00,
     priceLabel: "£6.00",
+    category: "Sweet Bakes",
+  },
+  {
+    id: "blueberry-muffin",
+    name: "Blueberry Muffin",
+    desc: "Soft, golden sourdough muffins bursting with blueberries.",
+    allergens: "Contains gluten, cultured starter, eggs, dairy.",
+    price: 3.00,
+    priceLabel: "£3.00",
     category: "Sweet Bakes",
   },
 ];
@@ -153,7 +174,7 @@ export default function MenuPage() {
                   {cat}
                 </p>
                 <div className="divide-y divide-[#1C1009]/10">
-                  {catItems.map(({ id, name, desc, priceLabel, subheading }) => (
+                  {catItems.map(({ id, name, desc, allergens, priceLabel, subheading }) => (
                     <div key={id}>
                     {subheading && (
                       <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#C4852A] pt-4 pb-1">{subheading}</p>
@@ -162,6 +183,7 @@ export default function MenuPage() {
                       <div>
                         <h3 className="font-serif text-lg italic text-[#1C1009] leading-snug">{name}</h3>
                         <p className="font-sans text-xs text-[#7A5C42] mt-0.5 leading-relaxed">{desc}</p>
+                        {allergens && <p className="font-mono text-[9px] tracking-[0.05em] text-[#B87333]/70 mt-1">{allergens}</p>}
                       </div>
                       <span className="font-mono text-sm text-[#B87333] shrink-0 pt-1">{priceLabel}</span>
                     </div>
@@ -172,6 +194,14 @@ export default function MenuPage() {
             );
           })}
         </div>
+      </div>
+
+      {/* Allergen notice */}
+      <div className="mb-10 border border-[#D4BFA8] rounded-2xl px-6 py-5 flex gap-3 items-start bg-[#FAF6F0]">
+        <span className="text-[#B87333] text-lg mt-0.5">⚠</span>
+        <p className="font-sans text-xs text-[#7A5C42] leading-relaxed">
+          <span className="font-semibold text-[#4A2E1A]">Allergen information:</span> All our bakes are made in a home kitchen that handles gluten, dairy, eggs, nuts and seeds. If you have a severe allergy, please contact us before ordering. Allergens listed per product above.
+        </p>
       </div>
 
       {/* Order CTA */}

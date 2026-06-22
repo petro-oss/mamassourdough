@@ -115,6 +115,14 @@ export default function OrderPage() {
         <h1 className="font-serif text-6xl italic font-light text-[#2C1A0E]">Place Your Order</h1>
       </div>
 
+      {/* Allergen notice */}
+      <div className="mb-8 border border-[#D4BFA8] rounded-2xl px-6 py-5 flex gap-3 items-start bg-[#FAF6F0]">
+        <span className="text-[#B87333] text-lg mt-0.5">⚠</span>
+        <p className="font-sans text-xs text-[#7A5C42] leading-relaxed">
+          <span className="font-semibold text-[#4A2E1A]">Allergen information:</span> All our bakes are made in a home kitchen that handles gluten, dairy, eggs, nuts and seeds. If you have a severe allergy, please contact us before ordering. Allergens are listed under each product below.
+        </p>
+      </div>
+
       <form onSubmit={handleSubmit}>
         <div className="grid lg:grid-cols-[1fr_380px] gap-12 items-start">
 
@@ -139,6 +147,7 @@ export default function OrderPage() {
                           <div className="flex-1 min-w-0">
                             <p className="font-serif text-xl italic text-[#2C1A0E] leading-snug">{item.name}</p>
                             <p className="font-sans text-sm text-[#8B6347] mt-1 leading-relaxed">{item.desc}</p>
+                            {item.allergens && <p className="font-mono text-[9px] tracking-[0.05em] text-[#B87333]/70 mt-1">{item.allergens}</p>}
                           </div>
                           <span className="font-sans text-base font-semibold text-[#C4852A] w-14 text-right shrink-0">
                             {item.priceLabel}
