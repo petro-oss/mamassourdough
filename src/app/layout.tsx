@@ -26,6 +26,24 @@ const dmMono = DM_Mono({
 export const metadata: Metadata = {
   title: "mama's sourdough",
   description: "Delicious homemade bakes. Slow fermented, stone-baked, made with love.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    title: "mama's sourdough",
+    description: "Delicious homemade bakes. Slow fermented, stone-baked, made with love.",
+    url: "https://www.mamassourdough.co.uk",
+    siteName: "mama's sourdough",
+    images: [{ url: "/logo-512.png", width: 512, height: 512, alt: "mama's sourdough" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "mama's sourdough",
+    description: "Delicious homemade bakes. Slow fermented, stone-baked, made with love.",
+    images: ["/logo-512.png"],
+  },
 };
 
 export default function RootLayout({
