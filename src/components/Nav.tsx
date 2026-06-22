@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const links = [
@@ -17,20 +18,29 @@ export default function Nav() {
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
 
         {/* Logo — left aligned, matches printed branding */}
-        <Link href="/" className="flex flex-col leading-none group shrink-0">
-          <span className="font-sans text-2xl font-semibold tracking-tight text-[#2C1A0E] group-hover:text-[#C4852A] transition-colors">
-            mama&apos;s sourdough
-          </span>
-          <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#8B6347] mt-0.5">
-            delicious homemade bakes
-          </span>
+        <Link href="/" className="flex items-center gap-3 group shrink-0">
+          <Image
+            src="/favicon.png"
+            alt="mama's sourdough logo"
+            width={44}
+            height={44}
+            className="rounded-full"
+          />
+          <div className="flex flex-col leading-none">
+            <span className="font-sans text-2xl font-semibold tracking-tight text-[#2C1A0E] group-hover:text-[#C4852A] transition-colors">
+              mama&apos;s sourdough
+            </span>
+            <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#8B6347] mt-0.5">
+              delicious homemade bakes
+            </span>
+          </div>
         </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-10">
           {links.map(({ href, label }) => (
             <Link key={href} href={href}
-              className="font-mono text-xs tracking-[0.15em] uppercase text-[#8B6347] hover:text-[#2C1A0E] transition-colors">
+              className="font-sans text-sm font-semibold tracking-wide uppercase text-[#2C1A0E] hover:text-[#C4852A] transition-colors">
               {label}
             </Link>
           ))}
