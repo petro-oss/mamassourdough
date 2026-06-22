@@ -13,14 +13,14 @@ export function HealthBenefitsGrid({ benefits }: { benefits: Benefit[] }) {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
       {benefits.map(({ icon, title, body }, i) => {
         const isActive = active === title;
         return (
-          <ScrollReveal key={title} delay={i * 60}>
+          <ScrollReveal key={title} delay={i * 60} className="h-full">
             <button
               onClick={() => setActive(isActive ? null : title)}
-              className={`w-full text-left bg-white rounded-2xl p-8 shadow-sm border-b-2 transition-all duration-300 cursor-pointer
+              className={`w-full h-full text-left bg-white rounded-2xl p-8 shadow-sm border-b-2 transition-all duration-300 cursor-pointer
                 ${isActive
                   ? "border-[#C4852A] shadow-lg scale-[1.02] bg-[#FDF7EF]"
                   : "border-[#4A6741]/30 hover:shadow-md hover:scale-[1.01]"
