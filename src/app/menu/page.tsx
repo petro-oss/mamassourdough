@@ -8,19 +8,46 @@ export const MENU_META = {
 };
 
 export const menuItems = [
-  // LOAVES
+  // SOURDOUGH LOAVES
   {
-    id: "country-white-wholemeal",
-    name: "Country White & Wholemeal",
-    desc: "Our classic sourdough loaves, open crumb, crackling crust.",
+    id: "country-white",
+    name: "Country White Sourdough",
+    subheading: "Sourdough Loaves",
+    desc: "Our classic open-crumb white sourdough with a crackling crust.",
     price: 5.00,
     priceLabel: "£5.00",
     category: "Loaves",
   },
   {
-    id: "seeded-rye-tin",
-    name: "Seeded, Rye & Soft White Tin Loaves",
-    desc: "Seeded rye or soft white tin, hearty, flavourful, perfect for sandwiches.",
+    id: "country-wholemeal",
+    name: "Wholemeal Sourdough",
+    desc: "Nutty, wholesome and deeply flavoured. A hearty everyday loaf.",
+    price: 5.00,
+    priceLabel: "£5.00",
+    category: "Loaves",
+  },
+  // TIN LOAVES
+  {
+    id: "seeded-tin",
+    name: "Seeded Tin Loaf",
+    subheading: "Tin Loaves",
+    desc: "Packed with seeds, perfect for toast and sandwiches.",
+    price: 6.00,
+    priceLabel: "£6.00",
+    category: "Loaves",
+  },
+  {
+    id: "rye-tin",
+    name: "Rye Tin Loaf",
+    desc: "Dark, dense and richly flavoured rye sourdough baked in a tin.",
+    price: 6.00,
+    priceLabel: "£6.00",
+    category: "Loaves",
+  },
+  {
+    id: "soft-white-tin",
+    name: "Soft White Tin Loaf",
+    desc: "Light and pillowy white sourdough in a tin. Brilliant for sandwiches.",
     price: 6.00,
     priceLabel: "£6.00",
     category: "Loaves",
@@ -126,13 +153,18 @@ export default function MenuPage() {
                   {cat}
                 </p>
                 <div className="divide-y divide-[#1C1009]/10">
-                  {catItems.map(({ id, name, desc, priceLabel }) => (
-                    <div key={id} className="py-4 flex items-start justify-between gap-4">
+                  {catItems.map(({ id, name, desc, priceLabel, subheading }) => (
+                    <div key={id}>
+                    {subheading && (
+                      <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#C4852A] pt-4 pb-1">{subheading}</p>
+                    )}
+                    <div className="py-4 flex items-start justify-between gap-4">
                       <div>
                         <h3 className="font-serif text-lg italic text-[#1C1009] leading-snug">{name}</h3>
                         <p className="font-sans text-xs text-[#7A5C42] mt-0.5 leading-relaxed">{desc}</p>
                       </div>
                       <span className="font-mono text-sm text-[#B87333] shrink-0 pt-1">{priceLabel}</span>
+                    </div>
                     </div>
                   ))}
                 </div>

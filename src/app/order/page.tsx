@@ -131,7 +131,11 @@ export default function OrderPage() {
                     {catItems.map((item) => {
                       const qty = quantities[item.id] ?? 0;
                       return (
-                        <div key={item.id} className="py-5 flex items-center justify-between gap-4">
+                        <div key={item.id}>
+                          {item.subheading && (
+                            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#C4852A] pt-4 pb-1">{item.subheading}</p>
+                          )}
+                        <div className="py-5 flex items-center justify-between gap-4">
                           <div className="flex-1 min-w-0">
                             <p className="font-serif text-xl italic text-[#2C1A0E] leading-snug">{item.name}</p>
                             <p className="font-sans text-sm text-[#8B6347] mt-1 leading-relaxed">{item.desc}</p>
@@ -158,6 +162,7 @@ export default function OrderPage() {
                               +
                             </button>
                           </div>
+                        </div>
                         </div>
                       );
                     })}
