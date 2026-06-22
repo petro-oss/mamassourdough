@@ -64,9 +64,16 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-[#4A2E1A] max-w-6xl mx-auto px-6 py-5">
+      <div className="border-t border-[#4A2E1A] max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <p className="font-mono text-[11px] tracking-widest uppercase text-[#6B4A2A]">
           © {new Date().getFullYear()} mama&apos;s sourdough · all rights reserved
+        </p>
+        <p className="font-mono text-[11px] tracking-widest uppercase text-[#6B4A2A]">
+          Designed by{" "}
+          <a href="https://www.wallmedia.co.uk/" target="_blank" rel="noopener noreferrer"
+            className="text-[#A07850] hover:text-[#FAF6F0] transition-colors">
+            Wall Media
+          </a>
         </p>
       </div>
     </footer>
