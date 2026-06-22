@@ -197,7 +197,7 @@ export default function MenuPage() {
       </div>
 
       {/* Allergen notice */}
-      <div className="mb-10 border border-[#D4BFA8] rounded-2xl px-6 py-5 flex gap-3 items-start bg-[#FAF6F0]">
+      <div className="mb-10 bg-[#EAF0EA] border border-[#4A6741]/30 rounded-2xl px-6 py-5 flex gap-3 items-start">
         <span className="text-[#B87333] text-lg mt-0.5">⚠</span>
         <p className="font-sans text-xs text-[#7A5C42] leading-relaxed">
           <span className="font-semibold text-[#4A2E1A]">Allergen information:</span> All our bakes are made in a home kitchen that handles gluten, dairy, eggs, nuts and seeds. If you have a severe allergy, please contact us before ordering. Allergens listed per product above.
