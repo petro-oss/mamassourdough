@@ -68,11 +68,10 @@ export default function OrderPage() {
     }).catch(() => {});
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    setSubmitting(false);
     setSubmitted(true);
   }
 
-  if (submitting) {
+  if (submitting && !submitted) {
     return (
       <div className="max-w-2xl mx-auto px-6 py-24 text-center">
         <div className="flex flex-col items-center gap-6">
