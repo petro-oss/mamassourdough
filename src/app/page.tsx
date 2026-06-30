@@ -10,6 +10,8 @@ const bestSellers = [
     name: "Country Sourdough",
     desc: "Stone-baked with a golden crackling crust, open crumb, and deep flavour that only wild fermentation can deliver.",
     price: "£5.00",
+    objectPosition: "center 40%",
+    rotate: "-rotate-[1.5deg]",
   },
   {
     src: "/images/cookies.jpg",
@@ -17,6 +19,8 @@ const bestSellers = [
     name: "Choc Chip Cookies",
     desc: "Big, chewy, golden-edged sourdough cookies loaded with chocolate. Baked fresh every week.",
     price: "£2.00 each",
+    objectPosition: "center center",
+    rotate: "rotate-[1deg]",
   },
   {
     src: "/images/banana-loaf.jpg",
@@ -24,6 +28,8 @@ const bestSellers = [
     name: "Banana Loaf",
     desc: "Moist, deeply flavoured banana loaf with a soft crumb and golden top. A firm weekly favourite.",
     price: "£6.00",
+    objectPosition: "center 30%",
+    rotate: "-rotate-[0.8deg]",
   },
 ];
 
@@ -140,12 +146,12 @@ export default function Home() {
           <p className="font-sans text-[#8B6347] mt-3 max-w-md mx-auto">The bakes our customers come back for every single week.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {bestSellers.map(({ src, alt, name, desc, price }, i) => (
+        <div className="grid md:grid-cols-3 gap-8">
+          {bestSellers.map(({ src, alt, name, desc, price, objectPosition, rotate }, i) => (
             <ScrollReveal key={name} delay={i * 100}>
-            <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow group h-full">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image src={src} alt={alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className={`bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group h-full ${rotate} hover:rotate-0`}>
+              <div className="relative aspect-square overflow-hidden">
+                <Image src={src} alt={alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" style={{ objectPosition }} />
               </div>
               <div className="p-6">
                 <h3 className="font-serif text-xl italic text-[#2C1A0E] mb-2">{name}</h3>
