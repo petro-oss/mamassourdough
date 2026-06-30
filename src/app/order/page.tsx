@@ -60,17 +60,15 @@ export default function OrderPage() {
       collection_day: "Friday",
     };
 
-    try {
-      await fetch("/api/order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-    } catch (err) {
-      console.error("GHL webhook error:", err);
-      // Still show confirmation — don't block the customer
-    }
+    // Fire the webhook but don't block on it — show confirmation after 2s max
+    fetch("/api/order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }).catch(() => {});
 
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    setSubmitting(false);
     setSubmitted(true);
   }
 
