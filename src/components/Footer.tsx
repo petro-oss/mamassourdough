@@ -14,7 +14,7 @@ export default function Footer() {
             <a href="tel:07891899367" className="hover:text-[#FAF6F0] transition-colors">07891 899367</a>
           </p>
           <p className="font-sans text-sm text-[#6B4A2A] mt-4 leading-relaxed">
-            Orders close Wednesday at 7pm.<br />Collection/delivery details confirmed on order placement.
+            Orders close Wednesday at 7pm.<br />Collection details confirmed on order placement.
           </p>
         </div>
 

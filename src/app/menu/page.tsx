@@ -155,7 +155,7 @@ export default function MenuPage() {
           <div className="flex items-center gap-4 shrink-0">
             <span className="text-3xl select-none" style={{ color: "#e8a0b4" }}>✿</span>
             <div className="border-l-2 pl-4" style={{ borderColor: "#e8a0b4" }}>
-              <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#7A5C42]">Collection / Delivery</p>
+              <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#7A5C42]">Collection</p>
               <p className="font-serif text-xl italic text-[#1C1009]">TBA on order placement</p>
             </div>
             <span className="text-3xl select-none" style={{ color: "#e8a0b4" }}>✿</span>
@@ -207,7 +207,7 @@ export default function MenuPage() {
       {/* Order CTA */}
       <div className="bg-[#1C1009] p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
-          <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#7A5C42] mb-2">Orders close Wednesday at 7pm · Collection/Delivery TBA</p>
+          <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#7A5C42] mb-2">Orders close Wednesday at 7pm · Collection Friday</p>
           <p className="font-serif text-3xl italic text-[#F5F0E8]">Ready to order? Build your basket.</p>
         </div>
         <Link

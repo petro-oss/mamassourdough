@@ -95,7 +95,7 @@ export default function ContactPage() {
             <div className="bg-[#F2EAE0] rounded-2xl p-6">
               <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#C4852A] mb-3">Ordering</p>
               <p className="font-sans text-base text-[#4A2E1A] leading-relaxed">
-                Orders close <span className="font-semibold">Wednesday at 7pm</span> each week. Payment details and collection or delivery time will be confirmed on order placement.
+                Orders close <span className="font-semibold">Wednesday at 7pm</span> each week. Payment details and collection time will be confirmed on order placement.
               </p>
             </div>
           </div>

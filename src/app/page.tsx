@@ -205,7 +205,7 @@ export default function Home() {
           &ldquo;Eternally grateful<br />for being able to<br />do what I love.&rdquo;
         </h2>
         <p className="font-sans text-[#8B6347] leading-relaxed mb-8">
-          Orders close Wednesday at 7pm. Collection or delivery details are shared on Thursday. Every loaf baked fresh, never a day old.
+          Orders close Wednesday at 7pm. Collection details are shared on Thursday. Every loaf baked fresh, never a day old.
         </p>
         <a
           href="https://www.instagram.com/mamas_sourdough_"
@@ -254,7 +254,7 @@ export default function Home() {
             Ready for the best<br />bread of your week?
           </h2>
           <p className="font-sans text-white/70 mb-10">
-            Collection or delivery details shared on Thursday · Payment details sent on order placement
+            Collection details shared on Thursday · Payment details sent on order placement
           </p>
           <Link
             href="/order"

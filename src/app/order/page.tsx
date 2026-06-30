@@ -80,7 +80,7 @@ export default function OrderPage() {
           Thank you, {name.split(" ")[0]}! 🫶🏻
         </h1>
         <p className="font-sans text-lg text-[#8B6347] leading-relaxed mb-4">
-          Your order has been received. Payment details and collection or delivery time will be sent to you shortly. Orders close <strong>Wednesday at 7pm</strong>.
+          Your order has been received. Payment details and collection time will be sent to you shortly. Orders close <strong>Wednesday at 7pm</strong>.
         </p>
         <div className="bg-[#F2EAE0] rounded-2xl p-8 text-left mt-8 font-mono text-sm text-[#4A2E1A] leading-8 whitespace-pre-line">
           {orderSummary}
@@ -102,7 +102,7 @@ export default function OrderPage() {
         <div>
           <p className="font-sans font-semibold text-[#2C1A0E] mb-1">Orders are currently on hold</p>
           <p className="font-sans text-sm text-[#4A2E1A] leading-relaxed">
-            Lucie is on holiday and will be back on <strong>7 July</strong>. Business resumes as normal from that date. You&apos;re welcome to browse the menu. Orders will reopen on Monday 7 July. Thank you for your patience 🫶🏻
+            Lucie is on holiday and orders will reopen on <strong>Monday 7 July</strong>. Collection will be on <strong>Friday 11 July</strong>. You&apos;re welcome to browse the menu in the meantime. Thank you for your patience 🫶🏻
           </p>
         </div>
       </div>
@@ -110,7 +110,7 @@ export default function OrderPage() {
       {/* Header */}
       <div className="mb-12">
         <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-3">
-          Orders close Wednesday 7pm · Collection/Delivery TBA
+          Orders close Wednesday 7pm · Collection Friday
         </p>
         <h1 className="font-serif text-6xl italic font-light text-[#2C1A0E]">Place Your Order</h1>
       </div>
@@ -278,7 +278,7 @@ export default function OrderPage() {
 
             <p className="font-sans text-sm text-[#8B6347] text-center leading-6">
               Orders close Wednesday at 7pm.<br />
-              Payment details &amp; collection/delivery time sent on order placement.
+              Payment details &amp; collection time sent on order placement.
             </p>
           </div>
         </div>
