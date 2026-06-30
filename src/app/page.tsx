@@ -19,7 +19,7 @@ const bestSellers = [
     price: "£2.00 each",
   },
   {
-    src: "/images/sourdough-linen.jpg",
+    src: "/images/banana-loaf.jpg",
     alt: "Banana loaf",
     name: "Banana Loaf",
     desc: "Moist, deeply flavoured banana loaf with a soft crumb and golden top. A firm weekly favourite.",
