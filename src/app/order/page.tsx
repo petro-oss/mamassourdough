@@ -74,10 +74,33 @@ export default function OrderPage() {
     setSubmitted(true);
   }
 
+  if (submitting) {
+    return (
+      <div className="max-w-2xl mx-auto px-6 py-24 text-center">
+        <div className="flex flex-col items-center gap-6">
+          {/* Animated spinner */}
+          <div className="w-16 h-16 rounded-full border-4 border-[#EAE0D5] border-t-[#C4852A] animate-spin" />
+          <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A]">Placing your order</p>
+          <h1 className="font-serif text-4xl italic font-light text-[#2C1A0E]">
+            Just a moment…
+          </h1>
+          <p className="font-sans text-base text-[#8B6347] leading-relaxed max-w-sm">
+            We&apos;re sending your order through. Please don&apos;t close this page or click back.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   if (submitted) {
     return (
       <div className="max-w-2xl mx-auto px-6 py-24 text-center">
-        <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-6">Order received</p>
+        <div className="w-14 h-14 rounded-full bg-[#4A6741] flex items-center justify-center mx-auto mb-6">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+        <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-4">Order confirmed</p>
         <h1 className="font-serif text-5xl italic font-light text-[#2C1A0E] mb-6">
           Thank you, {name.split(" ")[0]}! 🫶🏻
         </h1>
