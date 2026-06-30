@@ -13,6 +13,7 @@ export default function OrderPage() {
   const [notes, setNotes] = useState("");
   const [recurring, setRecurring] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const setQty = (id: string, delta: number) => {
     setQuantities((prev) => {
@@ -34,7 +35,8 @@ export default function OrderPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!hasItems) return;
+    if (!hasItems || submitting) return;
+    setSubmitting(true);
 
     const payload = {
       // Contact fields GHL picks up automatically
@@ -270,10 +272,10 @@ export default function OrderPage() {
 
             <button
               type="submit"
-              disabled={!hasItems || !name || !email}
+              disabled={!hasItems || !name || !email || submitting}
               className="font-sans text-base font-semibold bg-[#C4852A] text-white py-4 rounded-full hover:bg-[#A36920] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              {hasItems ? `Place Order · £${total.toFixed(2)}` : "Add items to order"}
+              {submitting ? "Placing order…" : hasItems ? `Place Order · £${total.toFixed(2)}` : "Add items to order"}
             </button>
 
             <p className="font-sans text-sm text-[#8B6347] text-center leading-6">
