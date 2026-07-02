@@ -77,18 +77,13 @@ export default function OrderPage() {
     .map((item) => `${item.name} x${quantities[item.id]} = £${(item.price * (quantities[item.id] ?? 0)).toFixed(2)}`)
     .join("\n");
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!hasItems || submitting) return;
-    setSubmitting(true);
-
-    const payload = {
-      // Contact fields GHL picks up automatically
+  // Base order payload — shared between both webhook calls
+  function buildPayload(paymentMethod?: string) {
+    return {
       first_name: name.split(" ")[0],
       last_name: name.split(" ").slice(1).join(" ") || "",
       email,
       phone,
-      // Order details
       order_summary: orderSummary,
       order_total: `£${total.toFixed(2)}`,
       order_notes: notes,
@@ -103,17 +98,37 @@ export default function OrderPage() {
       })),
       source: "Website Order Form",
       collection_day: "Friday",
+      ...(paymentMethod ? { payment_method: paymentMethod } : {}),
     };
+  }
 
-    // Fire the webhook but don't block on it — show confirmation after 2s max
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!hasItems || submitting) return;
+    setSubmitting(true);
+
+    // First webhook: creates contact + opportunity in GHL, notifies Lucie
     fetch("/api/order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(buildPayload()),
     }).catch(() => {});
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
     setSubmitted(true);
+  }
+
+  function handlePaymentConfirm() {
+    const method = cashOnCollection ? "Cash on Collection" : "SumUp or Bank Transfer";
+
+    // Second webhook: sends payment_method so GHL knows which SMS to fire
+    fetch("/api/order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(buildPayload(method)),
+    }).catch(() => {});
+
+    setPaid(true);
   }
 
   if (submitting && !submitted) {
@@ -215,7 +230,7 @@ export default function OrderPage() {
         </div>
 
         <button
-          onClick={() => setPaid(true)}
+          onClick={handlePaymentConfirm}
           className="w-full font-sans text-base font-semibold bg-[#C4852A] text-white py-4 rounded-full hover:bg-[#A36920] transition-colors"
         >
           {cashOnCollection ? "Confirm cash on collection" : "I have completed my payment"}
