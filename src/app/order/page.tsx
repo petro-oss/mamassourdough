@@ -118,14 +118,14 @@ export default function OrderPage() {
     setSubmitted(true);
   }
 
-  function handlePaymentConfirm() {
-    const method = cashOnCollection ? "Cash on Collection" : "SumUp or Bank Transfer";
+  function handlePaymentConfirm(method?: string) {
+    const paymentMethod = method ?? (cashOnCollection ? "Cash on Collection" : "Bank Transfer");
 
     // Second webhook: goes to payment confirmation workflow in GHL — fires customer SMS
     fetch("/api/payment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(buildPayload(method)),
+      body: JSON.stringify(buildPayload(paymentMethod)),
     }).catch(() => {});
 
     setPaid(true);
@@ -183,14 +183,15 @@ export default function OrderPage() {
               height={200}
               className="rounded-xl border border-[#EAE0D5]"
             />
-            <a
-              href="https://pay.sumup.com/b2c/Q1LLGDJ7"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => {
+                handlePaymentConfirm("SumUp");
+                window.open("https://pay.sumup.com/b2c/Q1LLGDJ7", "_blank");
+              }}
               className="w-full font-sans text-base font-semibold bg-[#00B4D8] text-white py-4 rounded-full hover:bg-[#0096B4] transition-colors text-center"
             >
               Pay £{total.toFixed(2)} with SumUp →
-            </a>
+            </button>
           </div>
         </div>
 
@@ -229,11 +230,12 @@ export default function OrderPage() {
           </label>
         </div>
 
+        {/* Bank transfer and cash confirmation button — SumUp handles its own confirmation above */}
         <button
-          onClick={handlePaymentConfirm}
+          onClick={() => handlePaymentConfirm()}
           className="w-full font-sans text-base font-semibold bg-[#C4852A] text-white py-4 rounded-full hover:bg-[#A36920] transition-colors"
         >
-          {cashOnCollection ? "Confirm cash on collection" : "I have completed my payment"}
+          {cashOnCollection ? "Confirm cash on collection" : "I have completed my bank transfer"}
         </button>
 
         <p className="font-sans text-xs text-[#8B6347] text-center mt-4 leading-5">
