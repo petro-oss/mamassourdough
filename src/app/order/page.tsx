@@ -184,12 +184,17 @@ export default function OrderPage() {
               height={200}
               className="rounded-xl border border-[#EAE0D5]"
             />
-            <button
-              onClick={() => handlePaymentConfirm("SumUp")}
-              className="w-full font-sans text-base font-semibold bg-[#00B4D8] text-white py-4 rounded-full hover:bg-[#0096B4] transition-colors text-center"
+            <a
+              href="https://pay.sumup.com/b2c/Q1LLGDJ7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full font-sans text-base font-semibold bg-[#00B4D8] text-white py-4 rounded-full hover:bg-[#0096B4] transition-colors text-center block"
             >
               Pay £{total.toFixed(2)} with SumUp →
-            </button>
+            </a>
+            <p className="font-sans text-xs text-[#8B6347] text-center mt-3 leading-5">
+              SumUp will open in a new tab. Once payment is complete, come back to this page and click the button below.
+            </p>
           </div>
         </div>
 
@@ -228,12 +233,11 @@ export default function OrderPage() {
           </label>
         </div>
 
-        {/* Bank transfer and cash confirmation button — SumUp handles its own confirmation above */}
         <button
-          onClick={() => handlePaymentConfirm()}
+          onClick={() => handlePaymentConfirm(cashOnCollection ? "Cash on Collection" : undefined)}
           className="w-full font-sans text-base font-semibold bg-[#C4852A] text-white py-4 rounded-full hover:bg-[#A36920] transition-colors"
         >
-          {cashOnCollection ? "Confirm cash on collection" : "I have completed my bank transfer"}
+          {cashOnCollection ? "Confirm cash on collection" : "I have completed my payment"}
         </button>
 
         <p className="font-sans text-xs text-[#8B6347] text-center mt-4 leading-5">
@@ -262,19 +266,7 @@ export default function OrderPage() {
             ? "Your order is confirmed. Collection is this Friday between 11am–1pm at 46 Stirling Way, Ramsgate. Please bring cash. Contact Lucie for any additional arrangements."
             : "Thank you for your order and payment! Collection is this Friday between 11am–1pm at 46 Stirling Way, Ramsgate. Contact Lucie for any additional information or arrangements."}
         </p>
-        <p className="font-serif text-xl italic text-[#C4852A] mt-2 mb-6">Love Lucie — Mama&apos;s Sourdough 🍞</p>
-
-        {/* SumUp payment link — shown on thank you page so customer can pay without leaving */}
-        {paidMethod === "SumUp" && (
-          <a
-            href="https://pay.sumup.com/b2c/Q1LLGDJ7"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block font-sans text-base font-semibold bg-[#00B4D8] text-white px-10 py-4 rounded-full hover:bg-[#0096B4] transition-colors"
-          >
-            Complete payment on SumUp →
-          </a>
-        )}
+        <p className="font-serif text-xl italic text-[#C4852A] mt-2">Love Lucie — Mama&apos;s Sourdough 🍞</p>
         <div className="bg-[#F2EAE0] rounded-2xl p-8 text-left mt-8 font-mono text-sm text-[#4A2E1A] leading-8 whitespace-pre-line">
           {orderSummary}
           {"\n"}{"─".repeat(30)}
