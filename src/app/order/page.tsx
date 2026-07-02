@@ -6,37 +6,41 @@ import { menuItems } from "@/app/menu/page";
 
 type Quantities = Record<string, number>;
 
+// Set to true during testing to keep the order form open regardless of day/time.
+// Flip to false before go-live on 7 July.
+const TESTING_MODE = true;
+
 // Returns whether orders are currently open (Mon 9am – Wed 7pm UK time)
 function getOrderWindowStatus(): { open: boolean; message: string } {
+  if (TESTING_MODE) return { open: true, message: "" };
+
   const now = new Date();
-  // Get current time in UK timezone
   const ukTime = new Date(now.toLocaleString("en-GB", { timeZone: "Europe/London" }));
-  const day = ukTime.getDay(); // 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
-  const hour = ukTime.getHours();
-  const minute = ukTime.getMinutes();
-  const timeInMinutes = hour * 60 + minute;
+  const day = ukTime.getDay(); // 0=Sun,1=Mon,2=Tue,3=Wed,4=Thu,5=Fri,6=Sat
+  const timeInMinutes = ukTime.getHours() * 60 + ukTime.getMinutes();
 
   const NINE_AM = 9 * 60;
   const SEVEN_PM = 19 * 60;
 
-  // Open: Monday 9am (day=1, time>=9am) through Wednesday 7pm (day=3, time<7pm)
+  // Open: Monday 9am through Wednesday 7pm
   const isOpen =
     (day === 1 && timeInMinutes >= NINE_AM) ||
-    (day === 2) ||
+    day === 2 ||
     (day === 3 && timeInMinutes < SEVEN_PM);
 
   if (isOpen) return { open: true, message: "" };
 
-  // Work out next Monday 9am for the message
-  const daysUntilMonday = day === 0 ? 1 : day === 1 ? 7 : 8 - day + 1;
+  // Days until next Monday: lookup table [Sun,Mon,Tue,Wed,Thu,Fri,Sat]
+  const daysUntilMonday = [1, 7, 6, 5, 4, 3, 2][day];
+  const addDays = (day === 1 && timeInMinutes < NINE_AM) ? 0 : daysUntilMonday;
   const nextMonday = new Date(ukTime);
-  nextMonday.setDate(ukTime.getDate() + (day === 1 && timeInMinutes < NINE_AM ? 0 : daysUntilMonday));
+  nextMonday.setDate(ukTime.getDate() + addDays);
   nextMonday.setHours(9, 0, 0, 0);
   const mondayStr = nextMonday.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" });
 
   return {
     open: false,
-    message: `Orders for this week are now closed. New orders open on ${mondayStr} at 9am. We can't wait to bake for you! 🍞`,
+    message: `Orders for this week have closed. New orders open on ${mondayStr} at 9am. We can't wait to bake for you! 🍞`,
   };
 }
 
@@ -255,7 +259,18 @@ export default function OrderPage() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
 
-      {/* ── ORDER WINDOW NOTICE ── */}
+      {/* ── HOLIDAY NOTICE — remove after 7 July ── */}
+      <div className="mb-10 bg-[#EAF0EA] border border-[#4A6741]/30 rounded-2xl px-8 py-6 flex gap-4 items-start">
+        <span className="text-2xl mt-0.5">🌿</span>
+        <div>
+          <p className="font-sans font-semibold text-[#2C1A0E] mb-1">Orders are currently on hold</p>
+          <p className="font-sans text-sm text-[#4A2E1A] leading-relaxed">
+            Lucie is on holiday and orders will reopen on <strong>Monday 7 July at 9am</strong>. Collection will be on <strong>Friday 11 July</strong>. You&apos;re welcome to browse the menu in the meantime. Thank you for your patience 🫶🏻
+          </p>
+        </div>
+      </div>
+
+      {/* ── ORDER WINDOW NOTICE — only shows when TESTING_MODE is false ── */}
       {!orderWindow.open && (
         <div className="mb-10 bg-[#EAF0EA] border border-[#4A6741]/30 rounded-2xl px-8 py-6 flex gap-4 items-start">
           <span className="text-2xl mt-0.5">🌿</span>
