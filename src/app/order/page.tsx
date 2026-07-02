@@ -1,9 +1,44 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { menuItems } from "@/app/menu/page";
 
 type Quantities = Record<string, number>;
+
+// Returns whether orders are currently open (Mon 9am – Wed 7pm UK time)
+function getOrderWindowStatus(): { open: boolean; message: string } {
+  const now = new Date();
+  // Get current time in UK timezone
+  const ukTime = new Date(now.toLocaleString("en-GB", { timeZone: "Europe/London" }));
+  const day = ukTime.getDay(); // 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
+  const hour = ukTime.getHours();
+  const minute = ukTime.getMinutes();
+  const timeInMinutes = hour * 60 + minute;
+
+  const NINE_AM = 9 * 60;
+  const SEVEN_PM = 19 * 60;
+
+  // Open: Monday 9am (day=1, time>=9am) through Wednesday 7pm (day=3, time<7pm)
+  const isOpen =
+    (day === 1 && timeInMinutes >= NINE_AM) ||
+    (day === 2) ||
+    (day === 3 && timeInMinutes < SEVEN_PM);
+
+  if (isOpen) return { open: true, message: "" };
+
+  // Work out next Monday 9am for the message
+  const daysUntilMonday = day === 0 ? 1 : day === 1 ? 7 : 8 - day + 1;
+  const nextMonday = new Date(ukTime);
+  nextMonday.setDate(ukTime.getDate() + (day === 1 && timeInMinutes < NINE_AM ? 0 : daysUntilMonday));
+  nextMonday.setHours(9, 0, 0, 0);
+  const mondayStr = nextMonday.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" });
+
+  return {
+    open: false,
+    message: `Orders for this week are now closed. New orders open on ${mondayStr} at 9am. We can't wait to bake for you! 🍞`,
+  };
+}
 
 export default function OrderPage() {
   const [quantities, setQuantities] = useState<Quantities>({});
@@ -14,6 +49,10 @@ export default function OrderPage() {
   const [recurring, setRecurring] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [paid, setPaid] = useState(false);
+  const [cashOnCollection, setCashOnCollection] = useState(false);
+
+  const orderWindow = getOrderWindowStatus();
 
   const setQty = (id: string, delta: number) => {
     setQuantities((prev) => {
@@ -89,7 +128,103 @@ export default function OrderPage() {
     );
   }
 
-  if (submitted) {
+  // ── PAYMENT PAGE ──────────────────────────────────────────────────────────
+  if (submitted && !paid) {
+    return (
+      <div className="max-w-2xl mx-auto px-6 py-16">
+        <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-3 text-center">Step 2 of 2</p>
+        <h1 className="font-serif text-4xl italic font-light text-[#2C1A0E] mb-2 text-center">
+          Complete your payment
+        </h1>
+        <p className="font-sans text-base text-[#8B6347] text-center mb-8">
+          Your order is placed, {name.split(" ")[0]}! Please complete payment to confirm your bake.
+        </p>
+
+        {/* Order total reminder */}
+        <div className="bg-[#FAF6F0] border border-[#EAE0D5] rounded-2xl px-6 py-4 mb-8 flex justify-between items-center">
+          <div>
+            <p className="font-mono text-[10px] tracking-widest uppercase text-[#8B6347]">Amount due</p>
+            <p className="font-mono text-xs text-[#8B6347] mt-1 whitespace-pre-line leading-6">{orderSummary}</p>
+          </div>
+          <span className="font-serif text-4xl italic text-[#2C1A0E] shrink-0 ml-6">£{total.toFixed(2)}</span>
+        </div>
+
+        {/* SumUp card payment */}
+        <div className="bg-white rounded-2xl shadow-sm p-8 mb-6">
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-[#8B6347] mb-1">Option 1 — Pay by card</p>
+          <p className="font-sans text-sm text-[#8B6347] mb-6">Scan the QR code with your phone camera, or tap the button below.</p>
+
+          <div className="flex flex-col items-center gap-6">
+            <Image
+              src="/images/sumup-qr.jpg"
+              alt="SumUp payment QR code"
+              width={200}
+              height={200}
+              className="rounded-xl border border-[#EAE0D5]"
+            />
+            <a
+              href="https://pay.sumup.com/b2c/Q1LLGDJ7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full font-sans text-base font-semibold bg-[#00B4D8] text-white py-4 rounded-full hover:bg-[#0096B4] transition-colors text-center"
+            >
+              Pay £{total.toFixed(2)} with SumUp →
+            </a>
+          </div>
+        </div>
+
+        {/* Bank transfer */}
+        <div className="bg-white rounded-2xl shadow-sm p-8 mb-6">
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-[#8B6347] mb-1">Option 2 — Bank transfer</p>
+          <p className="font-sans text-sm text-[#8B6347] mb-5">Transfer directly to Lucie&apos;s account using the details below.</p>
+          <div className="font-mono text-sm text-[#2C1A0E] space-y-2 bg-[#FAF6F0] rounded-xl p-5">
+            <div className="flex justify-between"><span className="text-[#8B6347]">Account name</span><span className="font-semibold">Lucie Brissenden</span></div>
+            <div className="flex justify-between"><span className="text-[#8B6347]">Sort code</span><span className="font-semibold">04-00-04</span></div>
+            <div className="flex justify-between"><span className="text-[#8B6347]">Account number</span><span className="font-semibold">43591445</span></div>
+            <div className="flex justify-between"><span className="text-[#8B6347]">Reference</span><span className="font-semibold">{name.split(" ")[0]} sourdough</span></div>
+            <div className="flex justify-between border-t border-[#EAE0D5] pt-2 mt-2"><span className="text-[#8B6347]">Amount</span><span className="font-semibold text-[#C4852A]">£{total.toFixed(2)}</span></div>
+          </div>
+        </div>
+
+        {/* Cash on collection */}
+        <div className="bg-white rounded-2xl shadow-sm p-8 mb-8">
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-[#8B6347] mb-4">Option 3 — Cash on collection</p>
+          <label className="flex items-start gap-3 cursor-pointer group">
+            <div className="relative mt-0.5 shrink-0">
+              <input
+                type="checkbox"
+                checked={cashOnCollection}
+                onChange={(e) => setCashOnCollection(e.target.checked)}
+                className="sr-only"
+              />
+              <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${cashOnCollection ? "bg-[#4A6741] border-[#4A6741]" : "bg-[#FAF6F0] border-[#D4BFA8] group-hover:border-[#4A6741]"}`}>
+                {cashOnCollection && <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+              </div>
+            </div>
+            <div>
+              <p className="font-sans text-sm font-medium text-[#2C1A0E] leading-snug">I have a cash on collection agreement with Lucie</p>
+              <p className="font-sans text-xs text-[#8B6347] mt-0.5 leading-relaxed">Tick this only if you have a prior arrangement to pay cash when you collect your order.</p>
+            </div>
+          </label>
+        </div>
+
+        <button
+          onClick={() => setPaid(true)}
+          className="w-full font-sans text-base font-semibold bg-[#C4852A] text-white py-4 rounded-full hover:bg-[#A36920] transition-colors"
+        >
+          {cashOnCollection ? "Confirm cash on collection" : "I have completed my payment"}
+        </button>
+
+        <p className="font-sans text-xs text-[#8B6347] text-center mt-4 leading-5">
+          Your order is only confirmed once payment is received.<br />
+          If you have any issues, call or text Lucie on <a href="tel:07891899367" className="underline">07891 899367</a>.
+        </p>
+      </div>
+    );
+  }
+
+  // ── THANK YOU PAGE ─────────────────────────────────────────────────────────
+  if (paid) {
     return (
       <div className="max-w-2xl mx-auto px-6 py-24 text-center">
         <div className="w-14 h-14 rounded-full bg-[#4A6741] flex items-center justify-center mx-auto mb-6">
@@ -97,12 +232,14 @@ export default function OrderPage() {
             <path d="M20 6L9 17l-5-5"/>
           </svg>
         </div>
-        <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-4">Order confirmed</p>
+        <p className="font-mono text-xs tracking-[0.3em] uppercase text-[#C4852A] mb-4">All done!</p>
         <h1 className="font-serif text-5xl italic font-light text-[#2C1A0E] mb-6">
           Thank you, {name.split(" ")[0]}! 🫶🏻
         </h1>
         <p className="font-sans text-lg text-[#8B6347] leading-relaxed mb-4">
-          Your order has been received. Payment details and collection time will be sent to you shortly. Orders close <strong>Wednesday at 7pm</strong>.
+          {cashOnCollection
+            ? "Your order is confirmed. See you on Friday for collection — please bring cash!"
+            : "Your order and payment are confirmed. We will be in touch on Friday with your collection details."}
         </p>
         <div className="bg-[#F2EAE0] rounded-2xl p-8 text-left mt-8 font-mono text-sm text-[#4A2E1A] leading-8 whitespace-pre-line">
           {orderSummary}
@@ -118,16 +255,16 @@ export default function OrderPage() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
 
-      {/* ── HOLIDAY NOTICE ── */}
-      <div className="mb-10 bg-[#EAF0EA] border border-[#4A6741]/30 rounded-2xl px-8 py-6 flex gap-4 items-start">
-        <span className="text-2xl mt-0.5">🌿</span>
-        <div>
-          <p className="font-sans font-semibold text-[#2C1A0E] mb-1">Orders are currently on hold</p>
-          <p className="font-sans text-sm text-[#4A2E1A] leading-relaxed">
-            Lucie is on holiday and orders will reopen on <strong>Monday 7 July</strong>. Collection will be on <strong>Friday 11 July</strong>. You&apos;re welcome to browse the menu in the meantime. Thank you for your patience 🫶🏻
-          </p>
+      {/* ── ORDER WINDOW NOTICE ── */}
+      {!orderWindow.open && (
+        <div className="mb-10 bg-[#EAF0EA] border border-[#4A6741]/30 rounded-2xl px-8 py-6 flex gap-4 items-start">
+          <span className="text-2xl mt-0.5">🌿</span>
+          <div>
+            <p className="font-sans font-semibold text-[#2C1A0E] mb-1">Orders are currently closed</p>
+            <p className="font-sans text-sm text-[#4A2E1A] leading-relaxed">{orderWindow.message}</p>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Header */}
       <div className="mb-12">
@@ -292,10 +429,10 @@ export default function OrderPage() {
 
             <button
               type="submit"
-              disabled={!hasItems || !name || !email || submitting}
+              disabled={!hasItems || !name || !email || submitting || !orderWindow.open}
               className="font-sans text-base font-semibold bg-[#C4852A] text-white py-4 rounded-full hover:bg-[#A36920] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              {submitting ? "Placing order…" : hasItems ? `Place Order · £${total.toFixed(2)}` : "Add items to order"}
+              {submitting ? "Placing order…" : !orderWindow.open ? "Orders are currently closed" : hasItems ? `Place Order · £${total.toFixed(2)}` : "Add items to order"}
             </button>
 
             <p className="font-sans text-sm text-[#8B6347] text-center leading-6">
