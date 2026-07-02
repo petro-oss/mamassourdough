@@ -121,8 +121,8 @@ export default function OrderPage() {
   function handlePaymentConfirm() {
     const method = cashOnCollection ? "Cash on Collection" : "SumUp or Bank Transfer";
 
-    // Second webhook: sends payment_method so GHL knows which SMS to fire
-    fetch("/api/order", {
+    // Second webhook: goes to payment confirmation workflow in GHL — fires customer SMS
+    fetch("/api/payment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(buildPayload(method)),
