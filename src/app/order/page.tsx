@@ -259,9 +259,10 @@ export default function OrderPage() {
         </h1>
         <p className="font-sans text-lg text-[#8B6347] leading-relaxed mb-4">
           {cashOnCollection
-            ? "Your order is confirmed. See you on Friday for collection — please bring cash!"
-            : "Your order and payment are confirmed. We will be in touch on Friday with your collection details."}
+            ? "Your order is confirmed. Collection is this Friday between 11am–1pm at 46 Stirling Way, Ramsgate. Please bring cash. Contact Lucie for any additional arrangements."
+            : "Thank you for your order and payment! Collection is this Friday between 11am–1pm at 46 Stirling Way, Ramsgate. Contact Lucie for any additional information or arrangements."}
         </p>
+        <p className="font-serif text-xl italic text-[#C4852A] mt-4">Love Lucie — Mama&apos;s Sourdough 🍞</p>
         <div className="bg-[#F2EAE0] rounded-2xl p-8 text-left mt-8 font-mono text-sm text-[#4A2E1A] leading-8 whitespace-pre-line">
           {orderSummary}
           {"\n"}{"─".repeat(30)}
