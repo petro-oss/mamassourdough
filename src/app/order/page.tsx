@@ -55,6 +55,7 @@ export default function OrderPage() {
   const [submitting, setSubmitting] = useState(false);
   const [paid, setPaid] = useState(false);
   const [cashOnCollection, setCashOnCollection] = useState(false);
+  const [smsConsent, setSmsConsent] = useState(false);
 
   const orderWindow = getOrderWindowStatus();
 
@@ -92,6 +93,7 @@ export default function OrderPage() {
       order_total: `£${total.toFixed(2)}`,
       order_notes: notes,
       recurring_order: recurring ? "Yes, weekly standing order" : "No",
+      sms_consent: "Yes",
       order_items: orderLines.map((item) => ({
         id: item.id,
         name: item.name,
@@ -440,11 +442,36 @@ export default function OrderPage() {
                   <p className="font-sans text-xs text-[#8B6347] mt-0.5 leading-relaxed">Same order every week. We&apos;ll reach out to confirm the details.</p>
                 </div>
               </label>
+
+              {/* SMS consent — required */}
+              <div className="border-t border-[#EAE0D5] pt-4 mt-1">
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <div className="relative mt-0.5 shrink-0">
+                    <input
+                      type="checkbox"
+                      checked={smsConsent}
+                      onChange={(e) => setSmsConsent(e.target.checked)}
+                      className="sr-only"
+                    />
+                    <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${smsConsent ? "bg-[#C4852A] border-[#C4852A]" : "bg-[#FAF6F0] border-[#D4BFA8] group-hover:border-[#C4852A]"}`}>
+                      {smsConsent && <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                    </div>
+                  </div>
+                  <div>
+                    <p className="font-sans text-sm font-medium text-[#2C1A0E] leading-snug">
+                      I agree to receive order updates by SMS <span className="text-[#C4852A]">*</span>
+                    </p>
+                    <p className="font-sans text-xs text-[#8B6347] mt-0.5 leading-relaxed">
+                      We&apos;ll send order confirmation, payment updates, and collection details by text. Reply STOP at any time to unsubscribe.
+                    </p>
+                  </div>
+                </label>
+              </div>
             </div>
 
             <button
               type="submit"
-              disabled={!hasItems || !name || !email || submitting || !orderWindow.open}
+              disabled={!hasItems || !name || !email || !smsConsent || submitting || !orderWindow.open}
               className="font-sans text-base font-semibold bg-[#C4852A] text-white py-4 rounded-full hover:bg-[#A36920] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
               {submitting ? "Placing order…" : !orderWindow.open ? "Orders are currently closed" : hasItems ? `Place Order · £${total.toFixed(2)}` : "Add items to order"}
