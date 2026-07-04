@@ -263,8 +263,8 @@ export default function OrderPage() {
         </h1>
         <p className="font-sans text-lg text-[#8B6347] leading-relaxed mb-4">
           {paidMethod === "Cash on Collection"
-            ? "Your order is confirmed. Collection is this Friday between 11am–1pm at 46 Stirling Way, Ramsgate. Please bring cash. Contact Lucie for any additional arrangements."
-            : "Thank you for your order and payment! Collection is this Friday between 11am–1pm at 46 Stirling Way, Ramsgate. Contact Lucie for any additional information or arrangements."}
+            ? "Thank you for your order. Lucie will confirm your cash on collection arrangement and you will receive an SMS confirmation. Collection is this Friday between 11am–1pm at 46 Stirling Way, Ramsgate."
+            : "Thank you for your order. Payment receipt will be confirmed and you will receive an SMS confirmation shortly. Collection is this Friday between 11am–1pm at 46 Stirling Way, Ramsgate."}
         </p>
         <p className="font-serif text-xl italic text-[#C4852A] mt-2">Love Lucie — Mama&apos;s Sourdough 🍞</p>
         <div className="bg-[#F2EAE0] rounded-2xl p-8 text-left mt-8 font-mono text-sm text-[#4A2E1A] leading-8 whitespace-pre-line">
