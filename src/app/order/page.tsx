@@ -35,12 +35,12 @@ function getOrderWindowStatus(): { open: boolean; message: string } {
   const addDays = (day === 1 && timeInMinutes < NINE_AM) ? 0 : daysUntilMonday;
   const nextMonday = new Date(ukTime);
   nextMonday.setDate(ukTime.getDate() + addDays);
-  nextMonday.setHours(9, 0, 0, 0);
+  nextMonday.setHours(8, 0, 0, 0);
   const mondayStr = nextMonday.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" });
 
   return {
     open: false,
-    message: `Orders for this week have closed. New orders open on ${mondayStr} at 9am. We can't wait to bake for you! 🍞`,
+    message: `Orders for this week have closed. New orders open on ${mondayStr} at 8am. We can't wait to bake for you! 🍞`,
   };
 }
 
