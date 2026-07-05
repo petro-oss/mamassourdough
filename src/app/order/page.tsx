@@ -8,7 +8,7 @@ type Quantities = Record<string, number>;
 
 // Set to true during testing to keep the order form open regardless of day/time.
 // Flip to false before go-live on 7 July.
-const TESTING_MODE = true;
+const TESTING_MODE = false;
 
 // Returns whether orders are currently open (Mon 9am – Wed 7pm UK time)
 function getOrderWindowStatus(): { open: boolean; message: string } {
