@@ -19,7 +19,7 @@ function getOrderWindowStatus(): { open: boolean; message: string } {
   const day = ukTime.getDay(); // 0=Sun,1=Mon,2=Tue,3=Wed,4=Thu,5=Fri,6=Sat
   const timeInMinutes = ukTime.getHours() * 60 + ukTime.getMinutes();
 
-  const NINE_AM = 9 * 60;
+  const NINE_AM = 8 * 60;
   const SEVEN_PM = 19 * 60;
 
   // Open: Monday 9am through Wednesday 7pm
