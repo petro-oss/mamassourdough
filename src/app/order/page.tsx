@@ -11,18 +11,35 @@ type Quantities = Record<string, number>;
 const TESTING_MODE = false;
 
 // Returns whether orders are currently open (Mon 9am – Wed 7pm UK time)
+function getUKTime() {
+  const now = new Date();
+  // Use en-US locale so JS parses MM/DD/YYYY correctly
+  const ukDate = new Date(now.toLocaleString("en-US", { timeZone: "Europe/London" }));
+  return ukDate;
+}
+
+function getNextMondayOpen() {
+  const uk = getUKTime();
+  const day = uk.getDay();
+  const timeInMinutes = uk.getHours() * 60 + uk.getMinutes();
+  const daysUntilMonday = [1, 7, 6, 5, 4, 3, 2][day];
+  const addDays = (day === 1 && timeInMinutes < 8 * 60) ? 0 : daysUntilMonday;
+  const next = new Date(uk);
+  next.setDate(uk.getDate() + addDays);
+  next.setHours(8, 0, 0, 0);
+  return next;
+}
+
 function getOrderWindowStatus(): { open: boolean; message: string } {
   if (TESTING_MODE) return { open: true, message: "" };
 
-  const now = new Date();
-  const ukTime = new Date(now.toLocaleString("en-GB", { timeZone: "Europe/London" }));
-  const day = ukTime.getDay(); // 0=Sun,1=Mon,2=Tue,3=Wed,4=Thu,5=Fri,6=Sat
-  const timeInMinutes = ukTime.getHours() * 60 + ukTime.getMinutes();
+  const uk = getUKTime();
+  const day = uk.getDay();
+  const timeInMinutes = uk.getHours() * 60 + uk.getMinutes();
 
   const EIGHT_AM = 8 * 60;
   const SEVEN_PM = 19 * 60;
 
-  // Open: Monday 8am through Wednesday 7pm
   const isOpen =
     (day === 1 && timeInMinutes >= EIGHT_AM) ||
     day === 2 ||
@@ -30,12 +47,7 @@ function getOrderWindowStatus(): { open: boolean; message: string } {
 
   if (isOpen) return { open: true, message: "" };
 
-  // Days until next Monday: lookup table [Sun,Mon,Tue,Wed,Thu,Fri,Sat]
-  const daysUntilMonday = [1, 7, 6, 5, 4, 3, 2][day];
-  const addDays = (day === 1 && timeInMinutes < EIGHT_AM) ? 0 : daysUntilMonday;
-  const nextMonday = new Date(ukTime);
-  nextMonday.setDate(ukTime.getDate() + addDays);
-  nextMonday.setHours(8, 0, 0, 0);
+  const nextMonday = getNextMondayOpen();
   const mondayStr = nextMonday.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" });
 
   return {
@@ -63,22 +75,16 @@ export default function OrderPage() {
   const [countdown, setCountdown] = useState("");
   useEffect(() => {
     if (orderWindow.open) return;
-    const target = new Date();
-    const uk = new Date(target.toLocaleString("en-GB", { timeZone: "Europe/London" }));
-    const day = uk.getDay();
-    const next = new Date(uk);
-    const daysUntil = [1, 7, 6, 5, 4, 3, 2][day];
-    const addDays = (day === 1 && uk.getHours() * 60 + uk.getMinutes() < 8 * 60) ? 0 : daysUntil;
-    next.setDate(uk.getDate() + addDays);
-    next.setHours(8, 0, 0, 0);
+    const target = getNextMondayOpen();
+    // Convert UK local time back to UTC for accurate diff
+    const targetUTC = target.getTime() - (new Date(target.toLocaleString("en-US", { timeZone: "Europe/London" })).getTime() - target.getTime());
     const tick = () => {
-      const now = new Date();
-      const diff = next.getTime() - now.getTime();
-      if (diff <= 0) { setCountdown("Orders are now open!"); return; }
+      const diff = targetUTC - Date.now();
+      if (diff <= 0) { setCountdown("🍞 Orders are now open!"); return; }
       const h = Math.floor(diff / 3600000);
       const m = Math.floor((diff % 3600000) / 60000);
       const s = Math.floor((diff % 60000) / 1000);
-      setCountdown(`${h}h ${m}m ${s}s`);
+      setCountdown(`${h}h ${String(m).padStart(2,"0")}m ${String(s).padStart(2,"0")}s`);
     };
     tick();
     const interval = setInterval(tick, 1000);
