@@ -89,6 +89,7 @@ export default function OrderPage() {
       order_total: `£${total.toFixed(2)}`,
       order_notes: notes,
       recurring_order: recurring ? "Yes, weekly standing order" : "No",
+      order_type: recurring ? "Yes" : "No",
       sms_consent: "Yes",
       order_items: orderLines.map((item) => ({
         id: item.id,

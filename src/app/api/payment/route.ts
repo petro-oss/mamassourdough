@@ -16,17 +16,6 @@ export async function POST(req: NextRequest) {
     }),
   ];
 
-  if (SHEETS_WEBHOOK) {
-    requests.push(
-      fetch(SHEETS_WEBHOOK, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-        redirect: "manual",
-      }).catch(() => new Response(null, { status: 200 }))
-    );
-  }
-
   const [ghlRes] = await Promise.all(requests);
 
   if (!ghlRes.ok) {
