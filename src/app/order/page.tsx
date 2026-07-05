@@ -19,12 +19,12 @@ function getOrderWindowStatus(): { open: boolean; message: string } {
   const day = ukTime.getDay(); // 0=Sun,1=Mon,2=Tue,3=Wed,4=Thu,5=Fri,6=Sat
   const timeInMinutes = ukTime.getHours() * 60 + ukTime.getMinutes();
 
-  const NINE_AM = 8 * 60;
+  const EIGHT_AM = 8 * 60;
   const SEVEN_PM = 19 * 60;
 
-  // Open: Monday 9am through Wednesday 7pm
+  // Open: Monday 8am through Wednesday 7pm
   const isOpen =
-    (day === 1 && timeInMinutes >= NINE_AM) ||
+    (day === 1 && timeInMinutes >= EIGHT_AM) ||
     day === 2 ||
     (day === 3 && timeInMinutes < SEVEN_PM);
 
@@ -32,7 +32,7 @@ function getOrderWindowStatus(): { open: boolean; message: string } {
 
   // Days until next Monday: lookup table [Sun,Mon,Tue,Wed,Thu,Fri,Sat]
   const daysUntilMonday = [1, 7, 6, 5, 4, 3, 2][day];
-  const addDays = (day === 1 && timeInMinutes < NINE_AM) ? 0 : daysUntilMonday;
+  const addDays = (day === 1 && timeInMinutes < EIGHT_AM) ? 0 : daysUntilMonday;
   const nextMonday = new Date(ukTime);
   nextMonday.setDate(ukTime.getDate() + addDays);
   nextMonday.setHours(8, 0, 0, 0);
