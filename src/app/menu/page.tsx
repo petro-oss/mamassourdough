@@ -21,7 +21,7 @@ export const menuItems = [
   },
   {
     id: "country-wholemeal",
-    name: "Wholemeal Sourdough",
+    name: "Country Wholemeal Sourdough",
     desc: "Nutty, wholesome and deeply flavoured. A hearty everyday loaf.",
     allergens: "Contains gluten, cultured starter.",
     price: 5.00,
@@ -103,6 +103,17 @@ export const menuItems = [
     priceLabel: "£6.00",
     category: "Focaccia",
   },
+  // BAGUETTES
+  {
+    id: "white-baguette",
+    name: "White Baguette",
+    subheading: "Baguettes",
+    desc: "Classic crispy-crusted white sourdough baguette. Perfect for dipping, dunking or slicing.",
+    allergens: "Contains gluten, cultured starter.",
+    price: 2.50,
+    priceLabel: "£2.50",
+    category: "Loaves",
+  },
   // SWEET BAKES
   {
     id: "choc-chip-cookie",
@@ -156,7 +167,7 @@ export default function MenuPage() {
             <span className="text-3xl select-none" style={{ color: "#e8a0b4" }}>✿</span>
             <div className="border-l-2 pl-4" style={{ borderColor: "#e8a0b4" }}>
               <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#7A5C42]">Collection</p>
-              <p className="font-serif text-xl italic text-[#1C1009]">TBA on order placement</p>
+              <p className="font-serif text-xl italic text-[#1C1009]">Every Friday, 11am – 1pm, Stirling Way</p>
             </div>
             <span className="text-3xl select-none" style={{ color: "#e8a0b4" }}>✿</span>
           </div>
