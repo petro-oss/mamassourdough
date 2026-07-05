@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { menuItems } from "@/app/menu/page";
 
@@ -59,6 +59,31 @@ export default function OrderPage() {
   const [smsConsent, setSmsConsent] = useState(false);
 
   const orderWindow = getOrderWindowStatus();
+
+  const [countdown, setCountdown] = useState("");
+  useEffect(() => {
+    if (orderWindow.open) return;
+    const target = new Date();
+    const uk = new Date(target.toLocaleString("en-GB", { timeZone: "Europe/London" }));
+    const day = uk.getDay();
+    const next = new Date(uk);
+    const daysUntil = [1, 7, 6, 5, 4, 3, 2][day];
+    const addDays = (day === 1 && uk.getHours() * 60 + uk.getMinutes() < 8 * 60) ? 0 : daysUntil;
+    next.setDate(uk.getDate() + addDays);
+    next.setHours(8, 0, 0, 0);
+    const tick = () => {
+      const now = new Date();
+      const diff = next.getTime() - now.getTime();
+      if (diff <= 0) { setCountdown("Orders are now open!"); return; }
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      setCountdown(`${h}h ${m}m ${s}s`);
+    };
+    tick();
+    const interval = setInterval(tick, 1000);
+    return () => clearInterval(interval);
+  }, [orderWindow.open]);
 
   const setQty = (id: string, delta: number) => {
     setQuantities((prev) => {
@@ -297,9 +322,15 @@ export default function OrderPage() {
       {!orderWindow.open && (
         <div className="mb-10 bg-[#EAF0EA] border border-[#4A6741]/30 rounded-2xl px-8 py-6 flex gap-4 items-start">
           <span className="text-2xl mt-0.5">🌿</span>
-          <div>
+          <div className="w-full">
             <p className="font-sans font-semibold text-[#2C1A0E] mb-1">Orders are currently closed</p>
-            <p className="font-sans text-sm text-[#4A2E1A] leading-relaxed">{orderWindow.message}</p>
+            <p className="font-sans text-sm text-[#4A2E1A] leading-relaxed mb-3">{orderWindow.message}</p>
+            {countdown && (
+              <div className="inline-flex items-center gap-2 bg-[#2C1A0E] text-[#F5F0E8] rounded-xl px-4 py-2">
+                <span className="text-xs font-mono tracking-widest uppercase text-[#C4852A]">Opens in</span>
+                <span className="font-mono text-lg font-bold tracking-wider">{countdown}</span>
+              </div>
+            )}
           </div>
         </div>
       )}
