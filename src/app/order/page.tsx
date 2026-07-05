@@ -445,24 +445,7 @@ export default function OrderPage() {
                 />
               </div>
 
-              {/* Recurring order */}
-              <label className="flex items-start gap-3 cursor-pointer group">
-                <div className="relative mt-0.5 shrink-0">
-                  <input
-                    type="checkbox"
-                    checked={recurring}
-                    onChange={(e) => setRecurring(e.target.checked)}
-                    className="sr-only"
-                  />
-                  <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${recurring ? "bg-[#4A6741] border-[#4A6741]" : "bg-[#FAF6F0] border-[#D4BFA8] group-hover:border-[#4A6741]"}`}>
-                    {recurring && <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>}
-                  </div>
-                </div>
-                <div>
-                  <p className="font-sans text-sm font-medium text-[#2C1A0E] leading-snug">Set up a weekly standing order</p>
-                  <p className="font-sans text-xs text-[#8B6347] mt-0.5 leading-relaxed">Same order every week. We&apos;ll reach out to confirm the details.</p>
-                </div>
-              </label>
+              {/* Recurring order — hidden until recurring system is live */}
 
               {/* SMS consent — required */}
               <div className="border-t border-[#EAE0D5] pt-4 mt-1">
