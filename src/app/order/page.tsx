@@ -323,17 +323,6 @@ export default function OrderPage() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
 
-      {/* ── HOLIDAY NOTICE — remove after 7 July ── */}
-      <div className="mb-10 bg-[#EAF0EA] border border-[#4A6741]/30 rounded-2xl px-8 py-6 flex gap-4 items-start">
-        <span className="text-2xl mt-0.5">🌿</span>
-        <div>
-          <p className="font-sans font-semibold text-[#2C1A0E] mb-1">Orders opening Monday 6 July!</p>
-          <p className="font-sans text-sm text-[#4A2E1A] leading-relaxed">
-            Orders are opening on <strong>Monday 6 July at 8am</strong>. Our new website and ordering system is going live this week — thank you for your patience and support. Feel free to send us any comments or messages that might help us improve the user experience! Much love, Lucie 🫶🏻
-          </p>
-        </div>
-      </div>
-
       {/* ── ORDER WINDOW NOTICE — only shows when TESTING_MODE is false ── */}
       {!orderWindow.open && (
         <div className="mb-10 bg-[#EAF0EA] border border-[#4A6741]/30 rounded-2xl px-8 py-6 flex gap-4 items-start">
