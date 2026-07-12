@@ -185,28 +185,34 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-6 mb-10">
           {/* Grain Grocer */}
-          <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4" style={{ borderTopColor: "#C4852A" }}>
+          <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#C4852A" }}>
             <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">Margate</p>
-            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-4">Grain Grocer</h3>
-            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-4">Thurs · Fri · Sat</span>
-            <p className="font-sans text-sm text-[#8B6347] leading-relaxed">Wholemeal sourdough</p>
+            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-1">Grain Grocer</h3>
+            <a href="https://maps.google.com/?q=216+Northdown+Rd,+Cliftonville,+Margate+CT9+2QU" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-4">216 Northdown Rd, Cliftonville, Margate →</a>
+            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-4 w-fit">Thurs · Fri · Sat</span>
+            <p className="font-sans text-sm text-[#8B6347] leading-relaxed mb-3">Wholemeal sourdough</p>
+            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
           </div>
 
           {/* Flowers & Felicities */}
-          <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4" style={{ borderTopColor: "#4A6741" }}>
+          <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#4A6741" }}>
             <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#4A6741] mb-2">Broadstairs</p>
-            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-4">Flowers & Felicities</h3>
-            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#EAF0EA] text-[#4A6741] px-3 py-1.5 rounded-full mb-4">Thursdays*</span>
-            <p className="font-sans text-sm text-[#8B6347] leading-relaxed">White & wholemeal sourdough</p>
-            <p className="font-mono text-[9px] text-[#C4852A] mt-2">*subject to change</p>
+            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-1">Flowers & Felicities</h3>
+            <a href="https://maps.google.com/?q=5+The+Broadway,+Broadstairs+CT10+2AD" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-4">5 The Broadway, Broadstairs →</a>
+            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#EAF0EA] text-[#4A6741] px-3 py-1.5 rounded-full mb-4 w-fit">Thursdays*</span>
+            <p className="font-sans text-sm text-[#8B6347] leading-relaxed mb-1">White & wholemeal sourdough</p>
+            <p className="font-mono text-[9px] text-[#C4852A] mb-3">*subject to change</p>
+            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
           </div>
 
           {/* Union Cafe */}
-          <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4" style={{ borderTopColor: "#2C1A0E" }}>
+          <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#2C1A0E" }}>
             <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#8B6347] mb-2">Ramsgate</p>
-            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-4">Union Cafe</h3>
-            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-4">Thurs · Fri · Sat</span>
-            <p className="font-sans text-sm text-[#8B6347] leading-relaxed">Wholemeal sourdough · 10 loaves per day</p>
+            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-1">Union Cafe</h3>
+            <a href="https://maps.google.com/?q=25-27+Queen+St,+Ramsgate+CT11+9DZ" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-4">25-27 Queen St, Ramsgate →</a>
+            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-4 w-fit">Thurs · Fri · Sat</span>
+            <p className="font-sans text-sm text-[#8B6347] leading-relaxed mb-3">Wholemeal sourdough</p>
+            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
           </div>
         </div>
 
@@ -215,6 +221,35 @@ export default function Home() {
           <Link href="/order" className="font-sans text-sm font-semibold text-[#C4852A] border-b border-[#C4852A] pb-0.5 hover:text-[#A36920] hover:border-[#A36920] transition-colors shrink-0">
             Order online for collection →
           </Link>
+        </div>
+      </section>
+
+      {/* ── GALLERY TEASER STRIP ─────────────────────────────────────────────── */}
+      <section className="py-16 bg-[#F2EAE0] overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 mb-8 flex items-end justify-between">
+          <div>
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">From Lucie&apos;s kitchen</p>
+            <h2 className="font-sans text-4xl font-bold tracking-tight text-[#2C1A0E]">Behind the bake</h2>
+          </div>
+          <Link href="/about" className="font-sans text-sm text-[#8B6347] border-b border-[#8B6347] pb-0.5 hover:text-[#C4852A] hover:border-[#C4852A] transition-colors shrink-0">
+            See more →
+          </Link>
+        </div>
+        <div className="flex gap-4 pl-6 md:pl-[calc((100vw-72rem)/2+1.5rem)] overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+          {[
+            { src: "/images/gallery-loaves-prebake.jpg", caption: "Scored & ready for the oven" },
+            { src: "/images/gallery-loaves-baked.jpg", caption: "Fresh from the oven" },
+            { src: "/images/gallery-focaccia-prebake.jpg", caption: "Rosemary focaccia proving" },
+            { src: "/images/gallery-focaccia-baked.jpg", caption: "Golden focaccia, just baked" },
+            { src: "/images/gallery-shop-display.jpg", caption: "At the shop, ready to go" },
+          ].map(({ src, caption }) => (
+            <div key={src} className="relative shrink-0 w-64 h-80 rounded-2xl overflow-hidden snap-start group">
+              <Image src={src} alt={caption} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <p className="absolute bottom-4 left-4 right-4 font-serif text-sm italic text-white leading-snug">{caption}</p>
+            </div>
+          ))}
+          <div className="shrink-0 w-6" />
         </div>
       </section>
 

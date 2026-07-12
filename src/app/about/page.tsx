@@ -209,13 +209,49 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── FOOD PHOTOS ────────────────────────────────────────────────────── */}
+      {/* ── GALLERY ──────────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="grid grid-cols-2 gap-4">
-          <div className="relative aspect-square rounded-2xl overflow-hidden">
+        <div className="mb-8">
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">From Lucie&apos;s kitchen</p>
+          <h2 className="font-sans text-4xl font-bold tracking-tight text-[#2C1A0E]">Behind the bake</h2>
+        </div>
+
+        {/* Masonry-style grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {/* Row 1: tall left, two stacked right */}
+          <div className="relative rounded-2xl overflow-hidden row-span-2" style={{ aspectRatio: "3/4" }}>
+            <Image src="/images/gallery-loaves-prebake.jpg" alt="Scored loaves ready for the oven" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <p className="absolute bottom-4 left-4 right-4 font-serif text-sm italic text-white">Scored &amp; ready for the oven</p>
+          </div>
+          <div className="relative rounded-2xl overflow-hidden aspect-square">
+            <Image src="/images/gallery-loaves-baked.jpg" alt="Fresh golden loaves from the oven" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <p className="absolute bottom-3 left-3 right-3 font-serif text-sm italic text-white">Fresh from the oven</p>
+          </div>
+          <div className="relative rounded-2xl overflow-hidden aspect-square">
+            <Image src="/images/gallery-focaccia-baked.jpg" alt="Golden baked focaccia" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <p className="absolute bottom-3 left-3 right-3 font-serif text-sm italic text-white">Golden focaccia, just baked</p>
+          </div>
+
+          {/* Row 2: two images filling the right columns */}
+          <div className="relative rounded-2xl overflow-hidden aspect-square">
+            <Image src="/images/gallery-focaccia-prebake.jpg" alt="Rosemary focaccia proving" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <p className="absolute bottom-3 left-3 right-3 font-serif text-sm italic text-white">Rosemary focaccia proving</p>
+          </div>
+          <div className="relative rounded-2xl overflow-hidden aspect-square">
+            <Image src="/images/gallery-shop-display.jpg" alt="Loaves at the shop" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <p className="absolute bottom-3 left-3 right-3 font-serif text-sm italic text-white">At the shop, ready to go</p>
+          </div>
+
+          {/* Row 3: existing photos filling out the grid */}
+          <div className="relative rounded-2xl overflow-hidden aspect-square">
             <Image src="/images/sourdough-linen.jpg" alt="Sourdough loaf" fill className="object-cover hover:scale-105 transition-transform duration-500" />
           </div>
-          <div className="relative aspect-square rounded-2xl overflow-hidden">
+          <div className="relative rounded-2xl overflow-hidden aspect-square">
             <Image src="/images/seeded-loaf.jpg" alt="Seeded sourdough loaf" fill className="object-cover hover:scale-105 transition-transform duration-500" />
           </div>
         </div>
@@ -235,19 +271,39 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────────────────────────── */}
+      {/* ── STOCKISTS ─────────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="bg-[#2C1A0E] rounded-3xl p-12 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#A07850] mb-2">Ramsgate, Kent</p>
-            <p className="font-serif text-4xl italic text-[#FAF6F0]">Come find us. Say hello.</p>
+        <div className="mb-10">
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">Now available in store</p>
+          <h2 className="font-sans text-4xl font-bold tracking-tight text-[#2C1A0E]">Find us locally</h2>
+          <p className="font-sans text-[#8B6347] mt-3 max-w-lg leading-relaxed">Fresh loaves delivered to local shops every week — find us near you.</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#C4852A" }}>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">Margate</p>
+            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-1">Grain Grocer</h3>
+            <a href="https://maps.google.com/?q=216+Northdown+Rd,+Cliftonville,+Margate+CT9+2QU" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-4">216 Northdown Rd, Cliftonville, Margate →</a>
+            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-4 w-fit">Thurs · Fri · Sat</span>
+            <p className="font-sans text-sm text-[#8B6347] leading-relaxed mb-3">Wholemeal sourdough</p>
+            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
           </div>
-          <Link
-            href="/contact"
-            className="font-sans text-sm font-medium bg-[#C4852A] text-white px-8 py-3.5 rounded-full hover:bg-[#A36920] transition-colors shrink-0"
-          >
-            Get in Touch
-          </Link>
+          <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#4A6741" }}>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#4A6741] mb-2">Broadstairs</p>
+            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-1">Flowers & Felicities</h3>
+            <a href="https://maps.google.com/?q=5+The+Broadway,+Broadstairs+CT10+2AD" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-4">5 The Broadway, Broadstairs →</a>
+            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#EAF0EA] text-[#4A6741] px-3 py-1.5 rounded-full mb-4 w-fit">Thursdays*</span>
+            <p className="font-sans text-sm text-[#8B6347] leading-relaxed mb-1">White & wholemeal sourdough</p>
+            <p className="font-mono text-[9px] text-[#C4852A] mb-3">*subject to change</p>
+            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
+          </div>
+          <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#2C1A0E" }}>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#8B6347] mb-2">Ramsgate</p>
+            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-1">Union Cafe</h3>
+            <a href="https://maps.google.com/?q=25-27+Queen+St,+Ramsgate+CT11+9DZ" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-4">25-27 Queen St, Ramsgate →</a>
+            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-4 w-fit">Thurs · Fri · Sat</span>
+            <p className="font-sans text-sm text-[#8B6347] leading-relaxed mb-3">Wholemeal sourdough</p>
+            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
+          </div>
         </div>
       </section>
     </div>
