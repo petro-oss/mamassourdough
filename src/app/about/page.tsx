@@ -210,50 +210,28 @@ export default function AboutPage() {
       </section>
 
       {/* ── GALLERY ──────────────────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="mb-8">
+      <section className="py-16 bg-[#F2EAE0] overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 mb-8">
           <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">From Lucie&apos;s kitchen</p>
           <h2 className="font-sans text-4xl font-bold tracking-tight text-[#2C1A0E]">Behind the bake</h2>
         </div>
-
-        {/* Masonry-style grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {/* Row 1: tall left, two stacked right */}
-          <div className="relative rounded-2xl overflow-hidden row-span-2" style={{ aspectRatio: "3/4" }}>
-            <Image src="/images/gallery-loaves-prebake.jpg" alt="Scored loaves ready for the oven" fill className="object-cover hover:scale-105 transition-transform duration-500" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-            <p className="absolute bottom-4 left-4 right-4 font-serif text-sm italic text-white">Scored &amp; ready for the oven</p>
-          </div>
-          <div className="relative rounded-2xl overflow-hidden aspect-square">
-            <Image src="/images/gallery-loaves-baked.jpg" alt="Fresh golden loaves from the oven" fill className="object-cover hover:scale-105 transition-transform duration-500" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-            <p className="absolute bottom-3 left-3 right-3 font-serif text-sm italic text-white">Fresh from the oven</p>
-          </div>
-          <div className="relative rounded-2xl overflow-hidden aspect-square">
-            <Image src="/images/gallery-focaccia-baked.jpg" alt="Golden baked focaccia" fill className="object-cover hover:scale-105 transition-transform duration-500" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-            <p className="absolute bottom-3 left-3 right-3 font-serif text-sm italic text-white">Golden focaccia, just baked</p>
-          </div>
-
-          {/* Row 2: two images filling the right columns */}
-          <div className="relative rounded-2xl overflow-hidden aspect-square">
-            <Image src="/images/gallery-focaccia-prebake.jpg" alt="Rosemary focaccia proving" fill className="object-cover hover:scale-105 transition-transform duration-500" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-            <p className="absolute bottom-3 left-3 right-3 font-serif text-sm italic text-white">Rosemary focaccia proving</p>
-          </div>
-          <div className="relative rounded-2xl overflow-hidden aspect-square">
-            <Image src="/images/gallery-shop-display.jpg" alt="Loaves at the shop" fill className="object-cover hover:scale-105 transition-transform duration-500" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-            <p className="absolute bottom-3 left-3 right-3 font-serif text-sm italic text-white">At the shop, ready to go</p>
-          </div>
-
-          {/* Row 3: existing photos filling out the grid */}
-          <div className="relative rounded-2xl overflow-hidden aspect-square">
-            <Image src="/images/sourdough-linen.jpg" alt="Sourdough loaf" fill className="object-cover hover:scale-105 transition-transform duration-500" />
-          </div>
-          <div className="relative rounded-2xl overflow-hidden aspect-square">
-            <Image src="/images/seeded-loaf.jpg" alt="Seeded sourdough loaf" fill className="object-cover hover:scale-105 transition-transform duration-500" />
-          </div>
+        <div className="flex gap-4 pl-6 md:pl-[calc((100vw-72rem)/2+1.5rem)] overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+          {[
+            { src: "/images/gallery-loaves-prebake.jpg", caption: "Scored & ready for the oven" },
+            { src: "/images/gallery-loaves-baked.jpg", caption: "Fresh from the oven" },
+            { src: "/images/gallery-focaccia-prebake.jpg", caption: "Rosemary focaccia proving" },
+            { src: "/images/gallery-focaccia-baked.jpg", caption: "Golden focaccia, just baked" },
+            { src: "/images/gallery-shop-display.jpg", caption: "At the shop, ready to go" },
+            { src: "/images/sourdough-linen.jpg", caption: "Country sourdough" },
+            { src: "/images/seeded-loaf.jpg", caption: "Seeded tin loaf" },
+          ].map(({ src, caption }) => (
+            <div key={src} className="relative shrink-0 w-64 h-80 rounded-2xl overflow-hidden snap-start group">
+              <Image src={src} alt={caption} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <p className="absolute bottom-4 left-4 right-4 font-serif text-sm italic text-white leading-snug">{caption}</p>
+            </div>
+          ))}
+          <div className="shrink-0 w-6" />
         </div>
       </section>
 
