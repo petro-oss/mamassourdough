@@ -141,9 +141,9 @@ export default function Home() {
       {/* ── BEST SELLERS ─────────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-6 pt-8 pb-20">
         <div className="text-center mb-14">
-          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-3">Featured Favourites</p>
-          <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E]">This Week&apos;s Bakes</h2>
-          <p className="font-sans text-[#8B6347] mt-3 max-w-md mx-auto">The bakes our customers come back for every single week.</p>
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-3">From the kitchen</p>
+          <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E]">Some of Our Bakes</h2>
+          <p className="font-sans text-[#8B6347] mt-3 max-w-md mx-auto">A taste of what Lucie makes. See the menu for everything available this week.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
