@@ -175,6 +175,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── FIND US IN STORE ─────────────────────────────────────────────────── */}
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <div className="text-center mb-12">
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-3">Now available in store</p>
+          <h2 className="font-sans text-5xl font-bold tracking-tight text-[#2C1A0E]">Come find us locally</h2>
+          <p className="font-serif text-xl italic font-light text-[#8B6347] mt-3">Fresh loaves delivered to local shops every week — find us near you.</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-10">
+          {/* Grain Grocer */}
+          <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4" style={{ borderTopColor: "#C4852A" }}>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">Margate</p>
+            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-4">Grain Grocer</h3>
+            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-4">Thurs · Fri · Sat</span>
+            <p className="font-sans text-sm text-[#8B6347] leading-relaxed">Wholemeal sourdough</p>
+          </div>
+
+          {/* Flowers & Felicities */}
+          <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4" style={{ borderTopColor: "#4A6741" }}>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#4A6741] mb-2">Broadstairs</p>
+            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-4">Flowers & Felicities</h3>
+            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#EAF0EA] text-[#4A6741] px-3 py-1.5 rounded-full mb-4">Thursdays*</span>
+            <p className="font-sans text-sm text-[#8B6347] leading-relaxed">White & wholemeal sourdough</p>
+            <p className="font-mono text-[9px] text-[#C4852A] mt-2">*subject to change</p>
+          </div>
+
+          {/* Union Cafe */}
+          <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4" style={{ borderTopColor: "#2C1A0E" }}>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#8B6347] mb-2">Ramsgate</p>
+            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-4">Union Cafe</h3>
+            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-4">Thurs · Fri · Sat</span>
+            <p className="font-sans text-sm text-[#8B6347] leading-relaxed">Wholemeal sourdough · 10 loaves per day</p>
+          </div>
+        </div>
+
+        <div className="border-t border-[#EAE0D5] pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p className="font-serif text-lg italic text-[#4A2E1A]">Want your regular order? Still baking fresh for collection every Friday.</p>
+          <Link href="/order" className="font-sans text-sm font-semibold text-[#C4852A] border-b border-[#C4852A] pb-0.5 hover:text-[#A36920] hover:border-[#A36920] transition-colors shrink-0">
+            Order online for collection →
+          </Link>
+        </div>
+      </section>
+
       {/* ── ABOUT MAMA'S ─────────────────────────────────────────────────────── */}
       <section className="bg-[#F2EAE0] py-20">
         <div className="max-w-6xl mx-auto px-6">

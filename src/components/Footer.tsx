@@ -64,6 +64,28 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Stockists */}
+      <div className="border-t border-[#4A2E1A] max-w-6xl mx-auto px-6 py-10">
+        <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#6B4A2A] mb-5">Find us in store</p>
+        <div className="grid sm:grid-cols-3 gap-6">
+          <div>
+            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#C4852A] mb-1">Margate</p>
+            <p className="font-sans text-sm font-semibold text-[#FAF6F0]">Grain Grocer</p>
+            <p className="font-sans text-xs text-[#6B4A2A] mt-0.5">Wholemeal · Thurs, Fri & Sat</p>
+          </div>
+          <div>
+            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#4A6741] mb-1">Broadstairs</p>
+            <p className="font-sans text-sm font-semibold text-[#FAF6F0]">Flowers & Felicities</p>
+            <p className="font-sans text-xs text-[#6B4A2A] mt-0.5">White & wholemeal · Thursdays*</p>
+          </div>
+          <div>
+            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#A07850] mb-1">Ramsgate</p>
+            <p className="font-sans text-sm font-semibold text-[#FAF6F0]">Union Cafe</p>
+            <p className="font-sans text-xs text-[#6B4A2A] mt-0.5">Wholemeal · Thurs, Fri & Sat · 10 per day</p>
+          </div>
+        </div>
+      </div>
+
       <div className="border-t border-[#4A2E1A] max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <p className="font-mono text-[11px] tracking-widest uppercase text-[#6B4A2A]">
           © {new Date().getFullYear()} mama&apos;s sourdough · all rights reserved
