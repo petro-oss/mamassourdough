@@ -18,6 +18,7 @@ export const menuItems = [
     price: 5.00,
     priceLabel: "£5.00",
     category: "Loaves",
+    available: true,
   },
   {
     id: "country-wholemeal",
@@ -27,6 +28,7 @@ export const menuItems = [
     price: 5.00,
     priceLabel: "£5.00",
     category: "Loaves",
+    available: true,
   },
   // TIN LOAVES
   {
@@ -38,6 +40,7 @@ export const menuItems = [
     price: 6.00,
     priceLabel: "£6.00",
     category: "Loaves",
+    available: true,
   },
   {
     id: "rye-tin",
@@ -47,6 +50,7 @@ export const menuItems = [
     price: 6.00,
     priceLabel: "£6.00",
     category: "Loaves",
+    available: false, // not this week
   },
   {
     id: "soft-white-tin",
@@ -56,52 +60,7 @@ export const menuItems = [
     price: 6.00,
     priceLabel: "£6.00",
     category: "Loaves",
-  },
-  // FOCACCIA
-  {
-    id: "focaccia-plain",
-    name: "Focaccia: Plain",
-    desc: "Simple, pillowy focaccia drizzled with olive oil and sea salt.",
-    allergens: "Contains gluten, cultured starter.",
-    price: 5.00,
-    priceLabel: "£5.00",
-    category: "Focaccia",
-  },
-  {
-    id: "focaccia-sundried",
-    name: "Focaccia: Sundried Tomato & Basil",
-    desc: "Bright, herby focaccia topped with sundried tomatoes and fresh basil.",
-    allergens: "Contains gluten, cultured starter.",
-    price: 6.00,
-    priceLabel: "£6.00",
-    category: "Focaccia",
-  },
-  {
-    id: "focaccia-garlic-onion",
-    name: "Focaccia: Garlic & Caramelised Onion",
-    desc: "Sweet caramelised onion and roasted garlic on pillowy sourdough focaccia.",
-    allergens: "Contains gluten, cultured starter.",
-    price: 6.00,
-    priceLabel: "£6.00",
-    category: "Focaccia",
-  },
-  {
-    id: "focaccia-rosemary",
-    name: "Focaccia: Rosemary & Garlic",
-    desc: "Fragrant rosemary and garlic baked into a golden, airy focaccia.",
-    allergens: "Contains gluten, cultured starter.",
-    price: 6.00,
-    priceLabel: "£6.00",
-    category: "Focaccia",
-  },
-  {
-    id: "focaccia-olive-feta",
-    name: "Focaccia: Olive & Feta",
-    desc: "Salty olives and creamy feta baked into a beautifully flavoured focaccia.",
-    allergens: "Contains gluten, cultured starter.",
-    price: 6.00,
-    priceLabel: "£6.00",
-    category: "Focaccia",
+    available: true,
   },
   // BAGUETTES
   {
@@ -113,6 +72,58 @@ export const menuItems = [
     price: 2.50,
     priceLabel: "£2.50",
     category: "Loaves",
+    available: false, // not this week
+  },
+  // FOCACCIA
+  {
+    id: "focaccia-plain",
+    name: "Focaccia: Plain",
+    desc: "Simple, pillowy focaccia drizzled with olive oil and sea salt.",
+    allergens: "Contains gluten, cultured starter.",
+    price: 5.00,
+    priceLabel: "£5.00",
+    category: "Focaccia",
+    available: true,
+  },
+  {
+    id: "focaccia-sundried",
+    name: "Focaccia: Sundried Tomato & Basil",
+    desc: "Bright, herby focaccia topped with sundried tomatoes and fresh basil.",
+    allergens: "Contains gluten, cultured starter.",
+    price: 6.00,
+    priceLabel: "£6.00",
+    category: "Focaccia",
+    available: true,
+  },
+  {
+    id: "focaccia-garlic-onion",
+    name: "Focaccia: Garlic & Caramelised Onion",
+    desc: "Sweet caramelised onion and roasted garlic on pillowy sourdough focaccia.",
+    allergens: "Contains gluten, cultured starter.",
+    price: 6.00,
+    priceLabel: "£6.00",
+    category: "Focaccia",
+    available: true,
+  },
+  {
+    id: "focaccia-rosemary",
+    name: "Focaccia: Rosemary & Garlic",
+    desc: "Fragrant rosemary and garlic baked into a golden, airy focaccia.",
+    allergens: "Contains gluten, cultured starter.",
+    price: 6.00,
+    priceLabel: "£6.00",
+    category: "Focaccia",
+    available: true,
+  },
+  {
+    id: "focaccia-olive-feta",
+    name: "Focaccia: Olive & Feta",
+    desc: "Salty olives and creamy feta baked into a beautifully flavoured focaccia.",
+    allergens: "Contains gluten, cultured starter.",
+    price: 6.00,
+    priceLabel: "£6.00",
+    category: "Focaccia",
+    available: true,
   },
   // SWEET BAKES
   {
@@ -123,6 +134,17 @@ export const menuItems = [
     price: 2.00,
     priceLabel: "£2.00",
     category: "Sweet Bakes",
+    available: true,
+  },
+  {
+    id: "chocolate-brownie",
+    name: "Chocolate Brownie",
+    desc: "Rich, fudgy sourdough chocolate brownie with a crinkled top and gooey centre.",
+    allergens: "Contains gluten, dairy, eggs.",
+    price: 4.00,
+    priceLabel: "£4.00",
+    category: "Sweet Bakes",
+    available: true,
   },
   {
     id: "banana-loaf",
@@ -132,6 +154,7 @@ export const menuItems = [
     price: 6.00,
     priceLabel: "£6.00",
     category: "Sweet Bakes",
+    available: false, // not this week
   },
   {
     id: "blueberry-muffin",
@@ -141,6 +164,7 @@ export const menuItems = [
     price: 3.00,
     priceLabel: "£3.00",
     category: "Sweet Bakes",
+    available: false, // not this week
   },
 ];
 
@@ -178,7 +202,7 @@ export default function MenuPage() {
       <div className="mb-16">
         <div>
           {categories.map((cat) => {
-            const catItems = menuItems.filter((i) => i.category === cat);
+            const catItems = menuItems.filter((i) => i.category === cat && i.available);
             return (
               <div key={cat} className="mb-8">
                 <p className="font-mono text-[10px] tracking-[0.25em] uppercase mb-3 pb-2 border-b border-[#1C1009]/10" style={{ color: "#e8a0b4" }}>

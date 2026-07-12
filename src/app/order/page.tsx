@@ -362,7 +362,7 @@ export default function OrderPage() {
           {/* Left: item selector */}
           <div>
             {categories.map((cat) => {
-              const catItems = menuItems.filter((i) => i.category === cat);
+              const catItems = menuItems.filter((i) => i.category === cat && i.available);
               return (
                 <div key={cat} className="mb-10">
                   <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#C4852A] mb-4 pb-3 border-b border-[#EAE0D5]">
