@@ -7,8 +7,11 @@ import { menuItems } from "@/app/menu/page";
 type Quantities = Record<string, number>;
 
 // Set to true during testing to keep the order form open regardless of day/time.
-// Flip to false before go-live on 7 July.
 const TESTING_MODE = false;
+
+// Set to true to close orders early with a custom message. Flip back to false on Monday.
+const EARLY_CLOSE = true;
+const EARLY_CLOSE_MESSAGE = `Due to incredibly high demand we need to close orders early this week. If you haven't ordered yet, remember you can pick up from our local stockists — Union Cafe and Grain Grocer — on specified days. We will take new orders again Monday 20 July. Thank you ever so much for your amazing support! 🍞`;
 
 // Returns whether orders are currently open (Mon 9am – Wed 7pm UK time)
 function getUKParts() {
@@ -45,6 +48,7 @@ function getNextMondayUTC() {
 
 function getOrderWindowStatus(): { open: boolean; message: string } {
   if (TESTING_MODE) return { open: true, message: "" };
+  if (EARLY_CLOSE) return { open: false, message: EARLY_CLOSE_MESSAGE };
 
   const { day, timeInMinutes, dayNum, month, year } = getUKParts();
   const EIGHT_AM = 8 * 60;
