@@ -69,9 +69,9 @@ export default function Footer() {
         <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#6B4A2A] mb-5">Find us in store</p>
         <div className="grid sm:grid-cols-3 gap-6">
           <div>
-            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#C4852A] mb-1">Margate</p>
-            <p className="font-sans text-sm font-semibold text-[#FAF6F0]">Grain Grocer</p>
-            <a href="https://maps.google.com/?q=216+Northdown+Rd,+Cliftonville,+Margate+CT9+2QU" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#6B4A2A] hover:text-[#A07850] transition-colors">216 Northdown Rd, Cliftonville →</a>
+            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#C4852A] mb-1">Westgate</p>
+            <p className="font-sans text-sm font-semibold text-[#FAF6F0]">Crumb &amp; Deli</p>
+            <a href="https://maps.google.com/?q=52+Station+Road,+Westgate,+CT8+8QY" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#6B4A2A] hover:text-[#A07850] transition-colors">52 Station Road, Westgate →</a>
             <p className="font-sans text-xs text-[#6B4A2A] mt-0.5">Wholemeal · Thurs, Fri &amp; Sat</p>
           </div>
           <div>

@@ -15,9 +15,9 @@ const PRICE = 4.00;
 
 export const STOCKIST_SHOPS: StockistShop[] = [
   {
-    slug: "grain-grocer",
-    name: "Grain Grocer",
-    address: "216 Northdown Rd, Cliftonville, Margate CT9 2QU",
+    slug: "crumb-deli",
+    name: "Crumb & Deli",
+    address: "52 Station Road, Westgate, CT8 8QY",
     days: "Thursday, Friday & Saturday",
     products: [
       { name: "Country Wholemeal Sourdough", price: PRICE },

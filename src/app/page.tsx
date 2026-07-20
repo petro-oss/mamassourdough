@@ -184,11 +184,11 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-10">
-          {/* Grain Grocer */}
+          {/* Crumb & Deli */}
           <div className="bg-white rounded-2xl p-8 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#C4852A" }}>
-            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">Margate</p>
-            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-1">Grain Grocer</h3>
-            <a href="https://maps.google.com/?q=216+Northdown+Rd,+Cliftonville,+Margate+CT9+2QU" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-4">216 Northdown Rd, Cliftonville, Margate →</a>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">Westgate</p>
+            <h3 className="font-serif text-2xl italic text-[#2C1A0E] mb-1">Crumb & Deli</h3>
+            <a href="https://maps.google.com/?q=52+Station+Road,+Westgate,+CT8+8QY" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-4">52 Station Road, Westgate →</a>
             <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-4 w-fit">Thurs · Fri · Sat</span>
             <p className="font-sans text-sm text-[#8B6347] leading-relaxed mb-3">Wholemeal sourdough</p>
             <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
