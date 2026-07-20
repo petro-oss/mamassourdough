@@ -10,7 +10,7 @@ type Quantities = Record<string, number>;
 const TESTING_MODE = false;
 
 // Set to true to close orders early with a custom message. Flip back to false on Monday.
-const EARLY_CLOSE = true;
+const EARLY_CLOSE = false;
 const EARLY_CLOSE_MESSAGE = `Due to incredibly high demand we need to close orders early this week. If you haven't ordered yet, remember you can pick up from our local stockists — Union Cafe and Grain Grocer — on specified days. We will take new orders again Monday 20 July. Thank you ever so much for your amazing support! 🍞`;
 
 // Returns whether orders are currently open (Mon 9am – Wed 7pm UK time)
