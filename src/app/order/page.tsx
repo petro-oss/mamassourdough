@@ -105,9 +105,22 @@ export default function OrderPage() {
     return () => clearInterval(interval);
   }, [orderWindow.open]);
 
+  const MULTI_ITEMS = ["choc-chip-cookie", "chocolate-brownie"];
+
   const setQty = (id: string, delta: number) => {
     setQuantities((prev) => {
-      const next = Math.max(0, (prev[id] ?? 0) + delta);
+      const current = prev[id] ?? 0;
+      if (MULTI_ITEMS.includes(id)) {
+        // Step in 2s, minimum 2 when adding, drop to 0 when removing below 2
+        if (delta > 0) {
+          const next = current === 0 ? 2 : current + 2;
+          return { ...prev, [id]: next };
+        } else {
+          const next = current <= 2 ? 0 : current - 2;
+          return { ...prev, [id]: next };
+        }
+      }
+      const next = Math.max(0, current + delta);
       return { ...prev, [id]: next };
     });
   };
