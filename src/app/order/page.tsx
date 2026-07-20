@@ -398,6 +398,9 @@ export default function OrderPage() {
                             <p className="font-serif text-xl italic text-[#2C1A0E] leading-snug">{item.name}</p>
                             <p className="font-sans text-sm text-[#8B6347] mt-1 leading-relaxed">{item.desc}</p>
                             {item.allergens && <p className="font-mono text-[9px] tracking-[0.05em] text-[#B87333]/70 mt-1">{item.allergens}</p>}
+                            {MULTI_ITEMS.includes(item.id) && (
+                              <p className="font-mono text-[9px] tracking-[0.1em] uppercase text-[#C4852A] mt-1.5">Minimum order: 2</p>
+                            )}
                           </div>
                           <span className="font-sans text-base font-semibold text-[#C4852A] w-14 text-right shrink-0">
                             {item.priceLabel}
