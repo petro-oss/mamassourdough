@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const SHEETS_WEBHOOK = process.env.GOOGLE_SHEETS_WEBHOOK ?? "";
-const GHL_STOCKIST_WEBHOOK = "https://services.leadconnectorhq.com/hooks/IivI4GWZybydq2NxO7mj/webhook-trigger/0e9ebb13-5002-4086-8d03-2acd3b69e7ca";
+// Same pipeline as customer orders — stockist orders appear alongside weekly orders
+const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/IivI4GWZybydq2NxO7mj/webhook-trigger/dd3af2d7-a2fd-4df2-8f6a-4a35a9faae7e";
 
 // Formats items grouped by day into a readable string for GHL notes/SMS
 function formatOrderSummary(items: { day: string; name: string; qty: number; price: number }[]): string {
@@ -39,19 +40,17 @@ export async function POST(req: NextRequest) {
       order_total: body.order_total,
     };
 
-    // ── GHL payload ───────────────────────────────────────────────────────
-    // first_name / last_name used by GHL to create/update the contact
+    // ── GHL payload — matches customer order format so existing workflow handles it ──
     const ghlPayload = {
+      type:           "stockist",
       first_name:     body.contact || body.shop,
       last_name:      body.shop,
-      email:          body.email   ?? "",
-      phone:          body.phone   ?? "",
-      shop:           body.shop,
-      contact:        body.contact ?? "",
-      address:        body.address,
+      email:          body.email        ?? "",
+      phone:          body.phone        ?? "",
+      tags:           ["stockist"],
+      order_notes:    orderSummary + (body.notes ? `\n\nNotes: ${body.notes}` : ""),
       order_total:    body.order_total,
-      order_summary:  orderSummary,
-      order_notes:    body.notes   ?? "",
+      order_address:  body.address,
       date:           new Date().toLocaleDateString("en-GB"),
     };
 
@@ -62,7 +61,7 @@ export async function POST(req: NextRequest) {
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify(sheetsPayload),
       }),
-      fetch(GHL_STOCKIST_WEBHOOK, {
+      fetch(GHL_WEBHOOK, {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
         body:    JSON.stringify(ghlPayload),
