@@ -12,6 +12,8 @@ const BANK = {
   account: "43591445",
 };
 
+const ORDER_NOTICE = "Orders must be placed by Sunday 8pm for the following week. Payment is required at time of ordering.";
+
 function qKey(day: string, product: string) {
   return `${day}||${product}`;
 }
@@ -32,9 +34,8 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
   const setQty = (day: string, product: string, val: number) =>
     setQuantities((prev) => ({ ...prev, [qKey(day, product)]: Math.max(0, val) }));
 
-  // All ordered items: one entry per day+product combination that has qty > 0
-  const orderedItems = shopConfig.days.flatMap((day) =>
-    shopConfig.products
+  const orderedItems = shopConfig.days.flatMap(({ day, products }) =>
+    products
       .filter((p) => qty(day, p.name) > 0)
       .map((p) => ({ day, name: p.name, qty: qty(day, p.name), price: p.price }))
   );
@@ -68,7 +69,7 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
     }
   }
 
-  // ── Shared header ────────────────────────────────────────────────────────
+  // ── Shared page header ───────────────────────────────────────────────────
   const Header = () => (
     <div className="bg-[#2C1A0E] px-6 py-10 print:hidden">
       <div className="max-w-xl mx-auto">
@@ -84,23 +85,35 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
       <div className="min-h-screen bg-[#FAF6F0]">
         <Header />
         <div className="max-w-xl mx-auto px-6 py-12">
-          <div className="mb-10">
+
+          {/* Shop info */}
+          <div className="mb-6">
             <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">Weekly order form</p>
             <h1 className="font-serif text-4xl italic text-[#2C1A0E] mb-1">{shopConfig.name}</h1>
             {shopConfig.contact && (
               <p className="font-sans text-sm text-[#8B6347] mb-1">For the attention of {shopConfig.contact}</p>
             )}
             <p className="font-sans text-sm text-[#8B6347]">{shopConfig.address}</p>
+            <div className="mt-3 inline-flex items-center gap-2 bg-[#F2EAE0] px-3 py-1.5 rounded-full">
+              <span className="font-mono text-[10px] tracking-widest uppercase text-[#8B6347]">Delivery: {formatDays(shopConfig.days)}</span>
+            </div>
+          </div>
+
+          {/* Order notice */}
+          <div className="mb-8 flex items-start gap-3 bg-[#2C1A0E] rounded-xl px-5 py-4">
+            <span className="text-[#C4852A] mt-0.5 shrink-0">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </span>
+            <p className="font-sans text-xs text-[#FAF6F0] leading-relaxed">{ORDER_NOTICE}</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
-            {shopConfig.days.map((day) => {
-              const dayTotal = shopConfig.products.reduce(
-                (sum, p) => sum + qty(day, p.name) * p.price, 0
-              );
+            {shopConfig.days.map(({ day, products }) => {
+              const dayTotal = products.reduce((sum, p) => sum + qty(day, p.name) * p.price, 0);
               return (
                 <div key={day}>
-                  {/* Day header */}
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-3">
                       <span className="inline-block w-2 h-2 rounded-full bg-[#C4852A]" />
@@ -113,7 +126,7 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
 
                   <div className="bg-white rounded-2xl border border-[#EAE0D5] overflow-hidden">
                     <div className="divide-y divide-[#EAE0D5]">
-                      {shopConfig.products.map((product) => {
+                      {products.map((product) => {
                         const q = qty(day, product.name);
                         return (
                           <div key={product.name} className="px-6 py-4 flex items-center justify-between gap-4">
@@ -144,7 +157,6 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
               );
             })}
 
-            {/* Grand total */}
             <div className="bg-[#2C1A0E] rounded-2xl px-6 py-4 flex items-center justify-between">
               <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#A07850]">Weekly order total</p>
               <p className="font-mono text-lg text-[#FAF6F0]">£{orderTotal.toFixed(2)}</p>
@@ -174,10 +186,6 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
             >
               {submitting ? "Sending order…" : "Submit weekly order →"}
             </button>
-
-            <p className="font-sans text-xs text-center text-[#C4A882]">
-              Payment via bank transfer · {formatDays(shopConfig.days)}
-            </p>
           </form>
         </div>
       </div>
@@ -186,9 +194,8 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
 
   // ── STEP 2: Payment ──────────────────────────────────────────────────────
   if (step === "payment") {
-    // Group ordered items by day for display
     const byDay = shopConfig.days
-      .map((day) => ({ day, items: orderedItems.filter((i) => i.day === day) }))
+      .map(({ day }) => ({ day, items: orderedItems.filter((i) => i.day === day) }))
       .filter((d) => d.items.length > 0);
 
     return (
@@ -203,7 +210,6 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
             </p>
           </div>
 
-          {/* Order summary by day */}
           <div className="bg-white rounded-2xl border border-[#EAE0D5] overflow-hidden">
             <div className="px-6 py-4 border-b border-[#EAE0D5] bg-[#F9F5F0]">
               <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#8B6347]">Order summary — {shopConfig.name}</p>
@@ -232,7 +238,6 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
             </div>
           </div>
 
-          {/* Bank details */}
           <div className="bg-white rounded-2xl border border-[#EAE0D5] overflow-hidden">
             <div className="px-6 py-4 border-b border-[#EAE0D5] bg-[#F9F5F0]">
               <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#8B6347]">Bank transfer details</p>
@@ -277,8 +282,8 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
   }
 
   // ── STEP 3: Confirmed + printable receipt ────────────────────────────────
-  const byDayForReceipt = shopConfig.days
-    .map((day) => ({ day, items: orderedItems.filter((i) => i.day === day) }))
+  const byDayReceipt = shopConfig.days
+    .map(({ day }) => ({ day, items: orderedItems.filter((i) => i.day === day) }))
     .filter((d) => d.items.length > 0);
 
   return (
@@ -308,7 +313,6 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
         {/* ── Printable receipt ── */}
         <div className="bg-white rounded-2xl border border-[#EAE0D5] overflow-hidden print:border-0 print:rounded-none">
 
-          {/* Print-only brand header */}
           <div className="hidden print:block px-8 pt-10 pb-6 border-b border-[#EAE0D5]">
             <p className="font-sans text-2xl font-semibold tracking-tight text-[#2C1A0E]">mama&apos;s sourdough</p>
             <p className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#C4852A] mt-1">delicious homemade bakes</p>
@@ -318,7 +322,6 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
             <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#8B6347]">Order receipt</p>
           </div>
 
-          {/* Shop & date */}
           <div className="px-6 py-5 space-y-2 border-b border-[#EAE0D5]">
             {([
               ["Shop",    shopConfig.name],
@@ -333,8 +336,7 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
             ))}
           </div>
 
-          {/* Items grouped by day */}
-          {byDayForReceipt.map(({ day, items }) => (
+          {byDayReceipt.map(({ day, items }) => (
             <div key={day}>
               <div className="px-6 py-2 bg-[#F9F5F0] border-b border-[#EAE0D5] print:bg-white">
                 <p className="font-mono text-[10px] tracking-widest uppercase text-[#C4852A]">{day}</p>

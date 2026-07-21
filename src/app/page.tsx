@@ -189,8 +189,8 @@ export default function Home() {
             <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">Westgate</p>
             <h3 className="font-serif text-xl italic text-[#2C1A0E] mb-1">Crumb & Deli</h3>
             <a href="https://maps.google.com/?q=52+Station+Road,+Westgate,+CT8+8QY" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">52 Station Road, Westgate →</a>
-            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-3 w-fit">Thurs · Fri · Sat</span>
-            <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-2">Wholemeal · Inclusion Loaf · Focaccia</p>
+            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-3 w-fit">Wed · Sat</span>
+            <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-2">Mixed loaves · Focaccia tray</p>
             <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
           </div>
 
@@ -210,8 +210,8 @@ export default function Home() {
             <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#8B6347] mb-2">Ramsgate</p>
             <h3 className="font-serif text-xl italic text-[#2C1A0E] mb-1">Union Cafe</h3>
             <a href="https://maps.google.com/?q=25-27+Queen+St,+Ramsgate+CT11+9DZ" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">25-27 Queen St, Ramsgate →</a>
-            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-3 w-fit">Thurs · Fri · Sat</span>
-            <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-2">Wholemeal · Focaccia</p>
+            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-3 w-fit">Tues · Thurs · Fri · Sat</span>
+            <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-2">Wholemeal · Focaccia (varies by day)</p>
             <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
           </div>
 
