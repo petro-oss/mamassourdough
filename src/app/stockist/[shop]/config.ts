@@ -65,6 +65,7 @@ export const STOCKIST_SHOPS: StockistShop[] = [
     name: "Union Cafe",
     contact: "Lucy",
     phone: "07928067006",
+    email: "hellounioncafe@gmail.com",
     address: "25-27 Queen St, Ramsgate CT11 9DZ",
     days: [
       {
