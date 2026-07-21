@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const SHEETS_WEBHOOK = process.env.GOOGLE_SHEETS_WEBHOOK ?? "";
-const GHL_STOCKIST_WEBHOOK = "https://services.leadconnectorhq.com/hooks/IivI4GWZybydq2NxO7mj/webhook-trigger/3157037e-77b9-4d94-a420-ba7c99d3df37";
+const GHL_STOCKIST_WEBHOOK = "https://services.leadconnectorhq.com/hooks/IivI4GWZybydq2NxO7mj/webhook-trigger/0e9ebb13-5002-4086-8d03-2acd3b69e7ca";
 
 // Formats items grouped by day into a readable string for GHL notes/SMS
 function formatOrderSummary(items: { day: string; name: string; qty: number; price: number }[]): string {
