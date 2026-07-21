@@ -155,41 +155,41 @@ export function ThanetMap() {
 
         {/* ── LOAVES — outer <g> positions in SVG space, inner <g> holds CSS animation ── */}
 
-        {/* SHAHLA'S CAKES — Westbrook */}
-        <g transform="translate(234,194)">
+        {/* SHAHLA'S CAKES — Westbrook · label RIGHT (away from Crumb & Deli) */}
+        <g transform="translate(236,194)">
           <g className="tmr-a1">
             <ellipse cx="0" cy="14" rx="26" ry="8"  fill="#6B3A1A" opacity="0.14"/>
             <ellipse cx="0" cy="7"  rx="26" ry="10" fill="#7A4A2A"/>
             <path d="M-24,7 Q-24,-16 0,-20 Q24,-16 24,7 Z" fill="url(#tmr-cb)"/>
-            <ellipse cx="0" cy="-2" rx="18" ry="8" fill="#D4A080" opacity="0.24"/>
+            <ellipse cx="0" cy="-2" rx="18" ry="8" fill="#D4A080" opacity="0.22"/>
             <path d="M-7,-7 Q0,-12 7,-7"  stroke="#5A3010" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
             <path d="M-4,-1 Q0,-6  4,-1"  stroke="#5A3010" strokeWidth="0.8" fill="none" strokeLinecap="round"/>
             <circle className="tmr-b1" cx="-12" cy="-22" r="3.5" fill="#8B6347" opacity="0.6"/>
             <circle className="tmr-b2" cx="5"   cy="-28" r="2.5" fill="#A07850" opacity="0.5"/>
             <circle className="tmr-b3" cx="14"  cy="-19" r="2"   fill="#8B6347" opacity="0.5"/>
-            <rect x="-50" y="19" width="100" height="40" rx="7" fill="white" opacity="0.95"/>
-            <text x="0" y="34" fontFamily="Georgia,serif" fontSize="11" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Shahla&apos;s Cakes</text>
-            <text x="0" y="46" fontFamily="monospace"    fontSize="8"  fill="#8B6347" textAnchor="middle" letterSpacing="0.5">Westbrook · Fridays</text>
-            <text x="0" y="55" fontFamily="monospace"    fontSize="7"  fill="#8B6347" textAnchor="middle">White · Focaccia</text>
+            {/* label anchored RIGHT so it doesn't overlap Crumb & Deli to the left */}
+            <rect x="6" y="17" width="88" height="26" rx="6" fill="white" opacity="0.95"/>
+            <text x="50" y="29" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Shahla&apos;s Cakes</text>
+            <text x="50" y="40" fontFamily="monospace"    fontSize="7"  fill="#8B6347" textAnchor="middle" letterSpacing="0.3">Westbrook · Fridays</text>
           </g>
         </g>
 
-        {/* CRUMB & DELI — Westgate */}
-        <g transform="translate(164,204)">
+        {/* CRUMB & DELI — Westgate · label LEFT (into sea, away from Shahla's) */}
+        <g transform="translate(160,206)">
           <g className="tmr-a2">
             <ellipse cx="0" cy="14" rx="26" ry="8"  fill="#8B4A10" opacity="0.14"/>
             <ellipse cx="0" cy="7"  rx="26" ry="10" fill="#9A5C20"/>
             <path d="M-24,7 Q-24,-16 0,-20 Q24,-16 24,7 Z" fill="url(#tmr-ca)"/>
-            <ellipse cx="0" cy="-2" rx="18" ry="8" fill="#FFCA6A" opacity="0.24"/>
+            <ellipse cx="0" cy="-2" rx="18" ry="8" fill="#FFCA6A" opacity="0.22"/>
             <path d="M-7,-7 Q0,-12 7,-7"  stroke="#7A4010" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
             <path d="M-4,-1 Q0,-6  4,-1"  stroke="#7A4010" strokeWidth="0.8" fill="none" strokeLinecap="round"/>
             <circle className="tmr-b4" cx="-13" cy="-22" r="3.5" fill="#C4852A" opacity="0.6"/>
             <circle className="tmr-b5" cx="5"   cy="-28" r="2.5" fill="#D4956A" opacity="0.5"/>
             <circle className="tmr-b1" cx="13"  cy="-19" r="2"   fill="#C4852A" opacity="0.5"/>
-            <rect x="-48" y="19" width="96" height="40" rx="7" fill="white" opacity="0.95"/>
-            <text x="0" y="34" fontFamily="Georgia,serif" fontSize="11" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Crumb &amp; Deli</text>
-            <text x="0" y="46" fontFamily="monospace"    fontSize="8"  fill="#C4852A" textAnchor="middle" letterSpacing="0.5">Westgate · Wed &amp; Sat</text>
-            <text x="0" y="55" fontFamily="monospace"    fontSize="7"  fill="#8B6347" textAnchor="middle">Loaves · Focaccia · Rye</text>
+            {/* label anchored LEFT, floats into sea — standard map practice */}
+            <rect x="-88" y="17" width="84" height="26" rx="6" fill="white" opacity="0.95"/>
+            <text x="-46" y="29" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Crumb &amp; Deli</text>
+            <text x="-46" y="40" fontFamily="monospace"    fontSize="7"  fill="#C4852A" textAnchor="middle" letterSpacing="0.3">Westgate · Wed &amp; Sat</text>
           </g>
         </g>
 
@@ -199,36 +199,35 @@ export function ThanetMap() {
             <ellipse cx="0" cy="14" rx="28" ry="8"  fill="#2A3A20" opacity="0.14"/>
             <ellipse cx="0" cy="7"  rx="28" ry="10" fill="#3A5030"/>
             <path d="M-26,7 Q-26,-18 0,-22 Q26,-18 26,7 Z" fill="url(#tmr-cg)"/>
-            <ellipse cx="0" cy="-3" rx="20" ry="8" fill="#B0C080" opacity="0.24"/>
+            <ellipse cx="0" cy="-3" rx="20" ry="8" fill="#B0C080" opacity="0.22"/>
             <path d="M-8,-8 Q0,-14 8,-8" stroke="#2A3818" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
             <path d="M-5,-2 Q0,-7  5,-2" stroke="#2A3818" strokeWidth="0.8" fill="none" strokeLinecap="round"/>
             <circle className="tmr-b2" cx="-14" cy="-24" r="3.5" fill="#4A6741" opacity="0.6"/>
             <circle className="tmr-b3" cx="4"   cy="-31" r="2.5" fill="#6A8050" opacity="0.5"/>
             <circle className="tmr-b5" cx="15"  cy="-22" r="2.5" fill="#4A6741" opacity="0.5"/>
-            <rect x="-52" y="19" width="104" height="40" rx="7" fill="white" opacity="0.95"/>
-            <text x="0" y="34" fontFamily="Georgia,serif" fontSize="11" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Grain Grocer</text>
-            <text x="0" y="46" fontFamily="monospace"    fontSize="8"  fill="#4A6741" textAnchor="middle" letterSpacing="0.5">Cliftonville · Thurs–Sat</text>
-            <text x="0" y="55" fontFamily="monospace"    fontSize="7"  fill="#8B6347" textAnchor="middle">Wholemeal sourdough</text>
+            <rect x="-50" y="17" width="100" height="26" rx="6" fill="white" opacity="0.95"/>
+            <text x="0" y="29" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Grain Grocer</text>
+            <text x="0" y="40" fontFamily="monospace"    fontSize="7"  fill="#4A6741" textAnchor="middle" letterSpacing="0.3">Cliftonville · Thu–Sat</text>
           </g>
         </g>
 
-        {/* FLOWERS & FELICITIES — Broadstairs (label left to stay on-map) */}
+        {/* FLOWERS & FELICITIES — Broadstairs · label LEFT, name on two lines */}
         <g transform="translate(496,270)">
           <g className="tmr-a4">
             <ellipse cx="0" cy="14" rx="28" ry="8"  fill="#2A3A20" opacity="0.14"/>
             <ellipse cx="0" cy="7"  rx="28" ry="10" fill="#3A5030"/>
             <path d="M-26,7 Q-26,-18 0,-22 Q26,-18 26,7 Z" fill="url(#tmr-cg)"/>
-            <ellipse cx="0" cy="-3" rx="20" ry="8" fill="#B0C080" opacity="0.24"/>
+            <ellipse cx="0" cy="-3" rx="20" ry="8" fill="#B0C080" opacity="0.22"/>
             <path d="M-8,-8 Q0,-14 8,-8" stroke="#2A3818" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
             <path d="M-5,-2 Q0,-7  5,-2" stroke="#2A3818" strokeWidth="0.8" fill="none" strokeLinecap="round"/>
             <circle className="tmr-b3" cx="-14" cy="-25" r="3.5" fill="#4A6741" opacity="0.6"/>
             <circle className="tmr-b4" cx="4"   cy="-32" r="2.5" fill="#6A8050" opacity="0.5"/>
             <circle className="tmr-b1" cx="16"  cy="-23" r="2.5" fill="#4A6741" opacity="0.5"/>
-            {/* Label anchored to the left of the loaf so it stays on the land */}
-            <rect x="-122" y="-4" width="114" height="40" rx="7" fill="white" opacity="0.95"/>
-            <text x="-65" y="11" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Flowers &amp; Felicities</text>
-            <text x="-65" y="23" fontFamily="monospace"    fontSize="8"  fill="#4A6741" textAnchor="middle" letterSpacing="0.4">Broadstairs · Thursdays</text>
-            <text x="-65" y="32" fontFamily="monospace"    fontSize="7"  fill="#8B6347" textAnchor="middle">White &amp; wholemeal</text>
+            {/* label LEFT, name wraps to 2 lines, 3-line box */}
+            <rect x="-106" y="5" width="100" height="36" rx="6" fill="white" opacity="0.95"/>
+            <text x="-56" y="18" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Flowers &amp;</text>
+            <text x="-56" y="29" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Felicities</text>
+            <text x="-56" y="38" fontFamily="monospace"    fontSize="7"  fill="#4A6741" textAnchor="middle" letterSpacing="0.3">Broadstairs · Thursdays</text>
           </g>
         </g>
 
@@ -238,15 +237,14 @@ export function ThanetMap() {
             <ellipse cx="0" cy="12" rx="24" ry="7"  fill="#1A0C04" opacity="0.17"/>
             <ellipse cx="0" cy="6"  rx="24" ry="9"  fill="#2C1A0E"/>
             <path d="M-22,6 Q-22,-14 0,-18 Q22,-14 22,6 Z" fill="url(#tmr-cd)"/>
-            <ellipse cx="0" cy="-2" rx="17" ry="7" fill="#906040" opacity="0.30"/>
+            <ellipse cx="0" cy="-2" rx="17" ry="7" fill="#906040" opacity="0.28"/>
             <path d="M-7,-6 Q0,-11 7,-6" stroke="#1A0804" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
             <path d="M-4,-1 Q0,-5  4,-1" stroke="#1A0804" strokeWidth="0.8" fill="none" strokeLinecap="round"/>
             <circle className="tmr-b5" cx="-11" cy="-20" r="3"   fill="#6B4A2A" opacity="0.6"/>
             <circle className="tmr-b2" cx="6"   cy="-26" r="2.5" fill="#8B5A30" opacity="0.5"/>
-            <rect x="-52" y="15" width="104" height="40" rx="7" fill="white" opacity="0.95"/>
-            <text x="0" y="30" fontFamily="Georgia,serif" fontSize="11" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Union Cafe</text>
-            <text x="0" y="42" fontFamily="monospace"    fontSize="8"  fill="#6B4A2A" textAnchor="middle" letterSpacing="0.5">Ramsgate · Tues–Sat</text>
-            <text x="0" y="51" fontFamily="monospace"    fontSize="7"  fill="#8B6347" textAnchor="middle">Wholemeal · Focaccia</text>
+            <rect x="-46" y="13" width="92" height="26" rx="6" fill="white" opacity="0.95"/>
+            <text x="0" y="25" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Union Cafe</text>
+            <text x="0" y="36" fontFamily="monospace"    fontSize="7"  fill="#6B4A2A" textAnchor="middle" letterSpacing="0.3">Ramsgate · Tues–Sat</text>
           </g>
         </g>
 
