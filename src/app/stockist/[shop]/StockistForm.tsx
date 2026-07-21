@@ -54,6 +54,9 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           shop:        shopConfig.name,
+          contact:     shopConfig.contact,
+          email:       shopConfig.email   ?? "",
+          phone:       shopConfig.phone   ?? "",
           address:     shopConfig.address,
           items:       orderedItems,
           notes,
