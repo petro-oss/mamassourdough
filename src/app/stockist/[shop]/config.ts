@@ -23,6 +23,7 @@ export const STOCKIST_SHOPS: StockistShop[] = [
     slug: "crumb-deli",
     name: "Crumb & Deli",
     contact: "Kirstey",
+    phone: "+447469990594",
     address: "52 Station Road, Westgate, CT8 8QY",
     days: [
       {
@@ -30,6 +31,7 @@ export const STOCKIST_SHOPS: StockistShop[] = [
         products: [
           { name: "Mixed Loaves",        price: 4.00 },
           { name: "Large Focaccia Tray", price: 12.00 },
+          { name: "Rye Bread",           price: 4.50 },
         ],
       },
       {
@@ -37,6 +39,7 @@ export const STOCKIST_SHOPS: StockistShop[] = [
         products: [
           { name: "Mixed Loaves",        price: 4.00 },
           { name: "Large Focaccia Tray", price: 12.00 },
+          { name: "Rye Bread",           price: 4.50 },
         ],
       },
     ],
@@ -44,7 +47,8 @@ export const STOCKIST_SHOPS: StockistShop[] = [
   {
     slug: "flowers-felicities",
     name: "Flowers & Felicities",
-    contact: "",
+    contact: "Laura",
+    phone: "+447890326306",
     address: "5 The Broadway, Broadstairs CT10 2AD",
     days: [
       {
