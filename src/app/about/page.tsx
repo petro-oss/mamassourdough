@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { HealthBenefitsGrid } from "@/components/HealthBenefitsGrid";
+import { ThanetMap } from "@/components/ThanetMap";
 
 const healthBenefits = [
   {
@@ -256,41 +257,51 @@ export default function AboutPage() {
           <h2 className="font-sans text-4xl font-bold tracking-tight text-[#2C1A0E]">Find us locally</h2>
           <p className="font-sans text-[#8B6347] mt-3 max-w-lg leading-relaxed">Fresh loaves delivered to local shops every week — find us near you.</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-10">
           <div className="bg-white rounded-2xl p-6 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#C4852A" }}>
             <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">Westgate</p>
             <h3 className="font-serif text-xl italic text-[#2C1A0E] mb-1">Crumb & Deli</h3>
-            <a href="https://maps.google.com/?q=52+Station+Road,+Westgate,+CT8+8QY" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">52 Station Road, Westgate →</a>
+            <a href="https://maps.google.com/?q=52+Station+Road,+Westgate,+CT8+8QY" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">52 Station Road →</a>
             <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-3 w-fit">Wed · Sat</span>
-            <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-2">Mixed loaves · Focaccia tray</p>
-            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
+            <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-2">Mixed loaves · Focaccia · Rye</p>
+            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited — get there early! 🍞</p>
+          </div>
+          <div className="bg-white rounded-2xl p-6 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#4A6741" }}>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#4A6741] mb-2">Margate</p>
+            <h3 className="font-serif text-xl italic text-[#2C1A0E] mb-1">Grain Grocer</h3>
+            <a href="https://maps.google.com/?q=216+Northdown+Road,+Cliftonville,+Margate" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">216 Northdown Road →</a>
+            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#EAF0EA] text-[#4A6741] px-3 py-1.5 rounded-full mb-3 w-fit">Thurs · Fri · Sat</span>
+            <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-2">Wholemeal sourdough</p>
+            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited — get there early! 🍞</p>
           </div>
           <div className="bg-white rounded-2xl p-6 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#4A6741" }}>
             <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#4A6741] mb-2">Broadstairs</p>
             <h3 className="font-serif text-xl italic text-[#2C1A0E] mb-1">Flowers & Felicities</h3>
-            <a href="https://maps.google.com/?q=5+The+Broadway,+Broadstairs+CT10+2AD" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">5 The Broadway, Broadstairs →</a>
+            <a href="https://maps.google.com/?q=5+The+Broadway,+Broadstairs+CT10+2AD" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">5 The Broadway →</a>
             <span className="inline-block font-mono text-[10px] tracking-widest bg-[#EAF0EA] text-[#4A6741] px-3 py-1.5 rounded-full mb-3 w-fit">Thursdays*</span>
             <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-1">White & wholemeal sourdough</p>
             <p className="font-mono text-[9px] text-[#C4852A] mb-2">*subject to change</p>
-            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
+            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited — get there early! 🍞</p>
           </div>
           <div className="bg-white rounded-2xl p-6 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#2C1A0E" }}>
             <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#8B6347] mb-2">Ramsgate</p>
             <h3 className="font-serif text-xl italic text-[#2C1A0E] mb-1">Union Cafe</h3>
-            <a href="https://maps.google.com/?q=25-27+Queen+St,+Ramsgate+CT11+9DZ" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">25-27 Queen St, Ramsgate →</a>
+            <a href="https://maps.google.com/?q=25-27+Queen+St,+Ramsgate+CT11+9DZ" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">25-27 Queen St →</a>
             <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-3 w-fit">Tues · Thurs · Fri · Sat</span>
-            <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-2">Wholemeal · Focaccia (varies by day)</p>
-            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
+            <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-2">Wholemeal · Focaccia</p>
+            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited — get there early! 🍞</p>
           </div>
           <div className="bg-white rounded-2xl p-6 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#8B6347" }}>
-            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#8B6347] mb-2">Margate</p>
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#8B6347] mb-2">Westbrook</p>
             <h3 className="font-serif text-xl italic text-[#2C1A0E] mb-1">Shahla&apos;s Cakes</h3>
-            <a href="https://maps.google.com/?q=1a+Wentworth+Avenue,+Margate+CT9+5HW" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">1a Wentworth Avenue, Margate →</a>
+            <a href="https://maps.google.com/?q=1a+Wentworth+Avenue,+Margate+CT9+5HW" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">1a Wentworth Avenue →</a>
             <span className="inline-block font-mono text-[10px] tracking-widest bg-[#F2EAE0] text-[#8B6347] px-3 py-1.5 rounded-full mb-3 w-fit">Fridays</span>
             <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-2">White sourdough · Focaccia</p>
-            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited quantities — get there early! 🍞</p>
+            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited — get there early! 🍞</p>
           </div>
         </div>
+
+        <ThanetMap />
       </section>
     </div>
   );
