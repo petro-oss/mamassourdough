@@ -8,10 +8,6 @@ export function ThanetMap() {
           0%, 100% { transform: translateY(0px); }
           50%       { transform: translateY(-6px); }
         }
-        @keyframes tmr-bubble {
-          0%, 100% { transform: translateY(0px); opacity: 0.6; }
-          50%       { transform: translateY(-8px); opacity: 1; }
-        }
         @keyframes tmr-spread {
           0%   { stroke-dashoffset: 600; opacity: 0; }
           25%  { opacity: 0.65; }
@@ -21,22 +17,19 @@ export function ThanetMap() {
           0%, 100% { opacity: 0.2; }
           50%       { opacity: 0.5; }
         }
-        .tmr-a1    { animation: tmr-rise 3.8s ease-in-out infinite 0.0s; }
-        .tmr-a2    { animation: tmr-rise 3.4s ease-in-out infinite 0.7s; }
-        .tmr-a3    { animation: tmr-rise 4.0s ease-in-out infinite 1.4s; }
-        .tmr-a4    { animation: tmr-rise 3.6s ease-in-out infinite 2.0s; }
-        .tmr-a5    { animation: tmr-rise 3.2s ease-in-out infinite 2.6s; }
-        .tmr-b1 { animation: tmr-bubble 2.2s ease-in-out infinite 0.0s; }
-        .tmr-b2 { animation: tmr-bubble 2.8s ease-in-out infinite 0.5s; }
-        .tmr-b3 { animation: tmr-bubble 2.0s ease-in-out infinite 1.0s; }
-        .tmr-b4 { animation: tmr-bubble 3.1s ease-in-out infinite 0.3s; }
-        .tmr-b5 { animation: tmr-bubble 2.5s ease-in-out infinite 1.5s; }
+        .tmr-a1 { animation: tmr-rise 3.8s ease-in-out infinite 0.0s; }
+        .tmr-a2 { animation: tmr-rise 3.4s ease-in-out infinite 0.7s; }
+        .tmr-a3 { animation: tmr-rise 4.0s ease-in-out infinite 1.4s; }
+        .tmr-a4 { animation: tmr-rise 3.6s ease-in-out infinite 2.0s; }
+        .tmr-a5 { animation: tmr-rise 3.2s ease-in-out infinite 2.6s; }
         .tmr-sp  { animation: tmr-spread 2.8s ease-out forwards; stroke-dasharray: 600; stroke-dashoffset: 600; }
         .tmr-sp2 { animation-delay: 0.3s; }
         .tmr-sp3 { animation-delay: 0.6s; }
         .tmr-sp4 { animation-delay: 0.9s; }
         .tmr-sp5 { animation-delay: 1.2s; }
         .tmr-glow { animation: tmr-glow 4s ease-in-out infinite; }
+        .tmr-pin { cursor: pointer; }
+        .tmr-pin:hover .tmr-pin-body { fill: #FFF8F0; }
       `}</style>
 
       <svg
@@ -50,32 +43,15 @@ export function ThanetMap() {
             <stop offset="0%" stopColor="#EDE4CC"/>
             <stop offset="100%" stopColor="#D8C8A8"/>
           </radialGradient>
-          <radialGradient id="tmr-ca" cx="38%" cy="30%" r="65%">
-            <stop offset="0%" stopColor="#EDB050"/>
-            <stop offset="65%" stopColor="#C4852A"/>
-            <stop offset="100%" stopColor="#8A5010"/>
-          </radialGradient>
-          <radialGradient id="tmr-cb" cx="38%" cy="30%" r="65%">
-            <stop offset="0%" stopColor="#D49060"/>
-            <stop offset="65%" stopColor="#8B6347"/>
-            <stop offset="100%" stopColor="#5A3820"/>
-          </radialGradient>
-          <radialGradient id="tmr-cg" cx="38%" cy="30%" r="65%">
-            <stop offset="0%" stopColor="#B8B870"/>
-            <stop offset="65%" stopColor="#6A7A48"/>
-            <stop offset="100%" stopColor="#3A5028"/>
-          </radialGradient>
-          <radialGradient id="tmr-cd" cx="38%" cy="30%" r="65%">
-            <stop offset="0%" stopColor="#806040"/>
-            <stop offset="65%" stopColor="#4A3020"/>
-            <stop offset="100%" stopColor="#2C1A0E"/>
-          </radialGradient>
           <radialGradient id="tmr-blob" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#C4852A" stopOpacity="0.22"/>
             <stop offset="100%" stopColor="#C4852A" stopOpacity="0"/>
           </radialGradient>
-          <filter id="tmr-shadow" x="-5%" y="-5%" width="115%" height="125%">
-            <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#8B6347" floodOpacity="0.18"/>
+          <filter id="tmr-shadow" x="-20%" y="-20%" width="150%" height="160%">
+            <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#6B3A10" floodOpacity="0.22"/>
+          </filter>
+          <filter id="tmr-pin-shadow" x="-30%" y="-10%" width="160%" height="150%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#2C1A0E" floodOpacity="0.25"/>
           </filter>
         </defs>
 
@@ -153,98 +129,81 @@ export function ThanetMap() {
         <path className="tmr-sp tmr-sp4"   d="M 440,356 Q 464,326 494,274" fill="none" stroke="#C4852A" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="1,10"/>
         <path className="tmr-sp tmr-sp5"   d="M 440,356 Q 426,352 412,348" fill="none" stroke="#C4852A" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="1,7"/>
 
-        {/* ── LOAVES — outer <g> positions in SVG space, inner <g> holds CSS animation ── */}
+        {/* ── TEARDROP PINS — outer <g> positions in SVG space, inner <g> holds CSS animation ── */}
+        {/* Pin tip sits at (0,0) of each group. Body extends upward. */}
+        {/* Pin path: tip at (0,0) → curves to circle head at (0,−34) r=18 → back to tip */}
 
-        {/* SHAHLA'S CAKES — Westbrook · label RIGHT (away from Crumb & Deli) */}
-        <g transform="translate(236,194)">
+        {/* SHAHLA'S CAKES — Westbrook · label RIGHT */}
+        <g transform="translate(236,202)">
           <g className="tmr-a1">
-            <ellipse cx="0" cy="14" rx="26" ry="8"  fill="#6B3A1A" opacity="0.14"/>
-            <ellipse cx="0" cy="7"  rx="26" ry="10" fill="#7A4A2A"/>
-            <path d="M-24,7 Q-24,-16 0,-20 Q24,-16 24,7 Z" fill="url(#tmr-cb)"/>
-            <ellipse cx="0" cy="-2" rx="18" ry="8" fill="#D4A080" opacity="0.22"/>
-            <path d="M-7,-7 Q0,-12 7,-7"  stroke="#5A3010" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-            <path d="M-4,-1 Q0,-6  4,-1"  stroke="#5A3010" strokeWidth="0.8" fill="none" strokeLinecap="round"/>
-            <circle className="tmr-b1" cx="-12" cy="-22" r="3.5" fill="#8B6347" opacity="0.6"/>
-            <circle className="tmr-b2" cx="5"   cy="-28" r="2.5" fill="#A07850" opacity="0.5"/>
-            <circle className="tmr-b3" cx="14"  cy="-19" r="2"   fill="#8B6347" opacity="0.5"/>
-            {/* label anchored RIGHT so it doesn't overlap Crumb & Deli to the left */}
-            <rect x="6" y="17" width="88" height="26" rx="6" fill="white" opacity="0.95"/>
-            <text x="50" y="29" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Shahla&apos;s Cakes</text>
-            <text x="50" y="40" fontFamily="monospace"    fontSize="7"  fill="#8B6347" textAnchor="middle" letterSpacing="0.3">Westbrook · Fridays</text>
+            <a href="https://maps.google.com/?q=1a+Wentworth+Avenue,+Margate+CT9+5HW" target="_blank" rel="noopener noreferrer" className="tmr-pin">
+              <path className="tmr-pin-body" d="M 0,0 C -10,-4 -18,-17 -18,-34 A 18,18 0 0 1 18,-34 C 18,-17 10,-4 0,0 Z"
+                fill="white" stroke="#C4852A" strokeWidth="2.2" filter="url(#tmr-pin-shadow)"/>
+              <circle cx="0" cy="-34" r="5.5" fill="#C4852A"/>
+            </a>
+            {/* label anchored RIGHT so it doesn't overlap Crumb & Deli */}
+            <rect x="6" y="5" width="88" height="26" rx="6" fill="white" opacity="0.95"/>
+            <text x="50" y="17" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Shahla&apos;s Cakes</text>
+            <text x="50" y="28" fontFamily="monospace"    fontSize="7"  fill="#8B6347" textAnchor="middle" letterSpacing="0.3">Westbrook · Fridays</text>
           </g>
         </g>
 
-        {/* CRUMB & DELI — Westgate · label LEFT (into sea, away from Shahla's) */}
-        <g transform="translate(160,206)">
+        {/* CRUMB & DELI — Westgate · label LEFT */}
+        <g transform="translate(160,214)">
           <g className="tmr-a2">
-            <ellipse cx="0" cy="14" rx="26" ry="8"  fill="#8B4A10" opacity="0.14"/>
-            <ellipse cx="0" cy="7"  rx="26" ry="10" fill="#9A5C20"/>
-            <path d="M-24,7 Q-24,-16 0,-20 Q24,-16 24,7 Z" fill="url(#tmr-ca)"/>
-            <ellipse cx="0" cy="-2" rx="18" ry="8" fill="#FFCA6A" opacity="0.22"/>
-            <path d="M-7,-7 Q0,-12 7,-7"  stroke="#7A4010" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-            <path d="M-4,-1 Q0,-6  4,-1"  stroke="#7A4010" strokeWidth="0.8" fill="none" strokeLinecap="round"/>
-            <circle className="tmr-b4" cx="-13" cy="-22" r="3.5" fill="#C4852A" opacity="0.6"/>
-            <circle className="tmr-b5" cx="5"   cy="-28" r="2.5" fill="#D4956A" opacity="0.5"/>
-            <circle className="tmr-b1" cx="13"  cy="-19" r="2"   fill="#C4852A" opacity="0.5"/>
-            {/* label anchored LEFT, floats into sea — standard map practice */}
-            <rect x="-88" y="17" width="84" height="26" rx="6" fill="white" opacity="0.95"/>
-            <text x="-46" y="29" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Crumb &amp; Deli</text>
-            <text x="-46" y="40" fontFamily="monospace"    fontSize="7"  fill="#C4852A" textAnchor="middle" letterSpacing="0.3">Westgate · Wed &amp; Sat</text>
+            <a href="https://maps.google.com/?q=52+Station+Road,+Westgate,+CT8+8QY" target="_blank" rel="noopener noreferrer" className="tmr-pin">
+              <path className="tmr-pin-body" d="M 0,0 C -10,-4 -18,-17 -18,-34 A 18,18 0 0 1 18,-34 C 18,-17 10,-4 0,0 Z"
+                fill="white" stroke="#C4852A" strokeWidth="2.2" filter="url(#tmr-pin-shadow)"/>
+              <circle cx="0" cy="-34" r="5.5" fill="#C4852A"/>
+            </a>
+            {/* label anchored LEFT, floats into sea */}
+            <rect x="-88" y="5" width="84" height="26" rx="6" fill="white" opacity="0.95"/>
+            <text x="-46" y="17" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Crumb &amp; Deli</text>
+            <text x="-46" y="28" fontFamily="monospace"    fontSize="7"  fill="#C4852A" textAnchor="middle" letterSpacing="0.3">Westgate · Wed &amp; Sat</text>
           </g>
         </g>
 
         {/* GRAIN GROCER — Cliftonville */}
-        <g transform="translate(408,162)">
+        <g transform="translate(408,170)">
           <g className="tmr-a3">
-            <ellipse cx="0" cy="14" rx="28" ry="8"  fill="#2A3A20" opacity="0.14"/>
-            <ellipse cx="0" cy="7"  rx="28" ry="10" fill="#3A5030"/>
-            <path d="M-26,7 Q-26,-18 0,-22 Q26,-18 26,7 Z" fill="url(#tmr-cg)"/>
-            <ellipse cx="0" cy="-3" rx="20" ry="8" fill="#B0C080" opacity="0.22"/>
-            <path d="M-8,-8 Q0,-14 8,-8" stroke="#2A3818" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-            <path d="M-5,-2 Q0,-7  5,-2" stroke="#2A3818" strokeWidth="0.8" fill="none" strokeLinecap="round"/>
-            <circle className="tmr-b2" cx="-14" cy="-24" r="3.5" fill="#4A6741" opacity="0.6"/>
-            <circle className="tmr-b3" cx="4"   cy="-31" r="2.5" fill="#6A8050" opacity="0.5"/>
-            <circle className="tmr-b5" cx="15"  cy="-22" r="2.5" fill="#4A6741" opacity="0.5"/>
-            <rect x="-50" y="17" width="100" height="26" rx="6" fill="white" opacity="0.95"/>
-            <text x="0" y="29" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Grain Grocer</text>
-            <text x="0" y="40" fontFamily="monospace"    fontSize="7"  fill="#4A6741" textAnchor="middle" letterSpacing="0.3">Cliftonville · Thu–Sat</text>
+            <a href="https://maps.google.com/?q=216+Northdown+Road,+Cliftonville,+Margate" target="_blank" rel="noopener noreferrer" className="tmr-pin">
+              <path className="tmr-pin-body" d="M 0,0 C -10,-4 -18,-17 -18,-34 A 18,18 0 0 1 18,-34 C 18,-17 10,-4 0,0 Z"
+                fill="white" stroke="#C4852A" strokeWidth="2.2" filter="url(#tmr-pin-shadow)"/>
+              <circle cx="0" cy="-34" r="5.5" fill="#C4852A"/>
+            </a>
+            <rect x="-50" y="5" width="100" height="26" rx="6" fill="white" opacity="0.95"/>
+            <text x="0" y="17" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Grain Grocer</text>
+            <text x="0" y="28" fontFamily="monospace"    fontSize="7"  fill="#4A6741" textAnchor="middle" letterSpacing="0.3">Cliftonville · Thu–Sat</text>
           </g>
         </g>
 
         {/* FLOWERS & FELICITIES — Broadstairs · label LEFT, name on two lines */}
-        <g transform="translate(496,270)">
+        <g transform="translate(496,278)">
           <g className="tmr-a4">
-            <ellipse cx="0" cy="14" rx="28" ry="8"  fill="#2A3A20" opacity="0.14"/>
-            <ellipse cx="0" cy="7"  rx="28" ry="10" fill="#3A5030"/>
-            <path d="M-26,7 Q-26,-18 0,-22 Q26,-18 26,7 Z" fill="url(#tmr-cg)"/>
-            <ellipse cx="0" cy="-3" rx="20" ry="8" fill="#B0C080" opacity="0.22"/>
-            <path d="M-8,-8 Q0,-14 8,-8" stroke="#2A3818" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-            <path d="M-5,-2 Q0,-7  5,-2" stroke="#2A3818" strokeWidth="0.8" fill="none" strokeLinecap="round"/>
-            <circle className="tmr-b3" cx="-14" cy="-25" r="3.5" fill="#4A6741" opacity="0.6"/>
-            <circle className="tmr-b4" cx="4"   cy="-32" r="2.5" fill="#6A8050" opacity="0.5"/>
-            <circle className="tmr-b1" cx="16"  cy="-23" r="2.5" fill="#4A6741" opacity="0.5"/>
-            {/* label LEFT, name wraps to 2 lines, 3-line box */}
-            <rect x="-106" y="5" width="100" height="36" rx="6" fill="white" opacity="0.95"/>
-            <text x="-56" y="18" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Flowers &amp;</text>
-            <text x="-56" y="29" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Felicities</text>
-            <text x="-56" y="38" fontFamily="monospace"    fontSize="7"  fill="#4A6741" textAnchor="middle" letterSpacing="0.3">Broadstairs · Thursdays</text>
+            <a href="https://maps.google.com/?q=5+The+Broadway,+Broadstairs+CT10+2AD" target="_blank" rel="noopener noreferrer" className="tmr-pin">
+              <path className="tmr-pin-body" d="M 0,0 C -10,-4 -18,-17 -18,-34 A 18,18 0 0 1 18,-34 C 18,-17 10,-4 0,0 Z"
+                fill="white" stroke="#C4852A" strokeWidth="2.2" filter="url(#tmr-pin-shadow)"/>
+              <circle cx="0" cy="-34" r="5.5" fill="#C4852A"/>
+            </a>
+            {/* label LEFT, name wraps to 2 lines */}
+            <rect x="-106" y="-7" width="100" height="36" rx="6" fill="white" opacity="0.95"/>
+            <text x="-56" y="6"  fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Flowers &amp;</text>
+            <text x="-56" y="17" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Felicities</text>
+            <text x="-56" y="26" fontFamily="monospace"    fontSize="7"  fill="#4A6741" textAnchor="middle" letterSpacing="0.3">Broadstairs · Thursdays</text>
           </g>
         </g>
 
         {/* UNION CAFE — Ramsgate */}
-        <g transform="translate(410,348)">
+        <g transform="translate(410,356)">
           <g className="tmr-a5">
-            <ellipse cx="0" cy="12" rx="24" ry="7"  fill="#1A0C04" opacity="0.17"/>
-            <ellipse cx="0" cy="6"  rx="24" ry="9"  fill="#2C1A0E"/>
-            <path d="M-22,6 Q-22,-14 0,-18 Q22,-14 22,6 Z" fill="url(#tmr-cd)"/>
-            <ellipse cx="0" cy="-2" rx="17" ry="7" fill="#906040" opacity="0.28"/>
-            <path d="M-7,-6 Q0,-11 7,-6" stroke="#1A0804" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-            <path d="M-4,-1 Q0,-5  4,-1" stroke="#1A0804" strokeWidth="0.8" fill="none" strokeLinecap="round"/>
-            <circle className="tmr-b5" cx="-11" cy="-20" r="3"   fill="#6B4A2A" opacity="0.6"/>
-            <circle className="tmr-b2" cx="6"   cy="-26" r="2.5" fill="#8B5A30" opacity="0.5"/>
-            <rect x="-46" y="13" width="92" height="26" rx="6" fill="white" opacity="0.95"/>
-            <text x="0" y="25" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Union Cafe</text>
-            <text x="0" y="36" fontFamily="monospace"    fontSize="7"  fill="#6B4A2A" textAnchor="middle" letterSpacing="0.3">Ramsgate · Tues–Sat</text>
+            <a href="https://maps.google.com/?q=25-27+Queen+St,+Ramsgate+CT11+9DZ" target="_blank" rel="noopener noreferrer" className="tmr-pin">
+              <path className="tmr-pin-body" d="M 0,0 C -10,-4 -18,-17 -18,-34 A 18,18 0 0 1 18,-34 C 18,-17 10,-4 0,0 Z"
+                fill="white" stroke="#C4852A" strokeWidth="2.2" filter="url(#tmr-pin-shadow)"/>
+              <circle cx="0" cy="-34" r="5.5" fill="#C4852A"/>
+            </a>
+            <rect x="-46" y="5" width="92" height="26" rx="6" fill="white" opacity="0.95"/>
+            <text x="0" y="17" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Union Cafe</text>
+            <text x="0" y="28" fontFamily="monospace"    fontSize="7"  fill="#6B4A2A" textAnchor="middle" letterSpacing="0.3">Ramsgate · Tues–Sat</text>
           </g>
         </g>
 
@@ -266,7 +225,7 @@ export function ThanetMap() {
 
         {/* Legend */}
         <circle cx="26"  cy="448" r="5"  fill="#C4852A" opacity="0.7"/>
-        <text x="36"  y="452" fontFamily="monospace" fontSize="8" fill="#8B7050">bubbles = fresh bread delivered that day</text>
+        <text x="36"  y="452" fontFamily="monospace" fontSize="8" fill="#8B7050">tap a pin for directions</text>
       </svg>
     </div>
   );
