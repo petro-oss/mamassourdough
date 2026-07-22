@@ -21,9 +21,9 @@ export default function Footer() {
         {/* Pages */}
         <div className="flex flex-col gap-3">
           <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6B4A2A] mb-1">Pages</p>
-          {["/", "/menu", "/about", "/contact", "/order"].map((href) => (
+          {["/", "/menu", "/about", "/stockists", "/contact", "/order"].map((href) => (
             <Link key={href} href={href} className="font-sans text-base hover:text-[#FAF6F0] transition-colors capitalize">
-              {href === "/" ? "Home" : href.replace("/", "")}
+              {href === "/" ? "Home" : href.replace("/", "").replace(/^\w/, c => c.toUpperCase())}
             </Link>
           ))}
         </div>
