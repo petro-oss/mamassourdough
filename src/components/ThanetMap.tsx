@@ -126,8 +126,7 @@ export function ThanetMap() {
         <path className="tmr-sp"           d="M 440,356 Q 325,308 236,202" fill="none" stroke="#C4852A" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="1,10"/>
         <path className="tmr-sp tmr-sp2"   d="M 440,356 Q 300,295 178,210" fill="none" stroke="#C4852A" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="1,10"/>
         <path className="tmr-sp tmr-sp3"   d="M 440,356 Q 398,258 410,168" fill="none" stroke="#C4852A" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="1,10"/>
-        <path className="tmr-sp tmr-sp4"   d="M 440,356 Q 464,326 494,274" fill="none" stroke="#C4852A" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="1,10"/>
-        <path className="tmr-sp tmr-sp5"   d="M 440,356 Q 426,352 412,348" fill="none" stroke="#C4852A" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="1,7"/>
+        <path className="tmr-sp tmr-sp4"   d="M 440,356 Q 426,352 412,348" fill="none" stroke="#C4852A" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="1,7"/>
 
         {/* ── TEARDROP PINS — outer <g> positions in SVG space, inner <g> holds CSS animation ── */}
         {/* Pin tip sits at (0,0) of each group. Body extends upward. */}
@@ -177,22 +176,6 @@ export function ThanetMap() {
           </g>
         </g>
 
-        {/* FLOWERS & FELICITIES — Broadstairs · label LEFT, name on two lines */}
-        <g transform="translate(496,278)">
-          <g className="tmr-a4">
-            <a href="https://maps.google.com/?q=5+The+Broadway,+Broadstairs+CT10+2AD" target="_blank" rel="noopener noreferrer" className="tmr-pin">
-              <path className="tmr-pin-body" d="M 0,0 C -10,-4 -18,-17 -18,-34 A 18,18 0 0 1 18,-34 C 18,-17 10,-4 0,0 Z"
-                fill="white" stroke="#C4852A" strokeWidth="2.2" filter="url(#tmr-pin-shadow)"/>
-              <circle cx="0" cy="-34" r="5.5" fill="#C4852A"/>
-            </a>
-            {/* label LEFT, name wraps to 2 lines */}
-            <rect x="-106" y="-7" width="100" height="36" rx="6" fill="white" opacity="0.95"/>
-            <text x="-56" y="6"  fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Flowers &amp;</text>
-            <text x="-56" y="17" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Felicities</text>
-            <text x="-56" y="26" fontFamily="monospace"    fontSize="7"  fill="#4A6741" textAnchor="middle" letterSpacing="0.3">Broadstairs · Thursdays</text>
-          </g>
-        </g>
-
         {/* UNION CAFE — Ramsgate */}
         <g transform="translate(410,356)">
           <g className="tmr-a5">
@@ -221,7 +204,7 @@ export function ThanetMap() {
         <text x="30" y="36"  fontFamily="Georgia,serif" fontSize="15" fill="#FAF6F0" fontStyle="italic">mama&apos;s sourdough</text>
         <text x="30" y="50"  fontFamily="monospace"    fontSize="9"  fill="#C4852A" letterSpacing="1.5">RISING ACROSS THANET</text>
         <line x1="30" y1="56" x2="196" y2="56" stroke="#C4852A" strokeWidth="0.5"/>
-        <text x="30" y="65"  fontFamily="monospace"    fontSize="8"  fill="#8B6347" letterSpacing="0.5">5 stockists · baked with love ★</text>
+        <text x="30" y="65"  fontFamily="monospace"    fontSize="8"  fill="#8B6347" letterSpacing="0.5">4 stockists · baked with love ★</text>
 
         {/* Legend */}
         <circle cx="26"  cy="448" r="5"  fill="#C4852A" opacity="0.7"/>

@@ -257,7 +257,7 @@ export default function AboutPage() {
           <h2 className="font-sans text-4xl font-bold tracking-tight text-[#2C1A0E]">Find us locally</h2>
           <p className="font-sans text-[#8B6347] mt-3 max-w-lg leading-relaxed">Fresh loaves delivered to local shops every week — find us near you.</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           <div className="bg-white rounded-2xl p-6 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#8B6347" }}>
             <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#8B6347] mb-2">Westbrook</p>
             <h3 className="font-serif text-xl italic text-[#2C1A0E] mb-1">Shahla&apos;s Cakes</h3>
@@ -280,15 +280,6 @@ export default function AboutPage() {
             <a href="https://maps.google.com/?q=216+Northdown+Road,+Cliftonville,+Margate" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">216 Northdown Road →</a>
             <span className="inline-block font-mono text-[10px] tracking-widest bg-[#EAF0EA] text-[#4A6741] px-3 py-1.5 rounded-full mb-3 w-fit">Thurs · Fri · Sat</span>
             <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-2">Wholemeal sourdough</p>
-            <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited — get there early! 🍞</p>
-          </div>
-          <div className="bg-white rounded-2xl p-6 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#4A6741" }}>
-            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#4A6741] mb-2">Broadstairs</p>
-            <h3 className="font-serif text-xl italic text-[#2C1A0E] mb-1">Flowers & Felicities</h3>
-            <a href="https://maps.google.com/?q=5+The+Broadway,+Broadstairs+CT10+2AD" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#C4852A] hover:underline mb-3">5 The Broadway →</a>
-            <span className="inline-block font-mono text-[10px] tracking-widest bg-[#EAF0EA] text-[#4A6741] px-3 py-1.5 rounded-full mb-3 w-fit">Thursdays*</span>
-            <p className="font-sans text-xs text-[#8B6347] leading-relaxed mb-1">White & wholemeal sourdough</p>
-            <p className="font-mono text-[9px] text-[#C4852A] mb-2">*subject to change</p>
             <p className="font-sans text-xs font-semibold text-[#2C1A0E] mt-auto">Limited — get there early! 🍞</p>
           </div>
           <div className="bg-white rounded-2xl p-6 border border-[#EAE0D5] border-t-4 flex flex-col" style={{ borderTopColor: "#2C1A0E" }}>

@@ -67,7 +67,7 @@ export default function Footer() {
       {/* Stockists */}
       <div className="border-t border-[#4A2E1A] max-w-6xl mx-auto px-6 py-10">
         <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#6B4A2A] mb-5">Find us in store</p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div>
             <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#8B6347] mb-1">Westbrook</p>
             <p className="font-sans text-sm font-semibold text-[#FAF6F0]">Shahla&apos;s Cakes</p>
@@ -85,12 +85,6 @@ export default function Footer() {
             <p className="font-sans text-sm font-semibold text-[#FAF6F0]">Grain Grocer</p>
             <a href="https://maps.google.com/?q=216+Northdown+Road,+Cliftonville,+Margate" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#6B4A2A] hover:text-[#A07850] transition-colors">216 Northdown Road →</a>
             <p className="font-sans text-xs text-[#6B4A2A] mt-0.5">Thurs, Fri &amp; Sat</p>
-          </div>
-          <div>
-            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#4A6741] mb-1">Broadstairs</p>
-            <p className="font-sans text-sm font-semibold text-[#FAF6F0]">Flowers &amp; Felicities</p>
-            <a href="https://maps.google.com/?q=5+The+Broadway,+Broadstairs+CT10+2AD" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#6B4A2A] hover:text-[#A07850] transition-colors">5 The Broadway →</a>
-            <p className="font-sans text-xs text-[#6B4A2A] mt-0.5">Thursdays*</p>
           </div>
           <div>
             <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#A07850] mb-1">Ramsgate</p>
