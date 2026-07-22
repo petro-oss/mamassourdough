@@ -64,9 +64,9 @@ export function ThanetMap() {
         ))}
 
         {/* Sea labels */}
-        <text x="28"  y="48"  fontFamily="Georgia,serif" fontSize="11" fill="#8AAFC0" letterSpacing="3"   fontStyle="italic">north sea</text>
-        <text x="28"  y="440" fontFamily="Georgia,serif" fontSize="10" fill="#8AAFC0" letterSpacing="2.5" fontStyle="italic">kent</text>
-        <text x="592" y="400" fontFamily="Georgia,serif" fontSize="9"  fill="#8AAFC0" letterSpacing="1.5" fontStyle="italic" textAnchor="middle" transform="rotate(-90,592,400)">english channel</text>
+        <text x="28"  y="48"  fontFamily="'Cormorant Garamond', Georgia, serif" fontSize="11" fill="#8AAFC0" letterSpacing="3"   fontStyle="italic">north sea</text>
+        <text x="28"  y="440" fontFamily="'Cormorant Garamond', Georgia, serif" fontSize="10" fill="#8AAFC0" letterSpacing="2.5" fontStyle="italic">kent</text>
+        <text x="592" y="400" fontFamily="'Cormorant Garamond', Georgia, serif" fontSize="9"  fill="#8AAFC0" letterSpacing="1.5" fontStyle="italic" textAnchor="middle" transform="rotate(-90,592,400)">english channel</text>
 
         {/*
           REALISTIC THANET OUTLINE — clockwise from SW (Birchington/Wantsum edge)
@@ -142,8 +142,8 @@ export function ThanetMap() {
             </a>
             {/* label anchored RIGHT so it doesn't overlap Crumb & Deli */}
             <rect x="6" y="5" width="88" height="26" rx="6" fill="white" opacity="0.95"/>
-            <text x="50" y="17" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Shahla&apos;s Cakes</text>
-            <text x="50" y="28" fontFamily="monospace"    fontSize="7"  fill="#8B6347" textAnchor="middle" letterSpacing="0.3">Westbrook · Fridays</text>
+            <text x="50" y="17" fontFamily="'Cormorant Garamond', Georgia, serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Shahla&apos;s Cakes</text>
+            <text x="50" y="28" fontFamily="'DM Mono', monospace"    fontSize="7"  fill="#8B6347" textAnchor="middle" letterSpacing="0.3">Westbrook · Fridays</text>
           </g>
         </g>
 
@@ -157,8 +157,8 @@ export function ThanetMap() {
             </a>
             {/* label anchored LEFT, floats into sea */}
             <rect x="-88" y="5" width="84" height="26" rx="6" fill="white" opacity="0.95"/>
-            <text x="-46" y="17" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Crumb &amp; Deli</text>
-            <text x="-46" y="28" fontFamily="monospace"    fontSize="7"  fill="#C4852A" textAnchor="middle" letterSpacing="0.3">Westgate · Wed &amp; Sat</text>
+            <text x="-46" y="17" fontFamily="'Cormorant Garamond', Georgia, serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Crumb &amp; Deli</text>
+            <text x="-46" y="28" fontFamily="'DM Mono', monospace"    fontSize="7"  fill="#C4852A" textAnchor="middle" letterSpacing="0.3">Westgate · Wed &amp; Sat</text>
           </g>
         </g>
 
@@ -171,8 +171,8 @@ export function ThanetMap() {
               <circle cx="0" cy="-34" r="5.5" fill="#C4852A"/>
             </a>
             <rect x="-50" y="5" width="100" height="26" rx="6" fill="white" opacity="0.95"/>
-            <text x="0" y="17" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Grain Grocer</text>
-            <text x="0" y="28" fontFamily="monospace"    fontSize="7"  fill="#4A6741" textAnchor="middle" letterSpacing="0.3">Cliftonville · Thu–Sat</text>
+            <text x="0" y="17" fontFamily="'Cormorant Garamond', Georgia, serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Grain Grocer</text>
+            <text x="0" y="28" fontFamily="'DM Mono', monospace"    fontSize="7"  fill="#4A6741" textAnchor="middle" letterSpacing="0.3">Cliftonville · Thu–Sat</text>
           </g>
         </g>
 
@@ -185,8 +185,8 @@ export function ThanetMap() {
               <circle cx="0" cy="-34" r="5.5" fill="#C4852A"/>
             </a>
             <rect x="-46" y="5" width="92" height="26" rx="6" fill="white" opacity="0.95"/>
-            <text x="0" y="17" fontFamily="Georgia,serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Union Cafe</text>
-            <text x="0" y="28" fontFamily="monospace"    fontSize="7"  fill="#6B4A2A" textAnchor="middle" letterSpacing="0.3">Ramsgate · Tues–Sat</text>
+            <text x="0" y="17" fontFamily="'Cormorant Garamond', Georgia, serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Union Cafe</text>
+            <text x="0" y="28" fontFamily="'DM Mono', monospace"    fontSize="7"  fill="#6B4A2A" textAnchor="middle" letterSpacing="0.3">Ramsgate · Tues–Sat</text>
           </g>
         </g>
 
@@ -195,20 +195,20 @@ export function ThanetMap() {
           <circle cx="0" cy="0" r="11" fill="#C4852A" opacity="0.85"/>
           <circle cx="0" cy="0" r="7.5" fill="#F0C060"/>
           <text x="0" y="4" fontFamily="sans-serif" fontSize="10" fill="#2C1A0E" textAnchor="middle">★</text>
-          <text x="0" y="-16" fontFamily="Georgia,serif" fontSize="8" fill="#2C1A0E" textAnchor="middle" fontStyle="italic" opacity="0.85">mama&apos;s kitchen</text>
-          <text x="0" y="-6"  fontFamily="monospace"    fontSize="6" fill="#8B6347" textAnchor="middle" letterSpacing="0.8">STIRLING WAY</text>
+          <text x="0" y="-16" fontFamily="'DM Sans', sans-serif" fontSize="8" fill="#2C1A0E" textAnchor="middle" fontWeight="500" opacity="0.85">mama&apos;s kitchen</text>
+          <text x="0" y="-6"  fontFamily="'DM Mono', monospace"    fontSize="6" fill="#8B6347" textAnchor="middle" letterSpacing="0.8">STIRLING WAY</text>
         </g>
 
         {/* Title badge */}
         <rect x="18" y="16" width="188" height="56" rx="10" fill="#2C1A0E" opacity="0.90"/>
-        <text x="30" y="36"  fontFamily="Georgia,serif" fontSize="15" fill="#FAF6F0" fontStyle="italic">mama&apos;s sourdough</text>
-        <text x="30" y="50"  fontFamily="monospace"    fontSize="9"  fill="#C4852A" letterSpacing="1.5">RISING ACROSS THANET</text>
+        <text x="30" y="37"  fontFamily="'DM Sans', sans-serif" fontSize="14" fill="#FAF6F0" fontWeight="600" letterSpacing="-0.3">mama&apos;s sourdough</text>
+        <text x="30" y="50"  fontFamily="'DM Mono', monospace"  fontSize="8"  fill="#C4852A" letterSpacing="1.5">RISING ACROSS THANET</text>
         <line x1="30" y1="56" x2="196" y2="56" stroke="#C4852A" strokeWidth="0.5"/>
-        <text x="30" y="65"  fontFamily="monospace"    fontSize="8"  fill="#8B6347" letterSpacing="0.5">4 stockists · baked with love ★</text>
+        <text x="30" y="65"  fontFamily="'DM Mono', monospace"    fontSize="8"  fill="#8B6347" letterSpacing="0.5">4 stockists · baked with love ★</text>
 
         {/* Legend */}
         <circle cx="26"  cy="448" r="5"  fill="#C4852A" opacity="0.7"/>
-        <text x="36"  y="452" fontFamily="monospace" fontSize="8" fill="#8B7050">tap a pin for directions</text>
+        <text x="36"  y="452" fontFamily="'DM Mono', monospace" fontSize="8" fill="#8B7050">tap a pin for directions</text>
       </svg>
     </div>
   );
