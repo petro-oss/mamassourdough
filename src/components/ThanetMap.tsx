@@ -22,6 +22,7 @@ export function ThanetMap() {
         .tmr-a3 { animation: tmr-rise 4.0s ease-in-out infinite 1.4s; }
         .tmr-a4 { animation: tmr-rise 3.6s ease-in-out infinite 2.0s; }
         .tmr-a5 { animation: tmr-rise 3.2s ease-in-out infinite 2.6s; }
+        .tmr-a6 { animation: tmr-rise 3.7s ease-in-out infinite 3.3s; }
         .tmr-sp  { animation: tmr-spread 2.8s ease-out forwards; stroke-dasharray: 600; stroke-dashoffset: 600; }
         .tmr-sp2 { animation-delay: 0.3s; }
         .tmr-sp3 { animation-delay: 0.6s; }
@@ -127,6 +128,7 @@ export function ThanetMap() {
         <path className="tmr-sp tmr-sp2"   d="M 440,356 Q 300,295 178,210" fill="none" stroke="#C4852A" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="1,10"/>
         <path className="tmr-sp tmr-sp3"   d="M 440,356 Q 398,258 410,168" fill="none" stroke="#C4852A" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="1,10"/>
         <path className="tmr-sp tmr-sp4"   d="M 440,356 Q 426,352 412,348" fill="none" stroke="#C4852A" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="1,7"/>
+        <path className="tmr-sp tmr-sp5"   d="M 440,356 Q 400,400 345,415" fill="none" stroke="#C4852A" strokeWidth="2.4" strokeLinecap="round" strokeDasharray="1,10"/>
 
         {/* ── TEARDROP PINS — outer <g> positions in SVG space, inner <g> holds CSS animation ── */}
         {/* Pin tip sits at (0,0) of each group. Body extends upward. */}
@@ -190,6 +192,20 @@ export function ThanetMap() {
           </g>
         </g>
 
+        {/* NJORD CAFE BAR — Cliffsend · label LEFT */}
+        <g transform="translate(345,415)">
+          <g className="tmr-a6">
+            <a href="https://maps.google.com/?q=123a+Saxon+Reach,+Sandwich+Rd,+Cliffsend,+Ramsgate+CT12+5JB" target="_blank" rel="noopener noreferrer" className="tmr-pin">
+              <path className="tmr-pin-body" d="M 0,0 C -10,-4 -18,-17 -18,-34 A 18,18 0 0 1 18,-34 C 18,-17 10,-4 0,0 Z"
+                fill="white" stroke="#C4852A" strokeWidth="2.2" filter="url(#tmr-pin-shadow)"/>
+              <circle cx="0" cy="-34" r="5.5" fill="#C4852A"/>
+            </a>
+            <rect x="-96" y="5" width="90" height="26" rx="6" fill="white" opacity="0.95"/>
+            <text x="-51" y="17" fontFamily="'Cormorant Garamond', Georgia, serif" fontSize="10" fill="#2C1A0E" textAnchor="middle" fontStyle="italic">Njord Cafe Bar</text>
+            <text x="-51" y="28" fontFamily="'DM Mono', monospace"    fontSize="7"  fill="#4A6741" textAnchor="middle" letterSpacing="0.3">Cliffsend · Thurs</text>
+          </g>
+        </g>
+
         {/* HOME KITCHEN — Stirling Way, Ramsgate (gold star pin, spread lines radiate from here) */}
         <g transform="translate(440,356)">
           <circle cx="0" cy="0" r="11" fill="#C4852A" opacity="0.85"/>
@@ -204,7 +220,7 @@ export function ThanetMap() {
         <text x="30" y="37"  fontFamily="'DM Sans', sans-serif" fontSize="14" fill="#FAF6F0" fontWeight="600" letterSpacing="-0.3">mama&apos;s sourdough</text>
         <text x="30" y="50"  fontFamily="'DM Mono', monospace"  fontSize="8"  fill="#C4852A" letterSpacing="1.5">RISING ACROSS THANET</text>
         <line x1="30" y1="56" x2="196" y2="56" stroke="#C4852A" strokeWidth="0.5"/>
-        <text x="30" y="65"  fontFamily="'DM Mono', monospace"    fontSize="8"  fill="#8B6347" letterSpacing="0.5">4 stockists · baked with love ★</text>
+        <text x="30" y="65"  fontFamily="'DM Mono', monospace"    fontSize="8"  fill="#8B6347" letterSpacing="0.5">5 stockists · baked with love ★</text>
 
         {/* Legend */}
         <circle cx="26"  cy="448" r="5"  fill="#C4852A" opacity="0.7"/>

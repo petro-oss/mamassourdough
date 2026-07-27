@@ -182,19 +182,20 @@ export default function Home() {
             <div>
               <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-2">Now available in store</p>
               <h2 className="font-sans text-4xl font-bold tracking-tight text-[#2C1A0E]">Come find us locally</h2>
-              <p className="font-serif text-lg italic font-light text-[#8B6347] mt-2">Fresh loaves at four shops across Thanet every week.</p>
+              <p className="font-serif text-lg italic font-light text-[#8B6347] mt-2">Fresh loaves at five shops across Thanet every week.</p>
             </div>
             <Link href="/stockists" className="font-sans text-sm font-semibold text-[#C4852A] border-b border-[#C4852A] pb-0.5 hover:text-[#A36920] hover:border-[#A36920] transition-colors shrink-0">
               See all locations &amp; map →
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {[
               { area: "Westbrook", name: "Shahla's Cakes", days: "Fridays", colour: "#8B6347" },
               { area: "Westgate", name: "Crumb & Deli", days: "Wed · Sat", colour: "#C4852A" },
               { area: "Cliftonville", name: "Grain Grocer", days: "Thurs · Fri · Sat", colour: "#4A6741" },
               { area: "Ramsgate", name: "Union Cafe", days: "Tues · Thurs · Fri · Sat", colour: "#2C1A0E" },
+              { area: "Cliffsend", name: "Njord Cafe Bar", days: "Thursdays", colour: "#4A6741" },
             ].map(({ area, name, days, colour }) => (
               <Link key={name} href="/stockists"
                 className="bg-white rounded-2xl p-5 border border-[#EAE0D5] border-t-4 flex flex-col hover:shadow-md transition-shadow"

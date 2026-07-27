@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Find us locally — mama's sourdough",
-  description: "Fresh mama's sourdough loaves available at four local stockists across Thanet — Westbrook, Westgate, Cliftonville, and Ramsgate.",
+  description: "Fresh mama's sourdough loaves available at five local stockists across Thanet — Westbrook, Westgate, Cliftonville, Ramsgate, and Cliffsend.",
 };
 
 const stockists = [
@@ -60,6 +60,19 @@ const stockists = [
     products: "Wholemeal · Focaccia",
     note: null,
   },
+  {
+    area: "Cliffsend",
+    areaColour: "#4A6741",
+    badgeBg: "#EAF0EA",
+    badgeText: "#4A6741",
+    topColour: "#4A6741",
+    name: "Njord Cafe Bar",
+    address: "123a Saxon Reach, Sandwich Rd, Cliffsend, Ramsgate CT12 5JB",
+    mapsUrl: "https://maps.google.com/?q=123a+Saxon+Reach,+Sandwich+Rd,+Cliffsend,+Ramsgate+CT12+5JB",
+    days: "Thursdays",
+    products: "White Sourdough · Large Focaccia Tray",
+    note: null,
+  },
 ];
 
 export default function StockistsPage() {
@@ -71,7 +84,7 @@ export default function StockistsPage() {
         <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A] mb-3">Now available in store</p>
         <h1 className="font-sans text-6xl md:text-7xl font-bold tracking-tight text-[#2C1A0E] mb-4">Find us locally</h1>
         <p className="font-serif text-xl italic font-light text-[#8B6347] max-w-xl leading-relaxed">
-          Fresh loaves delivered to four local shops across Thanet every week — tap any pin on the map for directions.
+          Fresh loaves delivered to five local shops across Thanet every week — tap any pin on the map for directions.
         </p>
       </section>
 

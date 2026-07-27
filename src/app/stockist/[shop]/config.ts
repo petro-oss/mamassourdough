@@ -45,17 +45,17 @@ export const STOCKIST_SHOPS: StockistShop[] = [
     ],
   },
   {
-    slug: "flowers-felicities",
-    name: "Flowers & Felicities",
-    contact: "Laura",
-    phone: "+447890326306",
-    address: "5 The Broadway, Broadstairs CT10 2AD",
+    slug: "njord-cafe-bar",
+    name: "Njord Cafe Bar",
+    contact: "Michael",
+    phone: "+447745665278",
+    address: "123a Saxon Reach, Sandwich Rd, Cliffsend, Ramsgate CT12 5JB",
     days: [
       {
         day: "Thursday",
         products: [
-          { name: "Country White Sourdough",     price: 4.00 },
-          { name: "Country Wholemeal Sourdough", price: 4.00 },
+          { name: "White Sourdough",      price: 4.50 },
+          { name: "Large Focaccia Tray",  price: 20.00 },
         ],
       },
     ],
