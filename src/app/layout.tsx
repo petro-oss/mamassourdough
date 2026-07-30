@@ -58,8 +58,8 @@ export default function RootLayout({
         {/* HOLIDAY BANNER — remove on 21 August 2026 */}
         <div className="bg-[#2C1A0E] text-[#FAF6F0] px-4 py-3 text-center">
           <p className="font-sans text-sm leading-snug">
-            <span className="font-semibold">Lucie is on holiday 4–21 August.</span>
-            {" "}Orders are paused and will reopen on her return. Thank you for your understanding and continuous support.
+            <span className="font-semibold">mama&apos;s sourdough is closed 4–21 August.</span>
+            {" "}Baking and orders will resume after that. Thank you for your understanding and continuous support.
           </p>
         </div>
         <main className="flex-1">{children}</main>

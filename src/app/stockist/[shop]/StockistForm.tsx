@@ -16,7 +16,7 @@ const ORDER_NOTICE = "Orders must be placed by Sunday 8pm for the following week
 
 // HOLIDAY — flip to false on 21 August 2026
 const HOLIDAY_CLOSE = true;
-const HOLIDAY_MESSAGE = "Lucie is on holiday from 4–21 August. Stockist orders are paused while she's away and will reopen on her return. Thank you for your understanding and continuous support — we look forward to baking for you again soon!";
+const HOLIDAY_MESSAGE = "mama's sourdough is closed for the period of 4–21 August and will resume baking and orders after that. Thank you for your understanding and continuous support — we look forward to baking for you again soon!";
 
 function qKey(day: string, product: string) {
   return `${day}||${product}`;
