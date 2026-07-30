@@ -55,6 +55,13 @@ export default function RootLayout({
     <html lang="en" className={`${dmSans.variable} ${cormorant.variable} ${dmMono.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-[#FAF6F0] text-[#2C1A0E] font-sans antialiased">
         <Nav />
+        {/* HOLIDAY BANNER — remove on 21 August 2026 */}
+        <div className="bg-[#2C1A0E] text-[#FAF6F0] px-4 py-3 text-center">
+          <p className="font-sans text-sm leading-snug">
+            <span className="font-semibold">Lucie is on holiday 4–21 August.</span>
+            {" "}Orders are paused and will reopen on her return. Thank you for your understanding and continuous support.
+          </p>
+        </div>
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

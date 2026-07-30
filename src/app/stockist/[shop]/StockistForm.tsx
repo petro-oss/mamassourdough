@@ -14,6 +14,10 @@ const BANK = {
 
 const ORDER_NOTICE = "Orders must be placed by Sunday 8pm for the following week. Payment is required at time of ordering.";
 
+// HOLIDAY — flip to false on 21 August 2026
+const HOLIDAY_CLOSE = true;
+const HOLIDAY_MESSAGE = "Lucie is on holiday from 4–21 August. Stockist orders are paused while she's away and will reopen on her return. Thank you for your understanding and continuous support — we look forward to baking for you again soon!";
+
 function qKey(day: string, product: string) {
   return `${day}||${product}`;
 }
@@ -81,6 +85,27 @@ export default function StockistForm({ shopConfig }: { shopConfig: StockistShop 
       </div>
     </div>
   );
+
+  // ── HOLIDAY CLOSE ────────────────────────────────────────────────────────
+  if (HOLIDAY_CLOSE) {
+    return (
+      <div className="min-h-screen bg-[#FAF6F0]">
+        <Header />
+        <div className="max-w-xl mx-auto px-6 py-16 text-center space-y-6">
+          <div className="text-5xl mb-2">🌴</div>
+          <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#C4852A]">Out of office</p>
+          <h1 className="font-serif text-4xl italic text-[#2C1A0E]">{shopConfig.name}</h1>
+          <div className="bg-[#2C1A0E] rounded-2xl px-8 py-8 text-left space-y-4">
+            <p className="font-sans text-[#FAF6F0] leading-relaxed">{HOLIDAY_MESSAGE}</p>
+            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#C4852A] mt-4">Reopens: 21 August 2026</p>
+          </div>
+          <p className="font-sans text-sm text-[#8B6347] leading-relaxed">
+            If you have an urgent query, please call or text Lucie directly.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   // ── STEP 1: Order form ───────────────────────────────────────────────────
   if (step === "order") {
