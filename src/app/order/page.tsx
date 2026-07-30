@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { menuItems } from "@/app/menu/page";
 
@@ -88,22 +88,6 @@ export default function OrderPage() {
 
   const orderWindow = getOrderWindowStatus();
 
-  const [countdown, setCountdown] = useState("");
-  useEffect(() => {
-    if (orderWindow.open) return;
-    const target = getNextMondayUTC();
-    const tick = () => {
-      const diff = target.getTime() - Date.now();
-      if (diff <= 0) { setCountdown("🍞 Orders are now open!"); return; }
-      const h = Math.floor(diff / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-      setCountdown(`${h}h ${String(m).padStart(2, "0")}m ${String(s).padStart(2, "0")}s`);
-    };
-    tick();
-    const interval = setInterval(tick, 1000);
-    return () => clearInterval(interval);
-  }, [orderWindow.open]);
 
   const MULTI_ITEMS = ["choc-chip-cookie", "chocolate-brownie"];
 
@@ -347,12 +331,6 @@ export default function OrderPage() {
           <div className="w-full">
             <p className="font-sans font-semibold text-[#2C1A0E] mb-1">Orders are currently closed</p>
             <p className="font-sans text-sm text-[#4A2E1A] leading-relaxed mb-3">{orderWindow.message}</p>
-            {countdown && (
-              <div className="inline-flex items-center gap-2 bg-[#2C1A0E] text-[#F5F0E8] rounded-xl px-4 py-2">
-                <span className="text-xs font-mono tracking-widest uppercase text-[#C4852A]">Opens in</span>
-                <span className="font-mono text-lg font-bold tracking-wider">{countdown}</span>
-              </div>
-            )}
           </div>
         </div>
       )}
