@@ -38,21 +38,21 @@
 - [x] Google Sheet dedup fix (LockService + PropertiesService) — deployed
 - [x] GHL contact-note `[object Object]` bug fixed (now uses `{{contact.order_notes}}`) — applies to all orders going forward, old pipeline entries stay broken
 - [x] Stockist orders routed into the same Weekly Orders pipeline (no separate pipeline — deliberately simplified), new "Stockist Order Confirmed" stage added and SMS-tested (Delivered)
-- [ ] **GHL SMS field-mapping issue** — status conflicting between sessions: reported fixed as of 21 Jun, but a later session flagged it as still unresolved. Verify current state.
 - [ ] Buy GHL phone number (~£1.50/mo) — confirm purchased, needed for SMS sending
-- [ ] **CRITICAL: Stockist "Order Confirmed" SMS "To" field still hardcoded to a test number (07775562102)** — must switch to `{{contact.phone}}` in the GHL workflow editor before real stockist orders should trigger confirmations. Not a code fix — do this directly in GHL.
+- [x] **Stockist "Order Confirmed" SMS "To" field** — confirmed switched from test number to `{{contact.phone}}` in GHL (24 Aug 2026). Real stockist orders now text the correct shop.
 - [ ] Recurring-order field-name mismatch (`recurring_order` vs `order_type`) — suspected, never confirmed
-- [ ] Wednesday 7pm rollup SMS to Lucie — reported working 21 Jun, but a later session describes it as never built. Verify which is true.
+- [ ] **Wednesday 7pm rollup SMS to Lucie — genuinely not yet tested.** Status has conflicted across sessions (reported working 21 Jun, reported never built later); planned to test 24 Aug but got diverted into the Stockist Baking Plan fix instead. Test this next — the Sheet prerequisite is now confirmed clean.
 - [ ] Daily 6pm order summary workflow for Lucie — never confirmed built
-- [ ] Njord Cafe Bar's GHL contact — confirm added (Kirstey/Lucy/Shahla were, Njord wasn't explicitly confirmed)
+- [x] Njord Cafe Bar's GHL contact — confirmed added (Michael), 24 Aug 2026
 - [ ] Monthly stockist invoicing decision — Lucie was going to confirm whether it's still needed given the print-receipt flow; no confirmation on record
 
 ## Google Sheets / Apps Script
 - [x] 8-tab structure live: Orders, Baking Plan, Packing List, Weekly Menu, Stockist Deliveries, Shop Directory, Stockist Baking Plan, Order/Packing History
 - [x] Weekly reset (Sunday 8pm) archives Orders/Packing, resets customer Baking Plan
 - [x] Grain Grocer standing order auto-reseeds weekly (10/12/14 Thu/Fri/Sat, hardcoded)
-- [x] **Fixed 24 Aug 2026**: Stockist Baking Plan was tallying all-time history instead of current week — added `weeklyStockistReset()`, wired into the existing Sunday trigger. **Action needed**: paste updated `google-apps-script/Code.gs` into the live Apps Script editor and run `weeklyStockistReset` once to clear the current backlog.
+- [x] **Fixed AND verified live 24 Aug 2026**: Stockist Baking Plan was tallying all-time history instead of current week (confirmed mathematically — Grain Grocer's tally was exactly 7× the correct amount). Added `weeklyStockistReset()`, deployed to the live Apps Script editor, ran manually, confirmed correct on the actual sheet. A same-day live order that got swept into the archive by the mid-week run was recovered manually.
 - [ ] Delete the stale duplicate `Code.gs` at the project root (old 3-tab version, not the live one — `google-apps-script/Code.gs` is current)
+- [ ] **Correct the Google Sheet ID recorded in old memory** — an earlier note pointed to `1QYftWhqTlkwrOyxsUa_Zd07m6kCVEWCgrcnrPXmM05M` ("Mama's Sourdough Orders"), which is a stale/abandoned sheet. The real live sheet is `1tDzpX_RkBK8RxcJJDtdl7mCIPijxF3gremWy4Xs4bwE` — already corrected in the `google-sheets-integration` memory file.
 
 ## Pre-launch
 - [x] Cross-browser check

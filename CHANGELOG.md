@@ -4,7 +4,9 @@ All notable changes to this project are logged here, most recent first.
 
 ## 2026-08-24
 - Reopened the site after Lucie's 4–21 August leave (removed holiday banner, flipped `EARLY_CLOSE`/`HOLIDAY_CLOSE` flags off in the customer and stockist order forms); verified live.
-- Fixed a real bug: the Stockist Baking Plan was tallying all-time order history instead of the current week, because the weekly reset never archived the Stockist Deliveries tab. Added `weeklyStockistReset()` to `google-apps-script/Code.gs`, wired into the existing Sunday 8pm trigger.
+- Fixed a real bug: the Stockist Baking Plan was tallying all-time order history instead of the current week (confirmed — Grain Grocer's tally was exactly 7x the correct amount, one multiple per un-archived week since 22 July). Added `weeklyStockistReset()` to `google-apps-script/Code.gs`, deployed to the live Apps Script editor, ran manually, and verified correct on the live sheet. A same-day live order caught in the mid-week archive sweep was recovered.
+- Confirmed in GHL: stockist "Order Confirmed" SMS now sends to the real shop (`{{contact.phone}}`), not a test number. Njord Cafe Bar's GHL contact confirmed created.
+- Corrected a stale Google Sheet ID in project memory — the real live sheet is `1tDzpX_RkBK8RxcJJDtdl7mCIPijxF3gremWy4Xs4bwE`, not the older one previously on record.
 - Project documentation scaffolded (CLAUDE.md, CLIENT.md, DESIGN.md, CONTENT.md, TECH.md, TASKS.md, CHANGELOG.md) retroactively for an already-live project, then corrected once the full stockist-program history was recovered from an earlier session's transcript.
 
 ## 2026-07 (exact dates not recorded — recovered from an earlier session's history)
