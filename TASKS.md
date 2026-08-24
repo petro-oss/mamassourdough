@@ -57,7 +57,9 @@
 
 ## Pre-launch
 - [x] Cross-browser check
-- [x] **Performance — code-level review done 24 Aug 2026**: every image uses `next/image` (auto-optimized/resized by Vercel), no raw `<img>` tags anywhere, fonts load via `next/font`. No obvious issues found. **Official Lighthouse/Core Web Vitals score still not run** — takes 30 seconds at pagespeed.web.dev, do this when convenient for the real number.
+- [x] **Performance — real Lighthouse score run and acted on, 24 Aug 2026.** Mobile score: Performance 80 (orange), Accessibility 91, Best Practices 100, SEO 100. LCP was 4.9s (poor) — top opportunity was "Improve image delivery" (286 KiB). Root cause: the homepage hero image was under-compressed (794KB for a 1536×2048 JPEG). Re-compressed hero + 4 other oversized images at quality 80 (progressive JPEG), ~1.3MB saved total, zero visible quality loss (verified side-by-side before shipping). 6 more images (gallery-*, sourdough-linen) are locked by a macOS file ACL — not LCP-critical, skipped for now.
+- [ ] **Hero photo is portrait (1536×2048) shown full-bleed in a landscape hero section** — on wide viewports, most of its height gets cropped away client-side (can't pre-crop to landscape without cutting off the loaf, since it fills almost the whole frame). Real fix is a landscape-oriented hero shot — fold into the upcoming photoshoot ask.
+- [ ] Re-run pagespeed.web.dev after the image fix deploys to confirm the score improved.
 - [x] **Analytics installed — 24 Aug 2026**: `@vercel/analytics` added and deployed, enabled in the Vercel dashboard, confirmed data collecting
 - [x] **npm audit — 24 Aug 2026: fixed all 6 high-severity advisories, down to 0.** Bumped Next.js 16.2.7 → 16.3.2 (same major, fixes SSRF/DoS/cache-confusion issues in Next.js itself); `npm audit fix` cleared the remaining `js-yaml`/`brace-expansion` advisories (both eslint toolchain deps, build-time only, never exposed to live traffic). Verified clean build + working order form post-upgrade before pushing.
 - [x] Client sign-off (testers ran successfully pre go-live)

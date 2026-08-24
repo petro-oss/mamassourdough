@@ -2,6 +2,12 @@
 
 All notable changes to this project are logged here, most recent first.
 
+## 2026-08-24 (night)
+- Ran a real Lighthouse/PageSpeed audit: mobile score 80 Performance (orange), 91 Accessibility, 100 Best Practices, 100 SEO. LCP was 4.9s (poor), top opportunity "Improve image delivery" (286 KiB).
+- Re-compressed the under-compressed hero image and 4 other oversized site images (quality 80, progressive JPEG) — ~1.3MB saved total, verified zero visible quality loss before shipping.
+- Identified (not yet fixed — needs a new photo, not code): the hero image is portrait but shown full-bleed in a landscape section, so a lot of its height gets cropped away on wide screens. Can't fix by cropping the current photo since the loaf fills almost the whole frame. Flagged for the next photoshoot.
+- 6 more oversized images are locked by a macOS file ACL from whatever app last saved them; not LCP-critical (below the fold), skipped for now — Petro can unlock via Preview.app Export if wanted later.
+
 ## 2026-08-24 (evening)
 - Added Vercel Web Analytics (`@vercel/analytics`), enabled in the Vercel dashboard, confirmed deployed and collecting.
 - Fixed all 6 high-severity `npm audit` advisories: bumped Next.js 16.2.7 → 16.3.2 (fixes SSRF/DoS/cache-confusion issues in Next.js itself, same major version, verified working post-upgrade), and `npm audit fix` for the remaining eslint-toolchain-only advisories (`js-yaml`, `brace-expansion` — build-time only, never touched live traffic).
