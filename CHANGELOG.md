@@ -2,6 +2,12 @@
 
 All notable changes to this project are logged here, most recent first.
 
+## 2026-08-24 (later)
+- Added SEO basics: per-page metadata on every route, `sitemap.ts`, `robots.ts` (stockist order pages excluded from both, kept private). Fixed a real production bug — `metadataBase` was unset, so Open Graph/Twitter share images resolved to `localhost` instead of the live domain; verified fixed.
+- Extracted shared menu data out of `menu/page.tsx` into `menu/data.ts` so the order form (client component) no longer imports directly from a page file with metadata.
+- Code-level performance review: confirmed all images go through `next/image`, no raw `<img>` tags, fonts load via `next/font`. No fixes needed; official Lighthouse score still to be run by Petro.
+- Closed out several outstanding decisions with Petro: recurring/standing orders for regular customers are no longer offered (moot the earlier GHL field-mismatch concern); monthly stockist invoicing decided against in favour of the print-receipt flow; Instagram bio + launch announcement confirmed done; Shop Directory contact gaps (Kirstey's email, Grain Grocer's contact) confirmed not needed; still on the old "enhanced" photo set, not the July photoshoot — Petro following up.
+
 ## 2026-08-24
 - Reopened the site after Lucie's 4–21 August leave (removed holiday banner, flipped `EARLY_CLOSE`/`HOLIDAY_CLOSE` flags off in the customer and stockist order forms); verified live.
 - Fixed a real bug: the Stockist Baking Plan was tallying all-time order history instead of the current week (confirmed — Grain Grocer's tally was exactly 7x the correct amount, one multiple per un-archived week since 22 July). Added `weeklyStockistReset()` to `google-apps-script/Code.gs`, deployed to the live Apps Script editor, ran manually, and verified correct on the live sheet. A same-day live order caught in the mid-week archive sweep was recovered.

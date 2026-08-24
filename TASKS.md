@@ -23,7 +23,7 @@
 - [x] Stockist order forms wired to the same GHL webhook (tagged `type: "stockist"`) + Google Sheets
 - [x] Loading spinner on order submit (customer + stockist) — prevents double-submits
 - [x] Mobile responsiveness pass (incl. Thanet map, verified in browser)
-- [ ] SEO basics (meta titles/descriptions, sitemap, favicon) — favicon/logo not yet confirmed live, see below
+- [x] **SEO basics — done 24 Aug 2026**: per-page title/description on every page (title template `%s | mama's sourdough`), `sitemap.ts` + `robots.ts` added (stockist order pages excluded — private), fixed a real `metadataBase` bug that was breaking Open Graph/Twitter image URLs in production (verified: now resolves to the real domain, not localhost). Favicon/apple-touch-icon were already correctly configured.
 
 ## Content
 - [x] All page copy in place
@@ -57,7 +57,7 @@
 
 ## Pre-launch
 - [x] Cross-browser check
-- [ ] Performance/Lighthouse check
+- [x] **Performance — code-level review done 24 Aug 2026**: every image uses `next/image` (auto-optimized/resized by Vercel), no raw `<img>` tags anywhere, fonts load via `next/font`. No obvious issues found. **Official Lighthouse/Core Web Vitals score still not run** — takes 30 seconds at pagespeed.web.dev, do this when convenient for the real number.
 - [ ] Analytics installed
 - [x] Client sign-off (testers ran successfully pre go-live)
 
