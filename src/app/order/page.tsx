@@ -9,9 +9,9 @@ type Quantities = Record<string, number>;
 // Set to true during testing to keep the order form open regardless of day/time.
 const TESTING_MODE = false;
 
-// Set to true to close orders early with a custom message. Flip back to false on Monday.
-const EARLY_CLOSE = true;
-const EARLY_CLOSE_MESSAGE = `mama's sourdough is closed for the period of 4–21 August and will resume baking and orders after that. Thank you for your understanding and continuous support — it means the world! 🍞`;
+// Set to true to close orders early with a custom message. Flip back to false when reopening.
+const EARLY_CLOSE = false;
+const EARLY_CLOSE_MESSAGE = "";
 
 // Returns whether orders are currently open (Mon 9am – Wed 7pm UK time)
 function getUKParts() {
