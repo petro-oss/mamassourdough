@@ -2,6 +2,9 @@
 
 All notable changes to this project are logged here, most recent first.
 
+## 2026-08-24 (late night)
+- Fixed the `[object Object]` bug in GHL customer order notes, which had recurred. Added a proper `order_date` field to both order flows (customer orders had none at all; stockist orders had an inconsistently-named date-only field). Petro then updated the GHL note template to use `{{contact.order_date}}` + `{{contact.order_notes}}` — confirmed working on a live order.
+
 ## 2026-08-24 (night)
 - Ran a real Lighthouse/PageSpeed audit: mobile score 80 Performance (orange), 91 Accessibility, 100 Best Practices, 100 SEO. LCP was 4.9s (poor), top opportunity "Improve image delivery" (286 KiB).
 - Re-compressed the under-compressed hero image and 4 other oversized site images (quality 80, progressive JPEG) — ~1.3MB saved total, verified zero visible quality loss before shipping.

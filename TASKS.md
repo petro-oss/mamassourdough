@@ -36,7 +36,7 @@
 - [x] Recurring vs one-off If/Else split working
 - [x] Recurring Orders pipeline fix (second Create Opportunity action) — done
 - [x] Google Sheet dedup fix (LockService + PropertiesService) — deployed
-- [x] GHL contact-note `[object Object]` bug fixed (now uses `{{contact.order_notes}}`) — applies to all orders going forward, old pipeline entries stay broken
+- [x] GHL contact-note `[object Object]` bug — recurred and re-fixed 24 Aug 2026: added a proper `order_date` field to both order flows (previously missing/inconsistent), then Petro updated the GHL note template to use `{{contact.order_date}}` + `{{contact.order_notes}}` — confirmed working. Old pipeline entries stay broken (historical only).
 - [x] Stockist orders routed into the same Weekly Orders pipeline (no separate pipeline — deliberately simplified), new "Stockist Order Confirmed" stage added and SMS-tested (Delivered)
 - [ ] Buy GHL phone number (~£1.50/mo) — confirm purchased, needed for SMS sending
 - [x] **Stockist "Order Confirmed" SMS "To" field** — confirmed switched from test number to `{{contact.phone}}` in GHL (24 Aug 2026). Real stockist orders now text the correct shop.
