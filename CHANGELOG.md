@@ -2,6 +2,12 @@
 
 All notable changes to this project are logged here, most recent first.
 
+## 2026-08-24 (evening)
+- Added Vercel Web Analytics (`@vercel/analytics`), enabled in the Vercel dashboard, confirmed deployed and collecting.
+- Fixed all 6 high-severity `npm audit` advisories: bumped Next.js 16.2.7 → 16.3.2 (fixes SSRF/DoS/cache-confusion issues in Next.js itself, same major version, verified working post-upgrade), and `npm audit fix` for the remaining eslint-toolchain-only advisories (`js-yaml`, `brace-expansion` — build-time only, never touched live traffic).
+- Deleted the stale duplicate `Code.gs` at the project root.
+- GHL phone number confirmed purchased.
+
 ## 2026-08-24 (later)
 - Added SEO basics: per-page metadata on every route, `sitemap.ts`, `robots.ts` (stockist order pages excluded from both, kept private). Fixed a real production bug — `metadataBase` was unset, so Open Graph/Twitter share images resolved to `localhost` instead of the live domain; verified fixed.
 - Extracted shared menu data out of `menu/page.tsx` into `menu/data.ts` so the order form (client component) no longer imports directly from a page file with metadata.

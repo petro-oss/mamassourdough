@@ -58,7 +58,8 @@
 ## Pre-launch
 - [x] Cross-browser check
 - [x] **Performance — code-level review done 24 Aug 2026**: every image uses `next/image` (auto-optimized/resized by Vercel), no raw `<img>` tags anywhere, fonts load via `next/font`. No obvious issues found. **Official Lighthouse/Core Web Vitals score still not run** — takes 30 seconds at pagespeed.web.dev, do this when convenient for the real number.
-- [ ] Analytics installed
+- [x] **Analytics installed — 24 Aug 2026**: `@vercel/analytics` added and deployed, enabled in the Vercel dashboard, confirmed data collecting
+- [x] **npm audit — 24 Aug 2026: fixed all 6 high-severity advisories, down to 0.** Bumped Next.js 16.2.7 → 16.3.2 (same major, fixes SSRF/DoS/cache-confusion issues in Next.js itself); `npm audit fix` cleared the remaining `js-yaml`/`brace-expansion` advisories (both eslint toolchain deps, build-time only, never exposed to live traffic). Verified clean build + working order form post-upgrade before pushing.
 - [x] Client sign-off (testers ran successfully pre go-live)
 
 ## Launch
