@@ -122,11 +122,20 @@ export default function OrderPage() {
 
   // Base order payload — shared between both webhook calls
   function buildPayload(paymentMethod?: string) {
+    const orderDate = new Date().toLocaleString("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    });
+
     return {
       first_name: name.split(" ")[0],
       last_name: name.split(" ").slice(1).join(" ") || "",
       email,
       phone,
+      order_date: orderDate,
       order_summary: orderSummary,
       order_total: `£${total.toFixed(2)}`,
       order_notes: notes,

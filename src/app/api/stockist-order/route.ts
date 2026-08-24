@@ -29,6 +29,13 @@ export async function POST(req: NextRequest) {
 
     const items = body.items ?? [];
     const orderSummary = formatOrderSummary(items);
+    const orderDate = new Date().toLocaleString("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    });
 
     // ── Google Sheets payload ─────────────────────────────────────────────
     const sheetsPayload = {
@@ -51,7 +58,7 @@ export async function POST(req: NextRequest) {
       order_notes:    orderSummary + (body.notes ? `\n\nNotes: ${body.notes}` : ""),
       order_total:    body.order_total,
       order_address:  body.address,
-      date:           new Date().toLocaleDateString("en-GB"),
+      order_date:     orderDate,
     };
 
     // Fire both in parallel — Sheets is required, GHL failure is logged but non-blocking
