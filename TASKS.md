@@ -28,7 +28,7 @@
 ## Content
 - [x] All page copy in place
 - [x] Product/allergen info in place
-- [ ] Confirm latest photoshoot images (end of July 2026) are the live set, not the earlier enhanced set
+- [ ] **Confirmed still on the old "enhanced" photo set** (24 Aug 2026), not the July photoshoot — Petro following up on getting the photoshoot images, will advise when ready to swap in
 - [x] Client content review
 
 ## GHL / order pipeline
@@ -40,11 +40,12 @@
 - [x] Stockist orders routed into the same Weekly Orders pipeline (no separate pipeline — deliberately simplified), new "Stockist Order Confirmed" stage added and SMS-tested (Delivered)
 - [ ] Buy GHL phone number (~£1.50/mo) — confirm purchased, needed for SMS sending
 - [x] **Stockist "Order Confirmed" SMS "To" field** — confirmed switched from test number to `{{contact.phone}}` in GHL (24 Aug 2026). Real stockist orders now text the correct shop.
-- [ ] Recurring-order field-name mismatch (`recurring_order` vs `order_type`) — suspected, never confirmed
+- [x] ~~Recurring-order field-name mismatch~~ — moot: confirmed 24 Aug 2026 that recurring/standing orders are no longer offered to regular customers at all (every customer orders fresh weekly); only Grain Grocer's stockist standing order remains
 - [ ] **Wednesday 7pm rollup SMS to Lucie — genuinely not yet tested.** Status has conflicted across sessions (reported working 21 Jun, reported never built later); planned to test 24 Aug but got diverted into the Stockist Baking Plan fix instead. Test this next — the Sheet prerequisite is now confirmed clean.
 - [ ] Daily 6pm order summary workflow for Lucie — never confirmed built
 - [x] Njord Cafe Bar's GHL contact — confirmed added (Michael), 24 Aug 2026
-- [ ] Monthly stockist invoicing decision — Lucie was going to confirm whether it's still needed given the print-receipt flow; no confirmation on record
+- [x] **Monthly stockist invoicing — decided against, 24 Aug 2026**: the weekly print receipt at point of order is enough, no separate PDF invoicing system needed. "Invoiced ✓" column in Stockist Deliveries left in place but not actively used.
+- [x] Shop Directory data gaps (Kirstey's email, Grain Grocer's contact name/email) — confirmed 24 Aug 2026 these aren't needed, fine to leave as placeholders
 
 ## Google Sheets / Apps Script
 - [x] 8-tab structure live: Orders, Baking Plan, Packing List, Weekly Menu, Stockist Deliveries, Shop Directory, Stockist Baking Plan, Order/Packing History
@@ -64,8 +65,8 @@
 - [x] DNS switched
 - [x] Post-launch smoke test
 - [ ] Add real logo to Nav and/or favicon — confirm done
-- [ ] Update Instagram bio with `/order` link — confirm done
-- [ ] Post Instagram/WhatsApp announcement directing customers to website — confirm done
+- [x] Update Instagram bio with `/order` link — confirmed done
+- [x] Post Instagram/WhatsApp announcement directing customers to website — confirmed done
 - [x] Site reopened 24 Aug 2026 after 4–21 Aug closure (holiday banner/flags removed, verified live)
 
 ## Ongoing
