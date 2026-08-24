@@ -30,6 +30,20 @@
 **Brand guidelines:** `Mamas Sourdough Brand Document.docx` in project root
 **Other assets:** Product photos in `web/public/images/` and project root (banana bread, cookies, sourdough, muffins, market/gallery shots); formal photoshoot completed end of July 2026 — confirm which image set is current before reusing older stock
 
+## Stockists (wholesale)
+
+5 local shops sell Mama's Sourdough weekly — see the `stockist-program` memory file for full detail. Quick reference:
+
+| Shop | Area | Contact | Order page |
+|---|---|---|---|
+| Shahla's Cakes | Westbrook | Shahla — 07494271132 | `/stockist/shahlas-cakes` |
+| Crumb & Deli | Westgate | Kirstey — +447469990594 | `/stockist/crumb-deli` |
+| Grain Grocer | Cliftonville | — | none (standing order, hardcoded) |
+| Union Cafe | Ramsgate | Lucy — 07928067006 | `/stockist/union-cafe` |
+| Njord Cafe Bar | Cliffsend | Michael — +447745665278 | `/stockist/njord-cafe-bar` |
+
+Flowers & Felicities (Broadstairs) was a stockist and was explicitly removed at Lucie's request — do not re-add without asking.
+
 ## Access & credentials
 
 **Domain registrar:** TBC (domain www.mamassourdough.co.uk — connected to Vercel)

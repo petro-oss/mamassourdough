@@ -3,7 +3,17 @@
 All notable changes to this project are logged here, most recent first.
 
 ## 2026-08-24
-- Project documentation scaffolded (CLAUDE.md, CLIENT.md, DESIGN.md, CONTENT.md, TECH.md, TASKS.md, CHANGELOG.md) retroactively for an already-live project.
+- Reopened the site after Lucie's 4–21 August leave (removed holiday banner, flipped `EARLY_CLOSE`/`HOLIDAY_CLOSE` flags off in the customer and stockist order forms); verified live.
+- Fixed a real bug: the Stockist Baking Plan was tallying all-time order history instead of the current week, because the weekly reset never archived the Stockist Deliveries tab. Added `weeklyStockistReset()` to `google-apps-script/Code.gs`, wired into the existing Sunday 8pm trigger.
+- Project documentation scaffolded (CLAUDE.md, CLIENT.md, DESIGN.md, CONTENT.md, TECH.md, TASKS.md, CHANGELOG.md) retroactively for an already-live project, then corrected once the full stockist-program history was recovered from an earlier session's transcript.
+
+## 2026-07 (exact dates not recorded — recovered from an earlier session's history)
+- Built the full stockist/wholesale program: `/stockists` directory page, per-shop `/stockist/[shop]` order pages, 3-step order → payment → print-receipt flow.
+- Iterated the stockist list several times: Grain Grocer removed then re-added (standing order only, no page); Shahla's Cakes added; Flowers & Felicities added then permanently removed at Lucie's request; Njord Cafe Bar added as the 5th/newest stockist.
+- Routed stockist orders into the existing GHL Weekly Orders pipeline (a separate stockist pipeline was tried and abandoned as too complex) with a new "Stockist Order Confirmed" stage; fixed a `[object Object]` bug in GHL contact notes.
+- Built the Thanet map component through several redesigns, landing on realistic coastline + branded teardrop pins linking to Google Maps directions.
+- Added Google Sheets tabs for the stockist side: Stockist Deliveries, Shop Directory, Stockist Baking Plan; hardcoded Grain Grocer's standing weekly order.
+- Added a loading spinner on order submission (customer + stockist) to prevent double-submits.
 
 ## 2026-07-07
 - Go-live: site launched publicly, orders reopened after Lucie's holiday.
