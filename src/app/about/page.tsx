@@ -1,7 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { HealthBenefitsGrid } from "@/components/HealthBenefitsGrid";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Meet Lucie, the baker behind mama's sourdough — a 10+ year sourdough starter, real ingredients, and a passion for community and real bread in Ramsgate, Kent.",
+};
 
 const healthBenefits = [
   {

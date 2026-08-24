@@ -1,7 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { StatsRow } from "@/components/StatsRow";
+
+export const metadata: Metadata = {
+  description:
+    "Small-batch artisan sourdough bakery in Ramsgate, Kent. Slow fermented, stone-baked loaves, focaccia and sweet bakes — order weekly for Friday collection.",
+};
 
 const bestSellers = [
   {

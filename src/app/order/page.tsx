@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { menuItems } from "@/app/menu/page";
+import { menuItems } from "@/app/menu/data";
 
 type Quantities = Record<string, number>;
 

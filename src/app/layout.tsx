@@ -24,7 +24,11 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "mama's sourdough",
+  metadataBase: new URL("https://www.mamassourdough.co.uk"),
+  title: {
+    default: "mama's sourdough",
+    template: "%s | mama's sourdough",
+  },
   description: "Delicious homemade bakes. Slow fermented, stone-baked, made with love.",
   icons: {
     icon: "/favicon.png",
