@@ -146,7 +146,7 @@ export const menuItems = [
     price: 4.00,
     priceLabel: "£4.00",
     category: "Sweet Bakes",
-    available: true,
+    available: false, // not this week
   },
   {
     id: "banana-loaf",
