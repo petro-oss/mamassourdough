@@ -139,6 +139,16 @@ export const menuItems = [
     available: true,
   },
   {
+    id: "oat-raisin-cookie",
+    name: "Oat & Raisin Cookie",
+    desc: "Chewy sourdough oat cookies packed with plump raisins and a hint of cinnamon.",
+    allergens: "Contains gluten, cultured starter, oats, dairy, eggs.",
+    price: 2.50,
+    priceLabel: "£2.50",
+    category: "Sweet Bakes",
+    available: true,
+  },
+  {
     id: "chocolate-brownie",
     name: "Chocolate Brownie",
     desc: "Rich, fudgy sourdough chocolate brownie with a crinkled top and gooey centre.",

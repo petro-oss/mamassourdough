@@ -89,7 +89,7 @@ export default function OrderPage() {
   const orderWindow = getOrderWindowStatus();
 
 
-  const MULTI_ITEMS = ["choc-chip-cookie", "chocolate-brownie"];
+  const MULTI_ITEMS = ["choc-chip-cookie", "oat-raisin-cookie", "chocolate-brownie"];
 
   const setQty = (id: string, delta: number) => {
     setQuantities((prev) => {

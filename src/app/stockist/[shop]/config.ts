@@ -114,6 +114,28 @@ export const STOCKIST_SHOPS: StockistShop[] = [
       },
     ],
   },
+  {
+    slug: "no23",
+    name: "No23",
+    contact: "Ozgur",
+    email: "Cafeoz1@yahoo.com",
+    phone: "07393338954",
+    address: "23 Albion Street, Broadstairs CT10 1LU",
+    days: [
+      {
+        day: "Tuesday",
+        products: [
+          { name: "Country Wholemeal Sourdough", price: 4.50 },
+        ],
+      },
+      {
+        day: "Thursday",
+        products: [
+          { name: "Country Wholemeal Sourdough", price: 4.50 },
+        ],
+      },
+    ],
+  },
 ];
 
 export function getShop(slug: string): StockistShop | undefined {

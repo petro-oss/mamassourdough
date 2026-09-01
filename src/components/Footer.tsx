@@ -67,7 +67,7 @@ export default function Footer() {
       {/* Stockists */}
       <div className="border-t border-[#4A2E1A] max-w-6xl mx-auto px-6 py-10">
         <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#6B4A2A] mb-5">Find us in store</p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-6">
           <div>
             <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#8B6347] mb-1">Westbrook</p>
             <p className="font-sans text-sm font-semibold text-[#FAF6F0]">Shahla&apos;s Cakes</p>
@@ -97,6 +97,12 @@ export default function Footer() {
             <p className="font-sans text-sm font-semibold text-[#FAF6F0]">Njord Cafe Bar</p>
             <a href="https://maps.google.com/?q=123a+Saxon+Reach,+Sandwich+Rd,+Cliffsend,+Ramsgate+CT12+5JB" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#6B4A2A] hover:text-[#A07850] transition-colors">Saxon Reach →</a>
             <p className="font-sans text-xs text-[#6B4A2A] mt-0.5">Thursdays</p>
+          </div>
+          <div>
+            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#C4852A] mb-1">Broadstairs</p>
+            <p className="font-sans text-sm font-semibold text-[#FAF6F0]">No23</p>
+            <a href="https://maps.google.com/?q=23+Albion+Street,+Broadstairs+CT10+1LU" target="_blank" rel="noopener noreferrer" className="font-sans text-xs text-[#6B4A2A] hover:text-[#A07850] transition-colors">23 Albion Street →</a>
+            <p className="font-sans text-xs text-[#6B4A2A] mt-0.5">Tues &amp; Thurs</p>
           </div>
         </div>
       </div>
