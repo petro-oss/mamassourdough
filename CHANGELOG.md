@@ -2,6 +2,23 @@
 
 All notable changes to this project are logged here, most recent first.
 
+## 2026-09-01
+
+### New stockist — No23 (Broadstairs)
+- Added **No23** as the 6th stockist: Ozgur Sargin, 23 Albion Street, Broadstairs CT10 1LU, `cafeoz1@yahoo.com`, 07393338954. Takes **Country Wholemeal Sourdough at £4.50** on **Tuesday and Thursday**.
+- Website (commit `fa282ec`): new entry in `stockist/[shop]/config.ts` (order page live at `/stockist/no23`); added to the `/stockists` directory (new "Broadstairs" card), the homepage "Come find us locally" teaser (grid rebalanced to `md:grid-cols-3 lg:grid-cols-6`), the footer stockist list, and the Thanet map (6th teardrop pin on the east coast — reuses the previously-unused `tmr-a4` animation class + a new `tmr-sp6` spread-path). All "five stockists" copy updated to "six".
+- Google Apps Script: `google-apps-script/Code.gs` was missing from the repo and has been restored (Petro re-pasted the live version); No23 added to the `SHOPS` array. No23 is a normal order-form stockist, so `writeStockistOrder` handles its orders with no other code change — Tuesday/Thursday are already in `BAKING_DAYS`. Petro ran `setupShopDirectoryTab` to rebuild the Shop Directory tab (No23 now listed with a 10%-below-retail wholesale margin).
+- GHL: contact created (first name Ozgur, last name No23) and tagged `stockist`. No per-stockist pipeline/workflow setup needed — the shared Weekly Orders pipeline + "Stockist Order Confirmed" stage pick it up automatically.
+
+### New menu item — Oat & Raisin Cookie
+- Added **Oat & Raisin Cookie, £2.50** (Sweet Bakes, available this week) to `menu/data.ts` — shows on `/menu` and `/order`. Added to `MULTI_ITEMS` in the order form so it steps in 2s with a "minimum order 2" note, matching the Chocolate Chip Cookie.
+- Apps Script: appended `Oat & Raisin Cookie` to the `PRODUCTS` array — deliberately at the **end** of the list so no existing product column in the live Orders tab shifts (only Notes/Status/Order Total move right by one). Live-sheet migration done by hand: new column inserted in the Orders tab, new rows added under Sweet Bakes in Baking Plan and Weekly Menu.
+- Gotcha: the hand-typed labels first went in with typos (`Oat &b Raison cookie` in Baking Plan, `Oat & Raisen coookie-` in Orders). `refreshBakingPlan` matches the Baking Plan column-A text against the exact `PRODUCTS` name, so the cookie tally silently didn't populate and "Total items to bake" under-counted. Fixed by retyping the Baking Plan cell to exactly `Oat & Raisin Cookie` and re-running `refreshBakingPlan`. Order quantities themselves were fine (the script writes by column position, not header text).
+
+### Fix — empty GHL order note (commit `821ba86`)
+- The GHL "Add Contact Note" / SMS templates read `{{contact.order_notes}}`, but the customer order payload only put the customer's *optional free-text* there — the itemised order was in a separate `order_summary` field. Any customer order without a typed note produced an empty `📦 NEW ORDER —` note.
+- Added `web/src/app/api/orderNote.ts` (`buildGhlOrderNotes()`); `/api/order` and `/api/payment` now compose the full order (date, items, total, payment method, customer note) into `order_notes` for the **GHL-facing** payload only. The Google Sheets payload still sends the raw note, so the Orders tab Notes column stays clean.
+
 ## 2026-08-24 (late night)
 - Fixed the `[object Object]` bug in GHL customer order notes, which had recurred. Added a proper `order_date` field to both order flows (customer orders had none at all; stockist orders had an inconsistently-named date-only field). Petro then updated the GHL note template to use `{{contact.order_date}}` + `{{contact.order_notes}}` — confirmed working on a live order.
 

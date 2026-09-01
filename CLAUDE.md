@@ -3,7 +3,7 @@
 # Mama's Sourdough — Project Brief
 
 **Status:** Launched & live
-**Last updated:** 24 August 2026
+**Last updated:** 1 September 2026
 
 ## What we're building
 

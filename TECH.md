@@ -13,7 +13,7 @@
 - **Fonts:** DM Sans, Cormorant Garamond, DM Mono via `next/font`
 - **GoHighLevel (GHL)** — CRM/order pipeline + SMS notifications, inbound webhook trigger, shared between customer and stockist orders
 - **Google Sheets + Google Apps Script** — order log, weekly archive, dedup logic (see below)
-- **Stockist/wholesale program** — `/stockists` directory + `/stockist/[shop]` order pages for 5 local shops, see [CLIENT.md](CLIENT.md) and the `stockist-program` memory file for full contact/product detail
+- **Stockist/wholesale program** — `/stockists` directory + `/stockist/[shop]` order pages for 6 local shops (No23 added 1 Sep 2026), see [CLIENT.md](CLIENT.md) and the `stockist-program` memory file for full contact/product detail
 - **Custom animation system** in `globals.css` — `.reveal`/`.revealed` scroll-triggered classes, `ScrollReveal`, `HealthBenefitsGrid`, `StatsRow` client components
 - **ThanetMap** (`web/src/components/ThanetMap.tsx` or similar) — SVG map of Thanet with brand-styled pins per stockist, linking to Google Maps directions
 
@@ -39,13 +39,13 @@ Standard Vercel deploy from `main` branch (auto-deploy on push). `option-1-stock
 
 ### Order flow (customer + stockist)
 1. Customer submits order on `/order` → `web/src/app/api/order/route.ts`. Stockist submits on `/stockist/[shop]` → `web/src/app/api/stockist-order/route.ts`.
-2. Route posts to the GHL inbound webhook (same webhook for both, stockist payload tagged `type: "stockist"`) — creates/updates contact, triggers workflows.
+2. Route posts to the GHL inbound webhook (same webhook for both, stockist payload tagged `type: "stockist"`) — creates/updates contact, triggers workflows. The customer routes (`api/order`, `api/payment`) rewrite `order_notes` for the GHL payload only, via `api/orderNote.ts` (`buildGhlOrderNotes`), so the note/SMS templates' `{{contact.order_notes}}` gets the full itemised order; the Sheets payload keeps the raw customer note.
 3. Route also posts to the Google Apps Script web app (`GOOGLE_SHEETS_WEBHOOK`), which writes to the Sheet (`writeOrder` for customers, `writeStockistOrder` for stockists).
 4. Apps Script uses `LockService` + `PropertiesService` for dedup on customer orders (key: email + order_total + timestamp rounded to a 10s window) after an earlier duplicate-row bug.
 
 ### GHL workflows
 - Customer orders: contact/opportunity created, split by If/Else into Weekly Orders vs Recurring Orders pipelines based on standing-order checkbox.
-- Stockist orders: **no separate pipeline** (tried, Lucie found it too complicated) — routed into the same Weekly Orders pipeline, with a dedicated **"Stockist Order Confirmed"** stage. See `ghl-integration` memory file for full workflow detail, including a critical unresolved issue (SMS "To" field hardcoded to a test number).
+- Stockist orders: **no separate pipeline** (tried, Lucie found it too complicated) — routed into the same Weekly Orders pipeline, with a dedicated **"Stockist Order Confirmed"** stage. See `ghl-integration` memory file for full workflow detail. (The old "SMS To field hardcoded to a test number" issue was resolved 24 Aug 2026 — now `{{contact.phone}}`.)
 - SMS on order confirmation (customer) and internal notification (Lucie); SMS on stage-change for both flows.
 - Wednesday 7pm SMS to Lucie with the Sheet link — status conflicting between sessions (reported working 21 Jun, reported not built later); verify current state.
 

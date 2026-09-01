@@ -18,7 +18,7 @@
 ## Business notes
 
 - Bakes weekly from home in Ramsgate; sourdough starter is 10+ years old
-- Products: sourdough loaves (Country White, Wholemeal, Seeded, Rye, Soft White Tin), choc chip cookies, banana loaf, focaccia, muffins (incl. Blueberry)
+- Products: sourdough loaves (Country White, Wholemeal, Seeded, Rye, Soft White Tin), choc chip cookies, oat & raisin cookies, banana loaf, focaccia, muffins (incl. Blueberry)
 - Weekly orders close Wednesday 7pm; collection/delivery Friday, details confirmed on order placement
 - No longer does Saturday Farmers Market — do not reference
 - Passionate about community, nature, paying it forward, and teaching families to eat real bread
@@ -32,7 +32,7 @@
 
 ## Stockists (wholesale)
 
-5 local shops sell Mama's Sourdough weekly — see the `stockist-program` memory file for full detail. Quick reference:
+6 local shops sell Mama's Sourdough weekly — see the `stockist-program` memory file for full detail. Quick reference:
 
 | Shop | Area | Contact | Order page |
 |---|---|---|---|
@@ -41,8 +41,9 @@
 | Grain Grocer | Cliftonville | — | none (standing order, hardcoded) |
 | Union Cafe | Ramsgate | Lucy — 07928067006 | `/stockist/union-cafe` |
 | Njord Cafe Bar | Cliffsend | Michael — +447745665278 | `/stockist/njord-cafe-bar` |
+| No23 | Broadstairs | Ozgur — 07393338954 | `/stockist/no23` |
 
-Flowers & Felicities (Broadstairs) was a stockist and was explicitly removed at Lucie's request — do not re-add without asking.
+No23 (added 1 Sep 2026) is a separate, unrelated business — not the earlier Flowers & Felicities. **Flowers & Felicities** (also Broadstairs) was a stockist and was explicitly removed at Lucie's request — do not re-add without asking.
 
 ## Access & credentials
 

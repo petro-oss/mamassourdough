@@ -12,8 +12,8 @@
 - [x] About
 - [x] Order
 - [x] Contact
-- [x] Stockists directory (`/stockists`) — cards + Thanet map + order CTA
-- [x] Per-shop stockist order pages (`/stockist/[shop]`) — 4 live: Shahla's, Crumb & Deli, Union Cafe, Njord Cafe Bar
+- [x] Stockists directory (`/stockists`) — cards + Thanet map + order CTA (6 stockists as of 1 Sep 2026)
+- [x] Per-shop stockist order pages (`/stockist/[shop]`) — 5 live: Shahla's, Crumb & Deli, Union Cafe, Njord Cafe Bar, No23 (Grain Grocer is standing-order only, no page)
 
 ## Core build
 - [x] Design system / Tailwind config set up (Tailwind v4, brand tokens in `globals.css`)
@@ -72,6 +72,13 @@
 - [x] Post Instagram/WhatsApp announcement directing customers to website — confirmed done
 - [x] Site reopened 24 Aug 2026 after 4–21 Aug closure (holiday banner/flags removed, verified live)
 
+## 2026-09-01 — No23 stockist + Oat & Raisin Cookie + GHL note fix
+- [x] **New stockist No23 (Broadstairs)** — Ozgur Sargin, 23 Albion Street CT10 1LU, cafeoz1@yahoo.com, 07393338954. Country Wholemeal Sourdough £4.50, Tue & Thu. Live on website (order page `/stockist/no23`, `/stockists` directory, homepage teaser, footer, Thanet map — commit `fa282ec`). Added to Apps Script `SHOPS`; `setupShopDirectoryTab` re-run. GHL contact created + tagged `stockist`.
+- [x] **New menu item Oat & Raisin Cookie** — £2.50, Sweet Bakes, `available: true`, min-order-2 on the order form. In `menu/data.ts` + Apps Script `PRODUCTS` (appended at end). Live Orders / Baking Plan / Weekly Menu tabs migrated by hand; Baking Plan label typo fixed and `refreshBakingPlan` re-run.
+- [x] **Empty GHL order note fixed** (commit `821ba86`) — customer order note was blank because the itemised order was sent in `order_summary` not `order_notes`. Added `api/orderNote.ts`; `/api/order` + `/api/payment` now put the full formatted order into `order_notes` for the GHL payload only (Sheets keeps the raw note). Confirmed working by Petro on a re-test.
+- [ ] `google-apps-script/Code.gs` went missing again and was restored from Petro's paste — keep it in sync with the live Apps Script editor and ideally back it up somewhere it won't get deleted.
+
 ## Ongoing
 - [ ] Update Menu page weekly as Lucie's bake list changes (`available` flag per product)
 - [ ] Update Weekly Menu Sheet tab to match — does NOT auto-sync, Petro flips code manually based on Lucie's WhatsApp message
+- [ ] When adding a product to Apps Script `PRODUCTS`, append it at the END (keeps existing Orders columns stable) and migrate the live sheet by hand: insert 1 column left of "Notes" in Orders, add a row under the right section in Baking Plan + Weekly Menu — using the product name **exactly** as in `menu/data.ts`.
