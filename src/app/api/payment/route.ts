@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { buildGhlOrderNotes } from "../orderNote";
 
 const GHL_PAYMENT_WEBHOOK =
   "https://services.leadconnectorhq.com/hooks/IivI4GWZybydq2NxO7mj/webhook-trigger/a9e176f7-b676-4c83-ad50-1e430c2bd958";
@@ -8,11 +9,14 @@ const SHEETS_WEBHOOK = process.env.GOOGLE_SHEETS_WEBHOOK ?? "";
 export async function POST(req: NextRequest) {
   const body = await req.json();
 
+  // Same as /api/order — give GHL the full formatted order in order_notes.
+  const ghlBody = { ...body, order_notes: buildGhlOrderNotes(body) };
+
   const requests: Promise<Response>[] = [
     fetch(GHL_PAYMENT_WEBHOOK, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      body: JSON.stringify(ghlBody),
     }),
   ];
 
